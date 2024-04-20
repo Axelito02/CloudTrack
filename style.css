@@ -1,0 +1,27 @@
+body {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 25px; 
+  margin: 0;
+  display: flex; 
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh; 
+  background-image: url('https://i.pinimg.com/736x/b5/d9/ff/b5d9ff405da3db1eb775c950e5384528.jpg');
+  background-size: cover;
+  color: #000000;
+  align-items: center;
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+  body {
+      font-size: 23px;
+      background-image:url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/079c0bc3-7f4f-422c-8991-2308218178e7/dfqlpdv-669cbcd8-bf55-46c3-a21f-d1e8d30c74ca.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzA3OWMwYmMzLTdmNGYtNDIyYy04OTkxLTIzMDgyMTgxNzhlN1wvZGZxbHBkdi02NjljYmNkOC1iZjU1LTQ2YzMtYTIxZi1kMWU4ZDMwYzc0Y2EucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.OrAc-LIUvKMe11ChHsjVzxbqpwj0rwhhbwvAaJ-e_5Q'); 
+      background-size: cover;
+      background-position: center;
+      width: 100%;
+  }
+  
+
+}
