@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { db, storage } from '../src/config/firebase'
-import { getDocs, collection } from 'firebase/firestore'
+import { onSnapshot, collection } from 'firebase/firestore'
 import { ref, listAll, getDownloadURL } from 'firebase/storage'
 
 export const useProjects = () => {
@@ -11,38 +11,31 @@ export const useProjects = () => {
   const imageListRef = ref(storage, 'documentosImages/')
 
   useEffect(() => {
-    const getProjects = async () => {
-      try {
-        const data = await getDocs(documentosRef)
+    // Función para manejar el snapshot de la colección
+    const unsubscribe = onSnapshot(documentosRef, (snapshot) => {
+      const updatedProjects = snapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id
+      }))
+      setProjects(updatedProjects)
+    })
 
-        const filteredData = data.docs.map((doc) => ({
-          ...doc.data(),
-          id: doc.id
-        }))
-        console.log(filteredData)
-        setProjects(filteredData)
+    // Limpia el listener cuando el componente se desmonta o cambia
+    return () => unsubscribe()
+  }, []) // El segundo argumento [] significa que solo se suscribirá una vez al montar el componente
 
-        listAll(imageListRef).then((response) => {
-          response.items.forEach((item) => {
-            getDownloadURL(item).then((url) => {
-              setImageList((prev) => [...prev, url])
-            })
-          })
+  useEffect(() => {
+    listAll(imageListRef).then((response) => {
+      response.items.forEach((item) => {
+        getDownloadURL(item).then((url) => {
+          setImageList((prev) => [...prev, url])
         })
-      } catch (error) {
-        console.error(error)
-      }
-    }
-
-    getProjects()
+      })
+    })
   }, [])
 
-  console.log(imageList)
-
-  return (
-    {
-      projects,
-      imageList
-    }
-  )
+  return {
+    projects,
+    imageList
+  }
 }
