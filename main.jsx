@@ -1,11 +1,12 @@
+import './style.css'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
 import App from './src/App.jsx'
-import './style.css'
-import { TaskContextProvider } from './src/context/TaskContextProvider.jsx'
+// import { CloudTrackContextProvider } from './src/context/CloudTrackContextProvider.jsx'
 
 ReactDOM.createRoot(document.getElementById('app')).render(
-  <TaskContextProvider>
+  <BrowserRouter>
     <App />
-  </TaskContextProvider>
+  </BrowserRouter>
 )

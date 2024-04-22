@@ -1,9 +1,10 @@
-import { Main } from '../Components'
+// import { Main } from '../Components'
 
-export function HomePage(){
-    return(
-      <>
-        <Main />
-      </>
-    )
-  }
+export function HomePage () {
+  return (
+    <>
+      {/* <Main /> */}
+      <h1>Homepage</h1>
+    </>
+  )
+}

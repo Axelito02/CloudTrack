@@ -1,16 +1,11 @@
 import React from 'react'
-import { TaskContextProvider } from './context/TaskContextProvider'
-import CatCard from './components/cat-card/Cat-Card'
+import { AppRouter } from './AppRouter'
+import { CloudTrackContextProvider } from './context/CloudTrackContextProvider'
 
 export default function App () {
   return (
-    <TaskContextProvider>
-      <AppContent />
-    </TaskContextProvider>
+    <CloudTrackContextProvider>
+      <AppRouter />
+    </CloudTrackContextProvider>
   )
-}
-
-function AppContent () {
-  console.log('Rendering AppContent...')
-  return <CatCard />
 }
