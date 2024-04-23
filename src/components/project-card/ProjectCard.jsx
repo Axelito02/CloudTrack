@@ -1,28 +1,28 @@
-import React, { useState } from 'react';
-import styles from './ProjectCard.module.css'; // CSS Modules
+import React, { useState } from 'react'
+import styles from './ProjectCard.module.css' // CSS Modules
 
-export function ProjectCard({ project, projectImage, onDelete }) {
-  const [isLoading, setIsLoading] = useState(true);
+export function ProjectCard ({ project, projectImage, onDelete }) {
+  const [isLoading, setIsLoading] = useState(true)
 
-  const projectId = project.projectId;
-  const imageName = project.title.replace(/\s+/g, '') + project.projectId;
+  const projectId = project.projectId
+  const imageName = project.title.replace(/\s+/g, '') + project.projectId
 
   const handleDeleteClick = () => {
-    onDelete(projectId, imageName);
-  };
+    onDelete(projectId, imageName)
+  }
 
   const handleImageLoad = () => {
-    setIsLoading(false);
-  };
+    setIsLoading(false)
+  }
 
   const handleImageError = () => {
-    console.error('Error al cargar la imagen');
-  };
+    console.error('Error al cargar la imagen')
+  }
 
   return (
     <div className={styles.projectCardContainer}>
       <div className={styles.projectCard}>
-        {isLoading && <div className={styles.loader}></div>} {/* Muestra el loader mientras carga */}
+        {isLoading && <div className={styles.loader} />} {/* Muestra el loader mientras carga */}
         <img
           src={projectImage}
           alt={project.title}
@@ -37,5 +37,5 @@ export function ProjectCard({ project, projectImage, onDelete }) {
         </button>
       </div>
     </div>
-  );
+  )
 }

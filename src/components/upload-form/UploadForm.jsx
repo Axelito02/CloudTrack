@@ -12,12 +12,11 @@ export function UploadForm () {
   } = useUplaodForm()
 
   return (
-    <form className={styles.Form}>
-
-      <div className={styles.Inputs}>
-        <h4 htmlFor='project-title'>Titulo</h4>
+    <form className={styles.form}>
+      <div className={styles.inputs}>
+        <h4 htmlFor='project-title'>Título</h4>
         <input
-          className={styles.TextInput}
+          className={styles.textInput}
           type='text'
           id='project-title'
           name='title'
@@ -54,10 +53,9 @@ export function UploadForm () {
           </div>
         </div>
 
-        {/* Description */}
         <h4>Descripción*</h4>
         <textarea
-          className={styles.DescriptionInput}
+          className={styles.descriptionInput}
           id='project-description'
           name='description'
           rows='4'
@@ -66,9 +64,10 @@ export function UploadForm () {
         />
       </div>
 
-      {/* Submit */}
       <div className={styles.btn}>
-        <button onClick={handleSubmit} disabled={disableBtn}>Subir</button>
+        <button onClick={handleSubmit} disabled={disableBtn}>
+          Subir
+        </button>
       </div>
     </form>
   )
