@@ -70,13 +70,15 @@
     margin: 20px;
     margin-left: 0;
   }
-  
+
+  .costructorInput,
+  .writeBinnacleInput,
   .descriptionInput {
     width: 90%;         
     padding: 10px;      
     border-radius: 5px; 
   }
-  
+ 
   .btn {
     text-align: center;  
   }

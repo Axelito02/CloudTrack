@@ -13,7 +13,9 @@ export const useUplaodForm = () => {
   const [formState, setFormState] = useState({
     projectId: '',
     title: '',
-    description: ''
+    description: '',
+    constructor: '',
+    writeBinnacle: ''
   })
 
   const handleImageChange = (event) => {

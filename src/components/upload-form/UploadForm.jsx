@@ -53,11 +53,31 @@ export function UploadForm () {
           </div>
         </div>
 
-        <h4>Descripción*</h4>
+        <h4>Descripción</h4>
         <textarea
           className={styles.descriptionInput}
           id='project-description'
           name='description'
+          rows='4'
+          cols='50'
+          onChange={handleOnChange}
+        />
+
+        <h4>Nombre de la costrutora</h4>
+        <textarea
+          className={styles.costructorInput}
+          id='project-constructor'
+          name='constructor'
+          rows='4'
+          cols='50'
+          onChange={handleOnChange}
+        />
+
+        <h4>Escribir aqui una Bitacora</h4>
+        <textarea
+          className={styles.writeBinnacleInput}
+          id='project-writeBinnacle'
+          name='writeBinnacle'
           rows='4'
           cols='50'
           onChange={handleOnChange}
