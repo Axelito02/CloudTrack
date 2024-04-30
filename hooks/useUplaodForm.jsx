@@ -37,10 +37,11 @@ export const useUplaodForm = () => {
   }
 
   const disableBtn =
-          formState.title.trim() === '' ||
-          formState.description.trim() === '' ||
-          imageUpload === null
-  //   formState.type.length === 0 ||
+    formState.title.trim() === '' ||
+    formState.description.trim() === '' ||
+    formState.constructor.trim() === '' ||
+    formState.writeBinnacle.trim() === '' ||
+    (imageUpload === null && formState.writeBinnacle.trim() === '')
 
   const documentosRef = collection(db, 'documentos')
 
