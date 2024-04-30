@@ -40,7 +40,6 @@ export const useUplaodForm = () => {
     formState.title.trim() === '' ||
     formState.description.trim() === '' ||
     formState.constructor.trim() === '' ||
-    formState.writeBinnacle.trim() === '' ||
     (imageUpload === null && formState.writeBinnacle.trim() === '')
 
   const documentosRef = collection(db, 'documentos')
@@ -48,8 +47,6 @@ export const useUplaodForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault()
     try {
-      if (imageUpload == null) return
-
       const tituloImagen = formState.title.replace(/\s+/g, '') + formState.projectId
 
       const imageRef = ref(storage, `documentosImages/${tituloImagen}`)
