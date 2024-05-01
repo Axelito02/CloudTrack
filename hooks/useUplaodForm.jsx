@@ -47,7 +47,7 @@ export const useUplaodForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault()
     try {
-      const tituloImagen = formState.title.replace(/\s+/g, '') + formState.projectId
+      const tituloImagen = formState.title.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, '') + formState.projectId
 
       const imageRef = ref(storage, `documentosImages/${tituloImagen}`)
       uploadBytes(imageRef, imageUpload).then(() => {
@@ -82,42 +82,55 @@ export const useUplaodForm = () => {
     const documentosRef = collection(db, 'documentos')
     const q = query(documentosRef, where('projectId', '==', projectId))
 
-    try {
-      const querySnapshot = await getDocs(q)
-      if (querySnapshot.empty) {
-        console.log('No matching documents.')
-        return
+    Swal.fire({
+      title: '¿Quieres borrar la bítacora',
+      text: 'Si lo haces no podrá ser recuperada',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, quiero borrarla',
+      cancelButtonText: 'Cancelar'
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          const querySnapshot = await getDocs(q)
+          if (querySnapshot.empty) {
+            console.log('No matching documents.')
+            return
+          }
+
+          // Borrar la imagen en Storage
+          const imageRef = ref(storage, `documentosImages/${imageName}`)
+          await deleteObject(imageRef)
+
+          // Borrar cada documento que coincida (debería ser uno solo si projectId es único)
+          querySnapshot.forEach(async (document) => {
+            await deleteDoc(doc(db, 'documentos', document.id))
+          })
+
+          Swal.fire({
+            title: 'Tu proyecto se ha eliminado correctamente',
+            icon: 'success',
+            confirmButtonText: 'Continuar',
+            customClass: {
+              confirmButton: 'swal-button'
+            }
+          })
+        } catch (error) {
+          console.error('Error al borrar:', error)
+          Swal.fire({
+            title: 'Ha ocurrido un error',
+            text: `${error}`,
+            icon: 'error',
+            confirmButtonText: 'Cerrar',
+            customClass: {
+              confirmButton: 'swal-button'
+            }
+          })
+        }
       }
-
-      // Borrar la imagen en Storage
-      const imageRef = ref(storage, `documentosImages/${imageName}`)
-      await deleteObject(imageRef)
-
-      // Borrar cada documento que coincida (debería ser uno solo si projectId es único)
-      querySnapshot.forEach(async (document) => {
-        await deleteDoc(doc(db, 'documentos', document.id))
-      })
-
-      Swal.fire({
-        title: 'Tu proyecto se ha eliminado correctamente',
-        icon: 'success',
-        confirmButtonText: 'Continuar',
-        customClass: {
-          confirmButton: 'swal-button'
-        }
-      })
-    } catch (error) {
-      console.error('Error al borrar:', error)
-      Swal.fire({
-        title: 'Ha ocurrido un error',
-        text: `${error}`,
-        icon: 'error',
-        confirmButtonText: 'Cerrar',
-        customClass: {
-          confirmButton: 'swal-button'
-        }
-      })
-    }
+    })
   }
 
   return (

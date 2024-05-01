@@ -63,7 +63,7 @@ export function UploadForm () {
           onChange={handleOnChange}
         />
 
-        <h4>Nombre de la costrutora</h4>
+        <h4>Nombre de la costructora</h4>
         <textarea
           className={styles.costructorInput}
           id='project-constructor'

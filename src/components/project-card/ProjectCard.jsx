@@ -7,7 +7,7 @@ export function ProjectCard ({ project, projectImage, onDelete }) {
   const [imageError, setImageError] = useState(false)
 
   const projectId = project.projectId
-  const imageName = project.title.replace(/\s+/g, '') + project.projectId
+  const imageName = project.title.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, '') + project.projectId
 
   const handleDeleteClick = () => {
     onDelete(projectId, imageName)
@@ -30,13 +30,16 @@ export function ProjectCard ({ project, projectImage, onDelete }) {
 
         {projectImage && !imageError
           ? (
-            <img
-              src={projectImage}
-              alt={logo}
-              style={{ width: '40vw', height: 'auto', display: isLoading ? 'none' : 'block' }}
-              onLoad={handleImageLoad}
-              onError={handleImageError}
-            />
+            <>
+              <img
+                src={projectImage}
+                alt={logo}
+                style={{ width: '40vw', height: 'auto', display: isLoading ? 'none' : 'block' }}
+                onLoad={handleImageLoad}
+                onError={handleImageError}
+              />
+              <h1>{project.title}</h1>
+            </>
             )
           : (
             <h1>{project.title}</h1>

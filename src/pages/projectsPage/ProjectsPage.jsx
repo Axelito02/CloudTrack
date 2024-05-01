@@ -18,6 +18,8 @@ export function ProjectsPage () {
     handleErase
   } = useUplaodForm()
 
+  console.log(imageList)
+
   return (
     <>
       <header className={styles.header}>
@@ -28,8 +30,7 @@ export function ProjectsPage () {
           {projects.length > 0
             ? (
                 projects.map((project) => {
-                  const tituloSinEspacios = project.title.replace(/\s+/g, '') + project.projectId
-                  const tituloImagen = tituloSinEspacios
+                  const tituloImagen = project.title.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, '') + project.projectId
 
                   const projectImage = imageList.find((img) => img.includes(tituloImagen))
                   return (
