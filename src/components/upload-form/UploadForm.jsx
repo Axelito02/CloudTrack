@@ -1,15 +1,15 @@
 import React from 'react'
-import { useUplaodForm } from '../../../hooks/useUplaodForm'
-import styles from './UplaodForm.module.css'
+import { useUploadForm } from '../../../hooks/useUploadForm'
+import styles from './UploadForm.module.css'
 
-export function UploadForm () {
+export function UploadForm ({ projectId }) {
   const {
     disableBtn,
     handleImageChange,
     handleOnChange,
-    handleSubmit,
+    handleBitacoraSubmit,
     imageUpload
-  } = useUplaodForm()
+  } = useUploadForm(projectId)
 
   return (
     <form className={styles.form}>
@@ -63,16 +63,6 @@ export function UploadForm () {
           onChange={handleOnChange}
         />
 
-        <h4>Nombre de la costructora</h4>
-        <textarea
-          className={styles.costructorInput}
-          id='project-constructor'
-          name='constructor'
-          rows='4'
-          cols='50'
-          onChange={handleOnChange}
-        />
-
         <h4>Escribir aqui una Bitacora</h4>
         <textarea
           className={styles.writeBinnacleInput}
@@ -85,7 +75,7 @@ export function UploadForm () {
       </div>
 
       <div className={styles.btn}>
-        <button onClick={handleSubmit} disabled={disableBtn}>
+        <button onClick={handleBitacoraSubmit} disabled={disableBtn}>
           Subir
         </button>
       </div>

@@ -2,7 +2,6 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ProjectCard } from '../../components'
 import { useProjects } from '../../../hooks/useProjects'
-import { useUplaodForm } from '../../../hooks/useUplaodForm'
 // import { useFilters } from '../../hooks/useFilters';
 import styles from './ProjectsPage.module.css'
 
@@ -10,15 +9,21 @@ export function ProjectsPage () {
   const navigate = useNavigate()
 
   const {
-    projects,
-    imageList
+    projects
   } = useProjects()
 
-  const {
-    handleErase
-  } = useUplaodForm()
+  function parseDate (dateStr, hourStr) {
+    const [day, month, year] = dateStr.split('/').map(Number)
+    const [hour, minute] = hourStr.split(':').map(Number)
+    return new Date(year, month - 1, day, hour, minute)
+  }
 
-  console.log(imageList)
+  // Ordenar los proyectos por fecha y hora antes de renderizar
+  const sortedProjects = projects.sort((a, b) => {
+    const dateA = parseDate(a.date, a.hour)
+    const dateB = parseDate(b.date, b.hour)
+    return dateB - dateA // Ordena de más reciente a más antiguo
+  })
 
   return (
     <>
@@ -27,14 +32,11 @@ export function ProjectsPage () {
       </header>
       <div>
         <div className={styles.Projects}>
-          {projects.length > 0
+          {sortedProjects.length > 0
             ? (
-                projects.map((project) => {
-                  const tituloImagen = project.title.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, '') + project.projectId
-
-                  const projectImage = imageList.find((img) => img.includes(tituloImagen))
+                sortedProjects.map((project) => {
                   return (
-                    <ProjectCard key={project.id} project={project} projectImage={projectImage} onDelete={handleErase} />
+                    <ProjectCard project={project} onClick={() => navigate(`/proyectos/${project.title}`, { state: project })} key={project.id} />
                   )
                 })
               )
@@ -43,8 +45,8 @@ export function ProjectsPage () {
               )}
         </div>
       </div>
-      <button className={styles.navigationButton} onClick={() => navigate('/')}>
-        Subir proyecto
+      <button className={styles.navigationButton} onClick={() => navigate('/proyectos/crear-proyecto')}>
+        Añadir proyecto
       </button>
     </>
   )

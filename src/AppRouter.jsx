@@ -1,6 +1,6 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import { HomePage, SubmitPage, ProjectsPage } from './pages'
+import { HomePage, ProjectsPage, AddProjectPage, BitacoraPage, SubmitPage } from './pages'
 
 export function AppRouter () {
   return (
@@ -9,7 +9,12 @@ export function AppRouter () {
 
         <Route
           path='/'
-          element={<SubmitPage />}
+          element={<HomePage />}
+        />
+
+        <Route
+          path='/proyectos/crear-proyecto'
+          element={<AddProjectPage />}
         />
 
         <Route
@@ -18,8 +23,13 @@ export function AppRouter () {
         />
 
         <Route
-          path='/homepage'
-          element={<HomePage />}
+          path='/proyectos/:title'
+          element={<BitacoraPage />}
+        />
+
+        <Route
+          path='/proyectos/:title/crear-bitacora'
+          element={<SubmitPage />}
         />
 
         {/* <Route

@@ -2,10 +2,15 @@
 
 export * from './home/HomePage'
 
-// Submit
+// Proyectos
 
+export * from './addprojectPage/AddProjectPage'
+
+// Bitacoras
+
+export * from './bitacoraPage/BitacoraPage'
 export * from './submitPage/SubmitPage'
 
-// Projects
+// Proyectos
 
 export * from './projectsPage/ProjectsPage'
