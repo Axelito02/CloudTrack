@@ -12,18 +12,7 @@ export function ProjectsPage () {
     projects
   } = useProjects()
 
-  function parseDate (dateStr, hourStr) {
-    const [day, month, year] = dateStr.split('/').map(Number)
-    const [hour, minute] = hourStr.split(':').map(Number)
-    return new Date(year, month - 1, day, hour, minute)
-  }
-
-  // Ordenar los proyectos por fecha y hora antes de renderizar
-  const sortedProjects = projects.sort((a, b) => {
-    const dateA = parseDate(a.date, a.hour)
-    const dateB = parseDate(b.date, b.hour)
-    return dateB - dateA // Ordena de más reciente a más antiguo
-  })
+  const sortedProjects = projects.sort((a, b) => new Date(b.date) - new Date(a.date))
 
   return (
     <>

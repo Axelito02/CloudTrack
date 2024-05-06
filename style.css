@@ -1,14 +1,94 @@
+@font-face {
+  font-family: 'DMSans';
+  src: url('./assets/DMSans-VariableFont_opsz\,wght.ttf');
+}
+
+:root {
+  font-family: 'DMSans';
+  line-height: 1.5;
+  
+  /* Colores */
+
+    /* Principales */
+      --MainBlue: #0164FF;
+      --MainGreen: #25D46B;
+
+    /* Secundarios */
+      --TextBlack: #071326;
+      --TextDarkGrey: #29364B;
+      --TextLightGrey: #BEC5CC;
+      --Grey: #5A6577;
+      --Blue: #A2CDFF;
+      --LightBlue:#E8EDFF;
+}
+
+/* Textos */
+
+  /* Titulos */
+    h1{
+      font-size: 47.78px;
+      font-weight: 800;
+    }
+
+    h2{
+      font-size: 39.81px;
+      font-weight: 700;
+    }
+
+    h3{
+      font-size: 33.18px;
+      font-weight: 600;
+    }
+
+    h4{
+      font-size: 27.65px;
+      font-weight: 500;
+    }
+
+    h5{
+      font-size: 23.04px;
+      font-weight: 400;
+    }
+
+    h6{
+      font-size: 19.2px;
+      font-weight: 400;
+    }
+
+  /* Body text */
+
+    p{
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .smallText{
+      font-size: 13.33px;
+      font-style: italic;
+      font-weight: 500;
+    }
+
+    .subText{
+      font-size: 12.11px;
+      font-style: italic;
+      font-weight: 500;
+    }
+
+    .subTextLight{
+      font-size: 12.11px;
+      font-style: italic;
+      font-weight: 250;
+    }
+
 body {
-  font-family: "Space Grotesk", sans-serif;
-  font-size: 25px; 
+  font-family: "DMSans", sans-serif;
   margin: 0;
   display: flex; 
   width: 100%;
   flex-direction: column;
   justify-content: center;
   min-height: 100vh; 
-  /* background-image: url('https://i.pinimg.com/736x/b5/d9/ff/b5d9ff405da3db1eb775c950e5384528.jpg'); */
-  background-color: whitesmoke;
+  background-color: #FCFCFC;
   background-size: cover;
   color: #000000;
   align-items: center;
@@ -17,13 +97,9 @@ body {
 /* Mobile */
 @media screen and (max-width: 768px) {
   body {
-      font-size: 23px;
-      /* background-image:url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/079c0bc3-7f4f-422c-8991-2308218178e7/dfqlpdv-669cbcd8-bf55-46c3-a21f-d1e8d30c74ca.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzA3OWMwYmMzLTdmNGYtNDIyYy04OTkxLTIzMDgyMTgxNzhlN1wvZGZxbHBkdi02NjljYmNkOC1iZjU1LTQ2YzMtYTIxZi1kMWU4ZDMwYzc0Y2EucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.OrAc-LIUvKMe11ChHsjVzxbqpwj0rwhhbwvAaJ-e_5Q');  */
-      background-color: whitesmoke;
+      background-color: #FCFCFC;
       background-size: cover;
       background-position: center;
       width: 100%;
   }
-  
-
 }

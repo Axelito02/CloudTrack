@@ -59,10 +59,6 @@
     margin-bottom: 20px;      /* Espacio entre tarjetas */
     text-align: center;       /* Centra el texto */
   }
-
-    .projectDate{
-      font-size: small;
-    }
   
   .loader {
     width: 60px;

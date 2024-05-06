@@ -14,27 +14,19 @@ export const useAddProject = () => {
     projectId: '',
     title: '',
     constructora: '',
-    date: '',
-    hour: ''
+    date: ''
   })
 
   const handleOnChange = ({ target }) => {
     const { name, value } = target
 
     const randomId = uuidv4()
-    const uploadDate = new Date()
-    const day = uploadDate.getDate().toString().padStart(2, '0')
-    const month = (uploadDate.getMonth() + 1).toString().padStart(2, '0') // Meses son desde 0
-    const year = uploadDate.getFullYear()
-    const hours = uploadDate.getHours().toString().padStart(2, '0')
-    const minutes = uploadDate.getMinutes().toString().padStart(2, '0')
 
     setFormState({
       ...formState,
       [name]: value,
       projectId: randomId,
-      date: `${day}/${month}/${year}`,
-      hour: `${hours}:${minutes}`
+      date: new Date().toISOString()
     })
 
     console.log(formState)
