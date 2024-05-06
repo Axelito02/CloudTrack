@@ -58,6 +58,11 @@
     padding: 20px;            /* Espacio interno de la tarjeta */
     margin-bottom: 20px;      /* Espacio entre tarjetas */
     text-align: center;       /* Centra el texto */
+    cursor: pointer;
+  }
+  
+  .projectCard:hover {
+    background-color: rgb(197, 197, 197);
   }
   
   .loader {

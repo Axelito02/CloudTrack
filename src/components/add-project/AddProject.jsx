@@ -1,6 +1,7 @@
 import React from 'react'
 import { useAddProject } from '../../../hooks/useAddProject'
 import styles from './AddProject.module.css'
+import { Botones } from '../botones/Botones'
 
 export function AddProject () {
   const {
@@ -32,11 +33,7 @@ export function AddProject () {
         />
       </div>
 
-      <div className={styles.btn}>
-        <button className={styles.btn} onClick={handleSubmit} disabled={disableBtn}>
-          Añadir proyecto
-        </button>
-      </div>
+      <Botones onClick={handleSubmit} titulo='Añadir proyecto' disabled={disableBtn} />
     </form>
   )
 }

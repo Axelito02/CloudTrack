@@ -4,6 +4,7 @@ import { ProjectCard } from '../../components'
 import { useProjects } from '../../../hooks/useProjects'
 // import { useFilters } from '../../hooks/useFilters';
 import styles from './ProjectsPage.module.css'
+import { Botones } from '../../components/botones/Botones'
 
 export function ProjectsPage () {
   const navigate = useNavigate()
@@ -34,9 +35,7 @@ export function ProjectsPage () {
               )}
         </div>
       </div>
-      <button className={styles.navigationButton} onClick={() => navigate('/proyectos/crear-proyecto')}>
-        Añadir proyecto
-      </button>
+      <Botones onClick={() => navigate('/proyectos/crear-proyecto')} titulo='Añadir proyecto' />
     </>
   )
 }

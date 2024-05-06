@@ -5,6 +5,7 @@ import { useBitacoras } from '../../../hooks/useBitacoras'
 import { useUploadForm } from '../../../hooks/useUploadForm'
 // import { useFilters } from '../../hooks/useFilters';
 import styles from './BitacoraPage.module.css'
+import { Botones } from '../../components/botones/Botones'
 
 export function BitacoraPage () {
   const location = useLocation()
@@ -25,9 +26,8 @@ export function BitacoraPage () {
   return (
     <>
       <header className={styles.header}>
-        <button className={styles.navigationButton} onClick={() => navigate('/proyectos')}>
-          Volver a proyectos
-        </button>
+        <Botones onClick={() => navigate('/proyectos')} titulo='Volver a proyectos' />
+
         <h1>Bítacoras {project.title}</h1>
       </header>
       <div>
@@ -49,9 +49,9 @@ export function BitacoraPage () {
               )}
         </div>
       </div>
-      <button className={styles.navigationButton} onClick={() => navigate(`/proyectos/${project.title}/crear-bitacora`, { state: project })}>
-        Subir bítacora
-      </button>
+
+      <Botones onClick={() => navigate(`/proyectos/${project.title}/crear-bitacora`, { state: project })} titulo='Subir bitácora' />
+
     </>
   )
 }

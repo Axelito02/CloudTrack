@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styles from './BitacoraCard.module.css' // CSS Modules
+import { Botones } from '../botones/Botones'
 import logo from '../../../assets/logo.png'
 
 export function BitacoraCard ({ bitacora, bitacoraImage, onDelete }) {
@@ -62,9 +63,7 @@ export function BitacoraCard ({ bitacora, bitacoraImage, onDelete }) {
         <p className='subText'>{date} {hour}</p>
         <p className='smallText'>{bitacora.description}</p>
         <p>{bitacora.writeBinnacle}</p>
-        <button className={styles.button} onClick={handleDeleteClick}>
-          Borrar
-        </button>
+        <Botones onClick={handleDeleteClick} titulo='Borrar' />
       </div>
     </div>
   )

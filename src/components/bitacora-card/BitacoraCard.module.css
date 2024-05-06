@@ -67,17 +67,4 @@
     animation: spin 1s infinite; /* Animación rápida */
   }
   
-  .button {
-    background-color: #f03355; /* Color del botón */
-    color: white;              /* Texto en blanco */
-    border: none;              /* Sin borde */
-    border-radius: 5px;        /* Bordes redondeados */
-    padding: 10px 20px;        /* Tamaño del botón */
-    cursor: pointer;           /* Cursor para el botón */
-    transition: background-color 0.3s; /* Suave transición */
-  }
-  
-  .button:hover {
-    background-color: #d32f2f; /* Color al pasar el ratón */
-  }
   

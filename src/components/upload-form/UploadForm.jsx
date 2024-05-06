@@ -1,6 +1,7 @@
 import React from 'react'
 import { useUploadForm } from '../../../hooks/useUploadForm'
 import styles from './UploadForm.module.css'
+import { Botones } from '../botones/Botones'
 
 export function UploadForm ({ projectId }) {
   const {
@@ -74,11 +75,8 @@ export function UploadForm ({ projectId }) {
         />
       </div>
 
-      <div className={styles.btn}>
-        <button onClick={handleBitacoraSubmit} disabled={disableBtn}>
-          Subir
-        </button>
-      </div>
+      <Botones onClick={handleBitacoraSubmit} titulo='Subir' disabled={disableBtn} />
+
     </form>
   )
 }

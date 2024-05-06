@@ -1,0 +1,16 @@
+.button {
+    background-color:var(--MainBlue); /* Color del botón */
+    color: white;              /* Texto en blanco */
+    border: none;              /* Sin borde */
+    border-radius: 5px;        /* Bordes redondeados */
+    padding: 10px 20px;        /* Tamaño del botón */
+    cursor: pointer;           /* Cursor para el botón */
+    transition: background-color 0.3s; /* Suave transición */
+    text-align: center;
+    margin: 20px auto;
+    display: block;
+  }
+  
+  .button:hover {
+    background-color: #003d9f; /* Color al pasar el ratón */
+  }
