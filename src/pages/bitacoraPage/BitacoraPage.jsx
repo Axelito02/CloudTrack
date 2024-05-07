@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
-import { BitacoraCard } from '../../components'
+import { BitacoraCard, Navbar } from '../../components'
 import { useBitacoras } from '../../../hooks/useBitacoras'
 import { useUploadForm } from '../../../hooks/useUploadForm'
 // import { useFilters } from '../../hooks/useFilters';
@@ -26,6 +26,7 @@ export function BitacoraPage () {
   return (
     <>
       <header className={styles.header}>
+        <Navbar />
         <Botones onClick={() => navigate('/proyectos')} titulo='Volver a proyectos' />
 
         <h1>Bítacoras {project.title}</h1>

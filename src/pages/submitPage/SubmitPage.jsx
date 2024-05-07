@@ -1,7 +1,7 @@
 import React from 'react'
-import { UploadForm } from '../../components'
+import { UploadForm, Navbar, Botones } from '../../components'
 import { useNavigate, useLocation } from 'react-router-dom'
-import styles from './SubmitPage.module.css'
+// import styles from './SubmitPage.module.css'
 
 export function SubmitPage () {
   const location = useLocation()
@@ -10,13 +10,14 @@ export function SubmitPage () {
   const navigate = useNavigate()
   return (
     <>
-      {/* <Header /> */}
-      <h1>Añadir una imágen {project.title}</h1>
-      <UploadForm projectId={project.id} />
-      <button className={styles.navigationButton} onClick={() => navigate(-1)}>
-        Volver a bítacoras
-      </button>
-      {/* <Footer /> */}
+      <Navbar />
+      <main>
+        {/* <Header /> */}
+        <h1>Añadir una bítacora a {project.title}</h1>
+        <UploadForm projectId={project.id} />
+        <Botones titulo='Volver a bítacoras' onClick={() => navigate(-1)} />
+        {/* <Footer /> */}
+      </main>
     </>
   )
 }

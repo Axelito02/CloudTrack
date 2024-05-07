@@ -9,3 +9,4 @@ export * from './upload-form/UploadForm'
 export * from './bitacora-card/BitacoraCard'
 
 export * from './nav-bar/NavBar'
+export * from './botones/Botones'

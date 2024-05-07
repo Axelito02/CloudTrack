@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { ProjectCard } from '../../components'
+import { ProjectCard, Navbar } from '../../components'
 import { useProjects } from '../../../hooks/useProjects'
 // import { useFilters } from '../../hooks/useFilters';
 import styles from './ProjectsPage.module.css'
@@ -18,6 +18,7 @@ export function ProjectsPage () {
   return (
     <>
       <header className={styles.header}>
+        <Navbar />
         <h1>Proyectos</h1>
       </header>
       <div>

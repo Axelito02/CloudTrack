@@ -1,10 +1,16 @@
 .ContainerMain{
+    background-color: white;
     display: flex;
     flex-direction: column;
     gap: 3rem;
     box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.14);
     align-items: center;
     padding: 2rem;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    margin-right: 3vw;
 }
 
 .logoCloudTrack{
