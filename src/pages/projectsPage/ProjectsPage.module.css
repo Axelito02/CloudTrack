@@ -1,3 +1,16 @@
+.mainDiv{
+  display: flex;
+  flex-direction: row;
+  gap: 4rem;
+}
+
+.content{
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
 /* Estilo para el título */
 .header {
     color: #333; /* Color oscuro para el texto */

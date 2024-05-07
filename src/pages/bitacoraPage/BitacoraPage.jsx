@@ -24,35 +24,37 @@ export function BitacoraPage () {
   const sortedBitacoras = bitacoras.sort((a, b) => new Date(b.date) - new Date(a.date))
 
   return (
-    <>
+    <div className={styles.mainDiv}>
       <header className={styles.header}>
+      <section className={styles.navbar}>
         <Navbar />
         <Botones onClick={() => navigate('/proyectos')} titulo='Volver a proyectos' />
-
-        <h1>Bítacoras {project.title}</h1>
+      </section>
       </header>
-      <div>
-        <div className={styles.Projects}>
-          {sortedBitacoras.length > 0
-            ? (
-                sortedBitacoras.map((bitacora) => {
-                  const tituloImagen = bitacora.title.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, '') + bitacora.bitacoraId
 
-                  const bitacoraImage = imageList.find((img) => img.includes(tituloImagen))
+      <section>
+        <h1>Bítacoras {project.title}</h1>
+        <div>
+          <div className={styles.Projects}>
+            {sortedBitacoras.length > 0
+              ? (
+                  sortedBitacoras.map((bitacora) => {
+                    const tituloImagen = bitacora.title.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, '') + bitacora.bitacoraId
 
-                  return (
-                    <BitacoraCard key={bitacora.id} bitacora={bitacora} bitacoraImage={bitacoraImage} onDelete={handleErase} />
-                  )
-                })
-              )
-            : (
-              <h3 className={styles.noMatch}>Lo sentimos, no hay bítacoras en este proyecto.</h3>
-              )}
+                    const bitacoraImage = imageList.find((img) => img.includes(tituloImagen))
+
+                    return (
+                      <BitacoraCard key={bitacora.id} bitacora={bitacora} bitacoraImage={bitacoraImage} onDelete={handleErase} />
+                    )
+                  })
+                )
+              : (
+                <h3 className={styles.noMatch}>Lo sentimos, no hay bítacoras en este proyecto.</h3>
+                )}
+          </div>
+        <Botones onClick={() => navigate(`/proyectos/${project.title}/crear-bitacora`, { state: project })} titulo='Subir bitácora' />
         </div>
-      </div>
-
-      <Botones onClick={() => navigate(`/proyectos/${project.title}/crear-bitacora`, { state: project })} titulo='Subir bitácora' />
-
-    </>
+      </section>
+    </div>
   )
 }

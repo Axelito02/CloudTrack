@@ -1,4 +1,17 @@
-  /* Estilo para el botón de navegación */
+.mainDiv{
+  display: flex;
+  flex-direction: row;
+  gap: 4rem;
+}
+
+.content{
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 2rem;
+}
+
+/* Estilo para el botón de navegación */
   .navigationButton {
     display: block; /* Para que el botón ocupe toda la línea */
     width: 200px; /* Ancho del botón */
@@ -16,3 +29,7 @@
   .navigationButton:hover {
     background-color: #45a049; /* Cambiar a un tono más oscuro */
   }
+
+  h1{
+  margin: 1.5rem;
+}

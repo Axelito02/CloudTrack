@@ -3,4 +3,14 @@
     color: #333; /* Color oscuro para el texto */
   }
   
+  .mainDiv{
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
+  }
   
+  .content{
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }

@@ -16,27 +16,31 @@ export function ProjectsPage () {
   const sortedProjects = projects.sort((a, b) => new Date(b.date) - new Date(a.date))
 
   return (
-    <>
-      <header className={styles.header}>
+    <div className={styles.mainDiv}>
+      <section className={styles.navbar}>
         <Navbar />
-        <h1>Proyectos</h1>
-      </header>
-      <div>
-        <div className={styles.Projects}>
-          {sortedProjects.length > 0
-            ? (
-                sortedProjects.map((project) => {
-                  return (
-                    <ProjectCard project={project} onClick={() => navigate(`/proyectos/${project.title}`, { state: project })} key={project.id} />
-                  )
-                })
-              )
-            : (
-              <h3 className={styles.noMatch}>Lo sentimos, no hay proyectos.</h3>
-              )}
+      </section>
+      <section className={styles.content}>
+        <header className={styles.header}>
+          <h1>Proyectos</h1>
+        </header>
+        <div>
+          <div className={styles.Projects}>
+            {sortedProjects.length > 0
+              ? (
+                  sortedProjects.map((project) => {
+                    return (
+                      <ProjectCard project={project} onClick={() => navigate(`/proyectos/${project.title}`, { state: project })} key={project.id} />
+                    )
+                  })
+                )
+              : (
+                <h3 className={styles.noMatch}>Lo sentimos, no hay proyectos.</h3>
+                )}
+          </div>
         </div>
-      </div>
-      <Botones onClick={() => navigate('/proyectos/crear-proyecto')} titulo='Añadir proyecto' />
-    </>
+        <Botones onClick={() => navigate('/proyectos/crear-proyecto')} titulo='Añadir proyecto' />
+      </section>
+    </div>
   )
 }
