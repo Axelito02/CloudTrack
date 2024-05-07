@@ -16,11 +16,12 @@ export function ProjectsPage () {
   const sortedProjects = projects.sort((a, b) => new Date(b.date) - new Date(a.date))
 
   return (
-    <div className={styles.mainDiv}>
-      <section className={styles.navbar}>
+    <div className='mainDiv'>
+      <section className='navbar'>
         <Navbar />
       </section>
-      <section className={styles.content}>
+      <section className='content'>
+        <div className={styles.spaceWidth} />
         <header className={styles.header}>
           <h1>Proyectos</h1>
         </header>

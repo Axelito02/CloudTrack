@@ -22,3 +22,5 @@ export * from './notificationPage/notificationPage'
 // Aprobaciones
 
 export * from './approvalsPage/approvals'
+
+export * from './progressPage/ProgressPage'

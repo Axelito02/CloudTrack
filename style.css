@@ -82,6 +82,7 @@
 
 body {
   font-family: "DMSans", sans-serif;
+  display: flex;
   margin: 0;
   display: flex; 
   width: 100%;
@@ -91,8 +92,35 @@ body {
   background-color: #FCFCFC;
   background-size: cover;
   color: #000000;
-  align-items: center;
 }
+
+/* Acomodacion paginas */
+
+  .mainDiv {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .navbar {
+    display: flex;
+    flex-direction: column;
+    position: sticky; /* Hace que la navbar sea sticky */
+    top: 0; /* Asegura que comience en la parte superior de la ventana de visualización */
+    left: 0; /* Alinea la navbar al lado izquierdo de la ventana */
+    height: 100vh; /* Opcional: ajusta la altura al 100% del viewport para llenar la columna */
+    z-index: 1000; /* Asegura que la navbar siempre esté por encima de otros contenidos */
+    background-color: #ffffff; /* Asegura que el fondo sea sólido */
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width: max-content;
+    margin: 0 3rem;
+    padding: 0;
+  }
+
 
 /* Mobile */
 @media screen and (max-width: 768px) {

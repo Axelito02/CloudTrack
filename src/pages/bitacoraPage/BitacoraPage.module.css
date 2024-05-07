@@ -6,11 +6,12 @@
   .mainDiv{
     display: flex;
     flex-direction: row;
-    gap: 4rem;
   }
   
   .content{
     display: flex;
-    margin: 0;
+    flex-direction: column;
+    flex: 1;
+    margin: 0 3rem;
     padding: 0;
   }

@@ -1,45 +1,30 @@
-.mainDiv{
-  display: flex;
-  flex-direction: row;
-  gap: 4rem;
-}
-
-.content{
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  padding: 0;
-}
-
 /* Estilo para el título */
 .header {
-    color: #333; /* Color oscuro para el texto */
-  }
-  
-  /* Estilo para el botón de navegación */
-  .navigationButton {
-    display: block; /* Para que el botón ocupe toda la línea */
-    width: 200px; /* Ancho del botón */
-    padding: 10px; /* Espacio interno */
-    margin: 20px auto; /* Para centrar el botón */
-    background-color: #4CAF50; /* Color de fondo verde */
-    color: white; /* Color del texto */
-    text-align: center; /* Centrar el texto */
-    border: none; /* Sin borde */
-    border-radius: 5px; /* Bordes redondeados */
-    cursor: pointer; /* Cambiar el cursor cuando se coloca sobre el botón */
-  }
-  
-  /* Cambiar el color del botón cuando se coloca el ratón encima */
-  .navigationButton:hover {
-    background-color: #45a049; /* Cambiar a un tono más oscuro */
-  }
-  
-  /* Estilo para el mensaje de "no hay proyectos" */
-  .noMatch {
-    text-align: center;
-    color: #940000; 
-    font-size: 1.5em; /* Tamaño de texto un poco más grande */
-    margin-top: 20px; /* Espacio hacia abajo */
-  }
-  
+  color: #333;
+}
+
+/* Estilo para el botón de navegación */
+.navigationButton {
+  display: block;
+  width: 200px; /* Asegúrate de que el ancho de la navbar acomoda esto */
+  padding: 10px;
+  margin: 20px auto;
+  background-color: #4CAF50;
+  color: white;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.navigationButton:hover {
+  background-color: #45a049;
+}
+
+/* Estilo para el mensaje de "no hay proyectos" */
+.noMatch {
+  text-align: center;
+  color: #940000;
+  font-size: 1.5em;
+  margin-top: 20px;
+}

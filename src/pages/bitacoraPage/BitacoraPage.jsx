@@ -24,15 +24,13 @@ export function BitacoraPage () {
   const sortedBitacoras = bitacoras.sort((a, b) => new Date(b.date) - new Date(a.date))
 
   return (
-    <div className={styles.mainDiv}>
-      <header className={styles.header}>
-      <section className={styles.navbar}>
+    <div className='mainDiv'>
+      <section className='navbar'>
         <Navbar />
-        <Botones onClick={() => navigate('/proyectos')} titulo='Volver a proyectos' />
       </section>
-      </header>
 
-      <section>
+      <section className='content'>
+        <Botones onClick={() => navigate('/proyectos')} titulo='Volver a proyectos' />
         <h1>Bítacoras {project.title}</h1>
         <div>
           <div className={styles.Projects}>
@@ -52,7 +50,7 @@ export function BitacoraPage () {
                 <h3 className={styles.noMatch}>Lo sentimos, no hay bítacoras en este proyecto.</h3>
                 )}
           </div>
-        <Botones onClick={() => navigate(`/proyectos/${project.title}/crear-bitacora`, { state: project })} titulo='Subir bitácora' />
+          <Botones onClick={() => navigate(`/proyectos/${project.title}/crear-bitacora`, { state: project })} titulo='Subir bitácora' />
         </div>
       </section>
     </div>

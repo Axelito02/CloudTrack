@@ -1,6 +1,6 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import { HomePage, ProjectsPage, AddProjectPage, BitacoraPage, SubmitPage, Notification, Approvals } from './pages'
+import { HomePage, ProjectsPage, AddProjectPage, BitacoraPage, SubmitPage, Notification, Approvals, Progress } from './pages'
 
 export function AppRouter () {
   return (
@@ -40,6 +40,11 @@ export function AppRouter () {
         <Route
           path='/aprobaciones'
           element={<Approvals />}
+        />
+
+        <Route
+          path='/progreso'
+          element={<Progress />}
         />
 
         {/* <Route

@@ -23,9 +23,16 @@ export function Navbar () {
           </div>
 
           <div className={styles.link}>
+            <button className={styles.btnLink} onClick={() => navigate('/progreso')}>
+              <img className={styles.icon} src='../../../assets/IconProgress.svg' />
+              <span className={styles.tag}>Progreso</span>
+            </button>
+          </div>
+
+          <div className={styles.link}>
             <button className={styles.btnLink} onClick={() => navigate('/proyectos')}>
               <img className={styles.icon} src='../../../assets/IconBitacoras.svg' />
-              <span className={styles.tag}>Bitácoras</span>
+              <span className={styles.tag}>Proyectos</span>
             </button>
           </div>
 

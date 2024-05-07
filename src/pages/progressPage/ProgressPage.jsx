@@ -1,8 +1,8 @@
 // import { Main } from '../Components'
 import { Navbar } from '../../components/nav-bar/NavBar'
-// import styles from './NotificationPage.module.css'
+// import styles from './ProgressPage.module.css'
 
-export function Notification () {
+export function Progress () {
   return (
     <div className='mainDiv'>
       <section className='navbar'>
@@ -10,7 +10,7 @@ export function Notification () {
         <Navbar />
       </section>
       <section className='content'>
-        <h1>Notificaciones</h1>
+        <h1>Progreso</h1>
       </section>
     </div>
   )
