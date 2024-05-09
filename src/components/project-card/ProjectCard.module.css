@@ -55,34 +55,73 @@
     border: 1px solid #ccc;   /* Añade un borde */
     border-radius: 10px;      /* Bordes redondeados */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra para profundidad */
-    padding: 20px;            /* Espacio interno de la tarjeta */
-    margin-bottom: 20px;      /* Espacio entre tarjetas */
-    text-align: center;       /* Centra el texto */
-    cursor: pointer;
+    /* margin-bottom: 20px;      Espacio entre tarjetas */
+    /* text-align: center;       Centra el texto */
+    /* cursor: pointer; */
+    width: 22vw;
   }
   
-  .projectCard:hover {
+  /* .projectCard:hover {
     background-color: rgb(197, 197, 197);
-  }
+  } */
   
-  .loader {
+    .upperHalf{
+      background-color: lavender;
+      padding: 20px; 
+      text-align: left;
+      border-radius: 10px 10px 0 0;  
+    }
+
+      .mainInfo{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 2vh;
+      }
+
+        .cardLogo{
+          width: 3vw;
+          height: 3vw;
+        }
+
+        progress[value] {
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          border: none;
+          border-radius: 50px;
+          background: white;
+          height: 10px;
+          width: 100%;
+        }
+          progress[value]::-webkit-progress-bar {
+            border-radius: 50px;
+            background: white;
+          }
+          progress[value]::-webkit-progress-value {
+            border-radius: 50px;
+            background: var(--MainBlue);
+          }
+          progress[value]::-moz-progress-bar {
+            border-radius: 50px;
+            background: var(--MainBlue);
+          }
+
+    .lowerHalf{
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+      .icons{
+        display: flex;
+        gap: 1vh;
+      }
+
+    .loader {
     width: 60px;
     height: 60px;           /* Tamaño del loader */
     border-radius: 50%;     /* Loader circular */
     animation: spin 1s infinite; /* Animación rápida */
-  }
-  
-  .button {
-    background-color: #f03355; /* Color del botón */
-    color: white;              /* Texto en blanco */
-    border: none;              /* Sin borde */
-    border-radius: 5px;        /* Bordes redondeados */
-    padding: 10px 20px;        /* Tamaño del botón */
-    cursor: pointer;           /* Cursor para el botón */
-    transition: background-color 0.3s; /* Suave transición */
-  }
-  
-  .button:hover {
-    background-color: #d32f2f; /* Color al pasar el ratón */
   }
   

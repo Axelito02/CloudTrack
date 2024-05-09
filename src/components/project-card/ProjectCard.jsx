@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './ProjectCard.module.css' // CSS Modules
+import { Botones } from '../botones/Botones'
 
 export function ProjectCard ({ project, onClick }) {
   // const [isLoading, setIsLoading] = useState(true)
@@ -25,15 +26,39 @@ export function ProjectCard ({ project, onClick }) {
 
   const date = formatDate(project.date)
 
-  return (
-    <div className={styles.projectCardContainer} onClick={onClick}>
-      <div className={styles.projectCard}>
-        {/* {isLoading && <div className={styles.loader} />} Muestra el loader mientras carga */}
+  const noMargin = {
+    margin: 0
+  }
 
-        <div>
-          <h2>{project.title}</h2>
-          <p>{project.constructora}</p>
-          <p className='subText'>{date}</p>
+  return (
+    <div className={styles.projectCardContainer}>
+      <div className={styles.projectCard}>
+        <div className={styles.upperHalf}>
+          <div className={styles.mainInfo}>
+            <div>
+              <p className='subText'>{date}</p>
+              <h5 style={noMargin}>{project.title}</h5>
+              <p className='subText'>{project.constructora}</p>
+            </div>
+
+            <img className={styles.cardLogo} src='https://cdn-icons-png.flaticon.com/512/5149/5149019.png' />
+          </div>
+          <div>
+            <p style={noMargin} className='subText'>50%</p>
+            <progress value='50' max='100' />
+          </div>
+        </div>
+
+        <div className={styles.lowerHalf}>
+          <Botones titulo='Ver proyecto' onClick={onClick} />
+          <div className={styles.icons}>
+            <img src='../../../assets/IconCheckFilledColor.svg' />
+            <p className='subText'>Completo</p>
+          </div>
+          <div className={styles.icons}>
+            <img src='../../../assets/IconNotificationFilled.svg' />
+            <p className='subText'>12</p>
+          </div>
         </div>
       </div>
     </div>

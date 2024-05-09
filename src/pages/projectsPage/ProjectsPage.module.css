@@ -28,3 +28,11 @@
   font-size: 1.5em;
   margin-top: 20px;
 }
+
+.Projects{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* Divide el espacio en tres partes iguales */
+  justify-content: space-between;
+  gap: 6vh;
+  width: 100%;
+}

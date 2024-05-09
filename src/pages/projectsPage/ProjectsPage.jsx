@@ -24,6 +24,7 @@ export function ProjectsPage () {
         <div className={styles.spaceWidth} />
         <header className={styles.header}>
           <h1>Proyectos</h1>
+          <Botones onClick={() => navigate('/proyectos/crear-proyecto')} titulo='Añadir proyecto' />
         </header>
         <div>
           <div className={styles.Projects}>
@@ -40,7 +41,6 @@ export function ProjectsPage () {
                 )}
           </div>
         </div>
-        <Botones onClick={() => navigate('/proyectos/crear-proyecto')} titulo='Añadir proyecto' />
       </section>
     </div>
   )
