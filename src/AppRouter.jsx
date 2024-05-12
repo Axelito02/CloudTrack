@@ -9,7 +9,8 @@ export function AppRouter () {
 
         <Route
           path='/'
-          element={<HomePage />}
+          element={<ProjectsPage />}
+          // element={<HomePage />}
         />
 
         <Route

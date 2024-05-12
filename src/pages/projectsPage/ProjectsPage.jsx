@@ -17,9 +17,9 @@ export function ProjectsPage () {
 
   return (
     <div className='mainDiv'>
-      <section className='navbar'>
+      {/* <section className='navbar'>
         <Navbar />
-      </section>
+      </section> */}
       <section className='content'>
         <div className={styles.spaceWidth} />
         <header className={styles.header}>

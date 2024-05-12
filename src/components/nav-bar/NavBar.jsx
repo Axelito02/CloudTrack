@@ -14,25 +14,25 @@ export function Navbar () {
         </div>
 
         <div className={styles.linkPages}>
-
+{/* 
           <div className={styles.link}>
             <button className={styles.btnLink} onClick={() => navigate('/')}>
               <img className={styles.icon} src='../../../assets/IconHome.svg' />
-              <span className={styles.tag}>Inicio</span>
-            </button>
-          </div>
+              <span className={styles.tag}>Home</span>
+              </button>
+            </div> */}
+
+            <div className={styles.link}>
+              <button className={styles.btnLink} onClick={() => navigate('/proyectos')}>
+                <img className={styles.icon} src='../../../assets/IconBitacoras.svg' />
+                <span className={styles.tag}>Proyectos</span>
+              </button>
+            </div>
 
           <div className={styles.link}>
             <button className={styles.btnLink} onClick={() => navigate('/progreso')}>
               <img className={styles.icon} src='../../../assets/IconProgress.svg' />
               <span className={styles.tag}>Progreso</span>
-            </button>
-          </div>
-
-          <div className={styles.link}>
-            <button className={styles.btnLink} onClick={() => navigate('/proyectos')}>
-              <img className={styles.icon} src='../../../assets/IconBitacoras.svg' />
-              <span className={styles.tag}>Proyectos</span>
             </button>
           </div>
 
