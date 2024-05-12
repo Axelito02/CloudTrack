@@ -12,3 +12,6 @@ export * from './aprobaciones-card/AprobacionesCard'
 
 export * from './nav-bar/NavBar'
 export * from './botones/Botones'
+
+export * from './login/Login'
+export * from './register/Register'

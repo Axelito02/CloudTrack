@@ -1,6 +1,6 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import { ErrorPage, ProjectsPage, AddProjectPage, ProjectDetailPage, BitacoraPage, SubmitPage, Notification, ApprovalsPage, Progress } from './pages'
+import { ErrorPage, ProjectsPage, AddProjectPage, ProjectDetailPage, BitacoraPage, SubmitPage, Notification, ApprovalsPage, Progress, LoginPage, RegisterPage } from './pages'
 
 export function AppRouter () {
   return (
@@ -45,6 +45,16 @@ export function AppRouter () {
         <Route
           path='/:title/progreso'
           element={<Progress />}
+        />
+
+        <Route
+          path='/iniciar-sesion'
+          element={<LoginPage />}
+        />
+
+        <Route
+          path='/registro'
+          element={<RegisterPage />}
         />
 
         <Route

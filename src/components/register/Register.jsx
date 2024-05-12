@@ -1,26 +1,46 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import { Botones } from '../botones/Botones'
+import styles from './register.module.css'
 
-function CatFacts ({ onFactChange }) {
-  const [fact, setFact] = useState('')
-
-  useEffect(() => {
-    if (!fact) {
-      fetch('https://catfact.ninja/fact')
-        .then(response => response.json())
-        .then(data => {
-          setFact(data.fact)
-          const firstFourWords = data.fact.split(' ').slice(0, 4).join(' ') + '...'
-          onFactChange(firstFourWords)
-        })
-        .catch(error => console.log('Error fetching cat fact:', error))
-    }
-  }, [fact, onFactChange])
-
+export function Register () {
+  const navigate = useNavigate()
+  
   return (
-    <div>
-      <p>{fact}</p>
-    </div>
+    <section className={styles.Containerformlogin}>
+      <div className={styles.Containertitle}>
+        <h1 className={styles.title}>Crea una cuenta</h1>
+      </div>
+      <div className={styles.Containerform}>
+        <form className={styles.form}>
+          <div className={styles.Containerinput}>
+            <input className={styles.inputForm} type="text" placeholder='Escribe tu nombre'/>
+          </div>
+          <div className={styles.Containerinput}>
+            <input className={styles.inputForm} type="email" placeholder='Correo electronico'/>
+          </div>
+          <div className={styles.Containerinput}>
+            <select className={styles.inputForm} defaultValue="0">
+              <option value="0" disabled hidden>Selecciona tu rol</option>
+              <option value="1">Tecnico superior</option>
+              <option value="2">Redes internas</option>
+              <option value="3">Redes externas</option>
+              <option value="4">Conexiones</option>
+              <option value="5">Comercial</option>
+            </select>
+          </div>
+          <div className={styles.Containerinput}>
+            <input className={styles.inputForm} type="password" placeholder='Contraseña'/>
+          </div>
+        </form>
+      </div>
+      <div>
+        <Botones onClick={() => navigate('/')} titulo='Registrarme' />
+      </div>
+      <div className={styles.ContainerLink}>
+        <p className={styles.text}>¿Ya tienes cuenta?</p>
+        <a className={styles.link} onClick={() => navigate('/iniciar-sesion')}>Iniciar sesión</a>
+      </div>
+    </section>
   )
 }
-
-export default CatFacts

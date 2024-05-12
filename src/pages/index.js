@@ -24,3 +24,7 @@ export * from './progressPage/ProgressPage'
 // Error
 
 export * from './notfound/NotFoundPage'
+
+// Login y register
+export * from './loginPage/LoginPage'
+export * from './registerPage/RegisterPage'

@@ -1,18 +1,16 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import styles from './NavBar.module.css'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import styles from './NavBar.module.css';
+import { useApp } from '../../../hooks/useApp';
 
 export function Navbar ({ project }) {
-  const navigate = useNavigate()
-  const [activeLink, setActiveLink] = useState('/')
+  const navigate = useNavigate();
+  const { activeLink, setActiveLink } = useApp(); // Usa el hook useApp para acceder al estado del enlace activo
 
-  // Función para cambiar el enlace activo y navegar a la nueva ruta
   const handleNavLinkClick = (path) => {
-    // Primero, actualizamos el estado del enlace activo
-    setActiveLink(path)
-    // Luego, navegamos a la nueva ruta
-    navigate(path, { state: project })
-  }
+    setActiveLink(path); // Actualiza el estado del enlace activo
+    navigate(path, { state: project });
+  };
 
   return (
     <div className={styles.ContainerMain}>
