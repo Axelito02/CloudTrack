@@ -1,19 +1,13 @@
-// Home
-
-export * from './home/HomePage'
-
 // Proyectos
 
+export * from './projectsPage/ProjectsPage'
 export * from './addprojectPage/AddProjectPage'
+export * from './projectDetailPage/ProjectDetailPage'
 
 // Bitacoras
 
 export * from './bitacoraPage/BitacoraPage'
 export * from './submitPage/SubmitPage'
-
-// Proyectos
-
-export * from './projectsPage/ProjectsPage'
 
 // Notificaciones
 
@@ -21,6 +15,12 @@ export * from './notificationPage/notificationPage'
 
 // Aprobaciones
 
-export * from './approvalsPage/approvals'
+export * from './approvalsPage/ApprovalsPage'
+
+// Progreso
 
 export * from './progressPage/ProgressPage'
+
+// Error
+
+export * from './notfound/NotFoundPage'

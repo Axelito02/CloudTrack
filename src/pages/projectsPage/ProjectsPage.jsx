@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { ProjectCard, Navbar } from '../../components'
+import { ProjectCard } from '../../components'
 import { useProjects } from '../../../hooks/useProjects'
 // import { useFilters } from '../../hooks/useFilters';
 import styles from './ProjectsPage.module.css'
@@ -22,9 +22,9 @@ export function ProjectsPage () {
       </section> */}
       <section className='content'>
         <div className={styles.spaceWidth} />
-        <header className={styles.header}>
+        <header>
           <h1>Proyectos</h1>
-          <Botones onClick={() => navigate('/proyectos/crear-proyecto')} titulo='Añadir proyecto' />
+          <Botones onClick={() => navigate('/crear-proyecto')} titulo='Añadir proyecto' />
         </header>
         <div>
           <div className={styles.Projects}>
@@ -32,7 +32,7 @@ export function ProjectsPage () {
               ? (
                   sortedProjects.map((project) => {
                     return (
-                      <ProjectCard project={project} onClick={() => navigate(`/proyectos/${project.title}`, { state: project })} key={project.id} />
+                      <ProjectCard project={project} onClick={() => navigate(`/${project.title}`, { state: project })} key={project.id} />
                     )
                   })
                 )

@@ -8,5 +8,7 @@ export * from './project-card/ProjectCard'
 export * from './upload-form/UploadForm'
 export * from './bitacora-card/BitacoraCard'
 
+export * from './aprobaciones-card/AprobacionesCard'
+
 export * from './nav-bar/NavBar'
 export * from './botones/Botones'

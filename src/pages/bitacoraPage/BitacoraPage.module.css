@@ -1,17 +1,29 @@
 /* Estilo para el título */
 .header {
-    color: #333; /* Color oscuro para el texto */
+  color: #333; /* Color oscuro para el texto */
+}
+
+.mainDiv{
+  display: flex;
+  flex-direction: row;
+}
+
+.content{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin: 0 3rem;
+  padding: 0;
+}
+
+  .Projects{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10vh 6vw;
+    width: 100%;
   }
-  
-  .mainDiv{
-    display: flex;
-    flex-direction: row;
-  }
-  
-  .content{
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    margin: 0 3rem;
-    padding: 0;
+
+  .noMatch{
+    display: grid;
+    grid-template-columns: 1fr;
   }

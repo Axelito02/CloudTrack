@@ -14,3 +14,10 @@
   margin: 0 3rem;
   padding: 0;
 }
+
+.approvals{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10vh 6vw;
+  width: 100%;
+}

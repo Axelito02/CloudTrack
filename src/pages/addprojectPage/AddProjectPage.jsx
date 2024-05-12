@@ -1,5 +1,5 @@
 import React from 'react'
-import { AddProject, Navbar, Botones } from '../../components'
+import { AddProject, Botones } from '../../components'
 import { useNavigate } from 'react-router-dom'
 // import styles from './AddProjectPage.module.css'
 
@@ -7,9 +7,9 @@ export function AddProjectPage () {
   const navigate = useNavigate()
   return (
     <div className='mainDiv'>
-      <section className='navbar'>
+      {/* <section className='navbar'>
         <Navbar />
-      </section>
+      </section> */}
       <section className='content'>
         {/* <Header /> */}
         <Botones titulo='Volver a proyectos' onClick={() => navigate(-1)} />
