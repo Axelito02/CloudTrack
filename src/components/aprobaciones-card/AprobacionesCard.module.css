@@ -1,111 +1,80 @@
 /* CSS para loader */
 .loaderWrapper {
-    display: flex;
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center;     /* Centra verticalmente */
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center;     /* Centra verticalmente */
+}
+
+.loader {
+  width: 60px;
+  height: 60px;            /* Asegúrate de tener un tamaño adecuado para el loader */
+  border-radius: 50%;      /* Hace que el loader sea un círculo */
+  animation: spin 0.5s infinite; /* Anima el loader */
+}
+
+@keyframes spin {
+  0% {
+    background: conic-gradient(#25D46B 0, #0000 0);
   }
-  
-  .loader {
-    width: 60px;
-    height: 60px;           /* Asegúrate de tener un tamaño adecuado para el loader */
-    border-radius: 50%;     /* Hace que el loader sea un círculo */
-    animation: spin 0.5s infinite; /* Anima el loader */
+  12.5% {
+    background: conic-gradient(#25D46B 45deg, #0000 46deg);
   }
-  
-  @keyframes spin {
-    0% {
-      background: conic-gradient(#25D46B 0, #0000 0);
-    }
-    12.5% {
-      background: conic-gradient(#25D46B 45deg, #0000 46deg);
-    }
-    25% {
-      background: conic-gradient(#25D46B 90deg, #0000 91deg);
-    }
-    37.5% {
-      background: conic-gradient(#25D46B 135deg, #0000 136deg);
-    }
-    50% {
-      background: conic-gradient(#25D46B 180deg, #0000 181deg);
-    }
-    62.5% {
-      background: conic-gradient(#25D46B 225deg, #0000 226deg);
-    }
-    75% {
-      background: conic-gradient(#25D46B 270deg, #0000 271deg);
-    }
-    87.5% {
-      background: conic-gradient(#25D46B 315deg, #0000 316deg);
-    }
-    100% {
-      background: conic-gradient(#25D46B 360deg, #0000 360deg);
-    }
+  25% {
+    background: conic-gradient(#25D46B 90deg, #0000 91deg);
   }
-  
-  .aprobacionesCardContainer {
-    display: flex;
-    flex-direction: column;   /* Tarjetas alineadas verticalmente */
-    align-items: center;      /* Centra horizontalmente */
-    justify-content: center;
-    background-color: white;  /* Mueve el fondo al CSS */
-    border: 1px solid #ccc;   /* Añade un borde */
-    border-radius: 10px;      /* Bordes redondeados */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra para profundidad */
+  37.5% {
+    background: conic-gradient(#25D46B 135deg, #0000 136deg);
   }
-  
-  .aprobacionesCard {
-    padding: 20px;            /* Espacio interno de la tarjeta */
-    text-align: center;     /* Centra el texto */
+  50% {
+    background: conic-gradient(#25D46B 180deg, #0000 181deg);
   }
-  
-    .cardImage{
-      height: 20vh;
-      margin: auto;
-    }
+  62.5% {
+    background: conic-gradient(#25D46B 225deg, #0000 226deg);
+  }
+  75% {
+    background: conic-gradient(#25D46B 270deg, #0000 271deg);
+  }
+  87.5% {
+    background: conic-gradient(#25D46B 315deg, #0000 316deg);
+  }
+  100% {
+    background: conic-gradient(#25D46B 360deg, #0000 360deg);
+  }
+}
 
-    .Center{
-      margin: 20px;
-    }
+.aprobacionesCardContainer {
+  position: relative;       /* Hace que los elementos absolutos dentro de este contenedor se posicionen con respecto a él */
+  display: flex;
+  flex-direction: column;   /* Tarjetas alineadas verticalmente */
+  align-items: center;     /* Centra horizontalmente */
+  justify-content: center;
+  background-color: white; /* Mueve el fondo al CSS */
+  border: 1px solid #ccc;  /* Añade un borde */
+  border-radius: 10px;     /* Bordes redondeados */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra para profundidad */
+}
 
-        .checkboxWrapper .round {
-            position: relative;
-        }
+.aprobacionesCard {
+  padding: 20px;            /* Espacio interno de la tarjeta */
+  text-align: center;       /* Centra el texto */
+}
 
-        .checkboxWrapper .round label {
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 50%;
-            cursor: pointer;
-            height: 28px;
-            width: 28px;
-            display: block;
-        }
+.cardImage {
+  position: absolute;       /* Posición absoluta para posicionar la imagen */
+  top: 10px;                /* Distancia desde la parte superior */
+  left: 10px;               /* Distancia desde la izquierda */
+  height: 70px;
+}
 
-        .checkboxWrapper .round label:after {
-            border: 2px solid #fff;
-            border-top: none;
-            border-right: none;
-            content: "";
-            height: 6px;
-            left: 8px;
-            opacity: 0;
-            position: absolute;
-            top: 9px;
-            transform: rotate(-45deg);
-            width: 12px;
-        }
+.approvalCheck {
+  position: absolute;       /* Posición absoluta para posicionar el check de aprobado */
+  top: 10px;                /* Distancia desde la parte superior */
+  right: 10px;              /* Distancia desde la derecha */
+  /* Estilos para el check de aprobado */
+}
 
-        .checkboxWrapper .round input[type="checkbox"] {
-            visibility: hidden;
-            display: none;
-            opacity: 0;
-        }
-
-        .checkboxWrapper .round input[type="checkbox"]:checked + label {
-            background-color: var(--MainGreen);
-            border-color: var(--MainGreen);
-        }
-
-        .checkboxWrapper .round input[type="checkbox"]:checked + label:after {
-            opacity: 1;
-        }
+.editIcon {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}

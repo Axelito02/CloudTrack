@@ -1,4 +1,4 @@
-.ContainerMain{
+.ContainerMain {
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -7,27 +7,27 @@
     align-items: center;
     padding: 2rem;
     height: 100%;
-}
-
-.logoCloudTrack{
+  }
+  
+  .logoCloudTrack {
     display: flex;
     justify-content: center;
     cursor: pointer;
-}
-
-.linkPages{
+  }
+  
+  .linkPages {
     display: flex;
     flex-direction: column;
     gap: 10px;
-}
-
-.link{
+  }
+  
+  .link {
     display: flex;
     align-items: center;
     gap: 10px;
-}
-
-.btnLink{
+  }
+  
+  .btnLink {
     border: none;
     color: white;
     padding: 10px 20px;
@@ -38,23 +38,30 @@
     align-items: center;
     width: 100%;
     background-color: #FFFFFF;
-}
-
-.btnLink:hover .icon,
-.btnLink:hover .tag{
+  }
+  
+  .btnLink:hover .icon,
+  .btnLink:hover .tag {
     filter: invert(40%) sepia(100%) saturate(1109%) hue-rotate(191deg) brightness(95%) contrast(93%);
     color: #0071FF;
-}
-
-.icon{
+  }
+  
+  .icon {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.tag{
+  }
+  
+  .tag {
     flex: 1;
     color: #29364B;
     text-align: left;
     padding: 0 1.5rem;
-}
+  }
+  
+  /* Añade esta regla para cambiar el color de fondo del enlace activo */
+  .link.active .btnLink {
+    color: white;
+    background-color: #0071FF; /* Cambia este color a tu preferencia */
+  }
+  

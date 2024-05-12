@@ -1,18 +1,8 @@
 import React from 'react'
 import styles from './AprobacionesCard.module.css' // CSS Modules
-// import { Botones } from '../botones/Botones'
 import logo from '../../../assets/logo.png'
 
 export function AprobacionesCard ({ aprobacion, onDelete }) {
-//   const [isLoading, setIsLoading] = useState(true)
-
-  // const bitacoraId = bitacora.bitacoraId
-  // const imageName = bitacora.title.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, '') + bitacora.bitacoraId
-
-  // const handleDeleteClick = () => {
-  //   onDelete(bitacoraId, imageName)
-  // }
-
   function formatHour (dateString) {
     const date = new Date(dateString)
     const options = { timeZone: 'America/Bogota', hour: '2-digit', minute: '2-digit', hour12: true }
@@ -29,15 +19,15 @@ export function AprobacionesCard ({ aprobacion, onDelete }) {
 
   return (
     <div className={styles.aprobacionesCardContainer}>
+      <div className={styles.imageContainer}>
+        <img src={logo} alt='Logo' className={styles.cardImage} />
+      </div>
+      <div className={styles.approvalCheck} />
+      <label className={styles.approvalCheck}>
+        <input type='checkbox' />
+      </label>
       <div className={styles.aprobacionesCard}>
-        <div className={styles.firstPart}>
-          <img src={logo} />
-          <div className={styles.checkboxWrapper}>
-            <div className={styles.round}>
-              <input type='checkbox' />
-            </div>
-          </div>
-        </div>
+        <div className={styles.firstPart} />
 
         <div className={styles.secondPart}>
           <p className='smallText'>{aprobacion.title}</p>
@@ -46,6 +36,9 @@ export function AprobacionesCard ({ aprobacion, onDelete }) {
 
         <div className={styles.thirdPart}>
           <u className='subText'>Ver detalle</u>
+        </div>
+        <div className={styles.editIcon}>
+          {/* el lapiz... */}
         </div>
       </div>
     </div>
