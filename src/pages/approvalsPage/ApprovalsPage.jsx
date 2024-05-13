@@ -32,10 +32,11 @@ export function ApprovalsPage () {
                     )
                   })
                 )
-              : (
-                <h3 className={styles.noMatch}>Aún no se han solicitado aprobaciones</h3>
-                )}
+              : null}
           </div>
+          {sortedAprobaciones.length === 0 && (
+            <h3 className={styles.noMatch}>Aún no se han solicitado aprobaciones</h3>
+          )}
         </div>
       </section>
     </div>

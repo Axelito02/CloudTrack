@@ -50,31 +50,48 @@
   justify-content: center;
   background-color: white; /* Mueve el fondo al CSS */
   border: 1px solid #ccc;  /* Añade un borde */
-  border-radius: 10px;     /* Bordes redondeados */
+  border-radius: 20px;     /* Bordes redondeados */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra para profundidad */
 }
 
 .aprobacionesCard {
-  padding: 20px;            /* Espacio interno de la tarjeta */
-  text-align: center;       /* Centra el texto */
+  padding: 3vh;            /* Espacio interno de la tarjeta */
+  text-align: left;       /* Centra el texto */
 }
 
-.cardImage {
-  position: absolute;       /* Posición absoluta para posicionar la imagen */
-  top: 10px;                /* Distancia desde la parte superior */
-  left: 10px;               /* Distancia desde la izquierda */
-  height: 70px;
-}
+  .firstPart, .thirdPart{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-.approvalCheck {
-  position: absolute;       /* Posición absoluta para posicionar el check de aprobado */
-  top: 10px;                /* Distancia desde la parte superior */
-  right: 10px;              /* Distancia desde la derecha */
-  /* Estilos para el check de aprobado */
-}
+  .firstPart{
+    margin-bottom: 3vh;
+  }
 
-.editIcon {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-}
+    .cardImage {
+      height: 6vh;
+      width: 6vh;
+    }
+
+    .approvalCheck {
+      appearance: none;
+      margin: 0;
+      width: 5vh;
+      height: 5vh;
+      border-radius: 50%;
+      border: 2px solid var(--TextLightGrey);
+  }
+  
+  .approvalCheck:checked {
+    background-image: url("../assets/AprobacionCheckIcon.svg");
+    background-size: 70%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 2px solid var(--MainGreen);
+    background-color: var(--MainGreen);
+  }
+
+  .greenText{
+    color: var(--MainGreen);
+  }

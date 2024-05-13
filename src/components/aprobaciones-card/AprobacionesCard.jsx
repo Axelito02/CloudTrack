@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './AprobacionesCard.module.css' // CSS Modules
-import logo from '../../../assets/logo.png'
+// import logo from '../../../assets/logo.png'
 
 export function AprobacionesCard ({ aprobacion, onDelete }) {
   function formatHour (dateString) {
@@ -19,26 +19,29 @@ export function AprobacionesCard ({ aprobacion, onDelete }) {
 
   return (
     <div className={styles.aprobacionesCardContainer}>
-      <div className={styles.imageContainer}>
-        <img src={logo} alt='Logo' className={styles.cardImage} />
-      </div>
-      <div className={styles.approvalCheck} />
-      <label className={styles.approvalCheck}>
-        <input type='checkbox' />
-      </label>
+
       <div className={styles.aprobacionesCard}>
-        <div className={styles.firstPart} />
+        <div className={styles.firstPart}>
+          <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCzCpWFudzdS4vJwzfCyIgrX7FCeLPPBzGJJPzlC70_g&s' alt='Logo' className={styles.cardImage} />
+          <input checked={aprobacion.checked} className={styles.approvalCheck} id='aprovado' type='checkbox' />
+        </div>
 
         <div className={styles.secondPart}>
-          <p className='smallText'>{aprobacion.title}</p>
-          <p className='subTextLight'>Creada {date}, a las {hour}</p>
+          <i>{aprobacion.title}</i>
+          {aprobacion.checked
+            ? (
+              <p className='subTextLight'><span className={styles.greenText}>Aprobada</span> el {date}, a las {hour}</p>
+              )
+            : (
+              <p className='subTextLight'>Creada {date}, a las {hour}</p>
+              )}
         </div>
 
         <div className={styles.thirdPart}>
           <u className='subText'>Ver detalle</u>
-        </div>
-        <div className={styles.editIcon}>
-          {/* el lapiz... */}
+          <div className={styles.editIcon}>
+            <img src='../../../assets/EditIcon.svg' />
+          </div>
         </div>
       </div>
     </div>

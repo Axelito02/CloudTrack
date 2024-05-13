@@ -5,7 +5,7 @@ import styles from './login.module.css'
 
 export function Login () {
   const navigate = useNavigate()
-  
+
   return (
     <section className={styles.Containerformlogin}>
       <div className={styles.Containertitle}>
@@ -14,10 +14,10 @@ export function Login () {
       <div className={styles.Containerform}>
         <form className={styles.form}>
           <div className={styles.Containerinput}>
-            <input className={styles.inputForm} type="text" placeholder='Usuario'/>
+            <input className={styles.inputForm} type='text' placeholder='Usuario' />
           </div>
           <div className={styles.Containerinput}>
-            <input className={styles.inputForm} type="password" placeholder='Contraseña'/>
+            <input className={styles.inputForm} type='password' placeholder='Contraseña' />
           </div>
         </form>
       </div>

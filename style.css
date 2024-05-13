@@ -78,6 +78,7 @@
       font-size: 12.11px;
       font-style: italic;
       font-weight: 250;
+      color: #9ea4ab;
     }
 
 body {
@@ -120,7 +121,6 @@ body {
     padding: 0;
     padding-bottom: 8vh;
   }
-
 
 /* Mobile */
 @media screen and (max-width: 768px) {
