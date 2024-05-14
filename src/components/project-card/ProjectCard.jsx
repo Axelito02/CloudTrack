@@ -1,6 +1,5 @@
 import React from 'react'
 import styles from './ProjectCard.module.css' // CSS Modules
-import { Botones } from '../botones/Botones'
 
 export function ProjectCard ({ project, onClick }) {
   // const [isLoading, setIsLoading] = useState(true)
@@ -31,7 +30,7 @@ export function ProjectCard ({ project, onClick }) {
   }
 
   return (
-    <div className={styles.projectCard}>
+    <div className={styles.projectCard} onClick={onClick}>
       <div className={styles.upperHalf}>
         <div className={styles.mainInfo}>
           <div>
@@ -49,7 +48,6 @@ export function ProjectCard ({ project, onClick }) {
       </div>
 
       <div className={styles.lowerHalf}>
-        <Botones titulo='Ver proyecto' onClick={onClick} />
         <div className={styles.icons}>
           <img src='../../../assets/IconCheckFilledColor.svg' />
           <p className='subText'>Completo</p>

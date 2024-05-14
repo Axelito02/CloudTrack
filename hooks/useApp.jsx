@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState } from 'react'
 
 export const useApp = () => {
-  const [activeLink, setActiveLink] = useState('/');
+  const [activeLink, setActiveLink] = useState('')
 
-  return { activeLink, setActiveLink };
+  return { activeLink, setActiveLink }
 }

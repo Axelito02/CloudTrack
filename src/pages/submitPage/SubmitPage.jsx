@@ -11,10 +11,10 @@ export function SubmitPage () {
   return (
     <div className='mainDiv'>
       <section className='navbar'>
-        <Navbar />
+        <Navbar project={project} />
       </section>
       <section className='content'>
-        <Botones titulo='Volver a bítacoras' onClick={() => navigate(-1)} />
+        <Botones titulo='Volver a bítacoras' onClick={() => navigate(`/${project.title}/bitacora`, { state: project })} />
         <main>
           {/* <Header /> */}
           <h1>Añadir una bítacora a {project.title}</h1>

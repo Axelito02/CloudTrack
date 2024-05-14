@@ -1,5 +1,5 @@
 .ContainerMain {
-    background-color: white;
+    background-color: #F1F7FF;
     display: flex;
     flex-direction: column;
     gap: 3rem;
@@ -37,14 +37,14 @@
     display: flex;
     align-items: center;
     width: 100%;
-    background-color: #FFFFFF;
+    background-color: #F1F7FF;
   }
   
-  /* .btnLink:hover .icon,
+  .btnLink:hover .icon,
   .btnLink:hover .tag {
     filter: invert(40%) sepia(100%) saturate(1109%) hue-rotate(191deg) brightness(95%) contrast(93%);
     color: #0071FF;
-  } */
+  }
   
   .icon {
     display: flex;

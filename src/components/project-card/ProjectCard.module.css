@@ -50,7 +50,7 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra para profundidad */
   /* margin-bottom: 20px;      Espacio entre tarjetas */
   /* text-align: center;       Centra el texto */
-  /* cursor: pointer; */
+  cursor: pointer;
   
 }
 
@@ -59,7 +59,7 @@
 } */
 
   .upperHalf{
-    background-color: lavender;
+    background: linear-gradient(93deg, #FFF 1%, rgba(196, 218, 255, 0.3) 50%);
     padding: 4vh 3vw; 
     text-align: left;
     border-radius: 10px 10px 0 0;  
