@@ -1,22 +1,25 @@
 import React from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
-import { BitacoraCard, Navbar } from '../../components'
-import { useBitacoras } from '../../../hooks/useBitacoras'
+import { BitacoraCard, Navbar, ButtonBack } from '../../components'
+import { useNotas } from '../../../hooks/useNotas'
 // import { useFilters } from '../../hooks/useFilters';
 import styles from './BitacoraPage.module.css'
 import { Botones } from '../../components/botones/Botones'
 
 export function BitacoraPage () {
   const location = useLocation()
-  const project = location.state
+  const { project, bitacora } = location.state
   const navigate = useNavigate()
 
-  const {
-    bitacoras,
-    imageList
-  } = useBitacoras(project.id)
+  const projectId = project.id
+  const bitacoraId = bitacora.id
 
-  const sortedBitacoras = bitacoras.sort((a, b) => new Date(b.date) - new Date(a.date))
+  const {
+    notas,
+    imageList
+  } = useNotas({ projectId, bitacoraId })
+
+  const sortedNotas = notas.sort((a, b) => new Date(b.date) - new Date(a.date))
 
   return (
     <div className='mainDiv'>
@@ -25,26 +28,32 @@ export function BitacoraPage () {
       </section>
 
       <section className='content'>
-        <h1>Notas de bítacoras</h1>
-        <Botones onClick={() => navigate(`/${project.title}/bitacora/crear-bitacora`, { state: project })} titulo='Subir bitácora' />
+        <div className={styles.header}>
+          <ButtonBack />
+          <div>
+            <h1 className={styles.title}>Actualizaciones</h1>
+            <p className='noMargin'> Proyecto {project.title} - {bitacora.title}</p>
+          </div>
+        </div>
+        <Botones onClick={() => navigate(`/${project.title}/bitacora/${bitacora.title}/crear-bitacora`, { state: { project, bitacora } })} titulo='Añadir nueva nota' />
         <div>
           <div className={styles.Projects}>
-            {sortedBitacoras.length > 0
+            {sortedNotas.length > 0
               ? (
-                  sortedBitacoras.map((bitacora) => {
-                    const tituloImagen = bitacora.title.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, '') + bitacora.bitacoraId
+                  sortedNotas.map((nota) => {
+                    const tituloImagen = nota.title.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, '') + nota.notaId
 
-                    const bitacoraImage = imageList.find((img) => img.includes(tituloImagen))
+                    const notaImage = imageList.find((img) => img.includes(tituloImagen))
 
                     return (
-                      <BitacoraCard key={bitacora.id} bitacora={bitacora} bitacoraImage={bitacoraImage} />
+                      <BitacoraCard key={bitacora.id} nota={nota} notaImage={notaImage} onClick={() => navigate(`/${project.title}/bitacora/${bitacora.title}/${nota.title}`, { state: { project, bitacora, nota } })} />
                     )
                   })
                 )
               : null}
           </div>
-          {sortedBitacoras.length === 0 && (
-            <h3 className={styles.noMatch}>Lo sentimos, no hay notas en este proyecto. </h3>
+          {sortedNotas.length === 0 && (
+            <h3 className={styles.noMatch}>No hay notas en esta carpeta. </h3>
           )}
         </div>
       </section>

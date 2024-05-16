@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
-import { BitacoraCard, Navbar } from '../../components'
-import { useBitacoras } from '../../../hooks/useBitacoras'
+import { Navbar } from '../../components'
+// import { useBitacoras } from '../../../hooks/useBitacoras'
 // import { useFilters } from '../../hooks/useFilters';
 import styles from './ProjectDetailPage.module.css'
 import { Botones } from '../../components/botones/Botones'
@@ -11,12 +11,12 @@ export function ProjectDetailPage () {
   const project = location.state
   const navigate = useNavigate()
 
-  const {
-    bitacoras,
-    imageList
-  } = useBitacoras(project.id)
+  // const {
+  //   bitacoras,
+  //   imageList
+  // } = useBitacoras(project.id)
 
-  const sortedBitacoras = bitacoras.sort((a, b) => new Date(b.date) - new Date(a.date))
+  // const sortedBitacoras = bitacoras.sort((a, b) => new Date(b.date) - new Date(a.date))
 
   return (
     <div className='mainDiv'>
@@ -29,7 +29,7 @@ export function ProjectDetailPage () {
         <Botones onClick={() => navigate('/')} titulo='Volver a proyectos' />
         <div>
           <div className={styles.Projects}>
-            {sortedBitacoras.length > 0
+            {/* {sortedBitacoras.length > 0
               ? (
                 <BitacoraCard
                   bitacora={sortedBitacoras[sortedBitacoras.length - 1]} // Obtener el último elemento del array
@@ -41,7 +41,7 @@ export function ProjectDetailPage () {
                 )
               : (
                 <h3 className={styles.noMatch}>No hay bítacora</h3>
-                )}
+                )} */}
           </div>
           <Botones onClick={() => navigate(`/${project.title}/bitacora`, { state: project })} titulo='Ver bitacora' />
         </div>

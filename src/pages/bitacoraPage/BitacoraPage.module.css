@@ -27,3 +27,13 @@
     display: grid;
     grid-template-columns: 1fr;
   }
+
+  .header{
+    display: flex;
+    align-items: first baseline;
+    margin-top: 39.6574px;
+  }
+
+    .title{
+      margin: 0;
+    }

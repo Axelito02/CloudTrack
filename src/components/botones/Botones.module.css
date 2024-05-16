@@ -14,3 +14,10 @@
   .button:hover {
     background-color: #003d9f; /* Color al pasar el ratón */
   }
+
+.buttonBack{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-right: 1vw;
+}

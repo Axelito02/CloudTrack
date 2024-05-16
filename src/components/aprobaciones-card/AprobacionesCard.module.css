@@ -95,3 +95,7 @@
   .greenText{
     color: var(--MainGreen);
   }
+
+  .cursor{
+    cursor: pointer;
+  }

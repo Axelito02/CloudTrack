@@ -30,16 +30,16 @@ export function Navbar ({ project }) {
             <span className={styles.tag}>Proyecto</span>
           </button>
         </div>
-        <div className={`${styles.link} ${activeLink === 'Bítacora' ? styles.active : ''}`}>
+        <div className={`${styles.link} ${activeLink === 'Bitacora' ? styles.active : ''}`}>
           <button
             className={styles.btnLink}
             onClick={() => {
-              handleNavLinkClick('Bítacora')
+              handleNavLinkClick('Bitacora')
               navigate(`/${project.title}/bitacora`, { state: project })
             }}
           >
             <img className={styles.icon} src='../../../assets/IconBitacoras.svg' />
-            <span className={styles.tag}>Bítacora</span>
+            <span className={styles.tag}>Bitácora</span>
           </button>
         </div>
         <div className={`${styles.link} ${activeLink === 'Progreso' ? styles.active : ''}`}>

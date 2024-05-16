@@ -3,14 +3,14 @@ import { useUploadForm } from '../../../hooks/useUploadForm'
 import styles from './UploadForm.module.css'
 import { Botones } from '../botones/Botones'
 
-export function UploadForm ({ projectId }) {
+export function UploadForm ({ projectId, bitacoraId }) {
   const {
     disableBtn,
     handleImageChange,
     handleOnChange,
     handleBitacoraSubmit,
     imageUpload
-  } = useUploadForm(projectId)
+  } = useUploadForm({ projectId, bitacoraId })
 
   return (
     <form className={styles.form}>

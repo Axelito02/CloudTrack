@@ -1,0 +1,47 @@
+.notification:last-child {
+  margin-bottom: 50px; /* Puedes ajustar el valor del margen según tus preferencias */
+}
+
+.name{
+    display: flex;
+    align-items: center;
+  }
+  
+  .name p{
+    margin-left: 20px;
+  }
+  
+  .rectangulo {
+    padding: 1vw 2vw;
+    position: relative;
+    width: 95%;
+    border-radius: 11px;
+    border: 1px solid var(--MainBlue);
+    background: #FFF;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.14);
+  }
+  .rectangulo a {
+    color: var(--MainBlue);
+    margin-left: 20px;
+  }
+  
+  .rectangulo p{
+    color: var(--TextDarkGrey);
+  }
+  
+  .time {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 15px;
+    right: 2vw;
+  }
+  
+  .time p{
+    margin-left: 2vw;
+    color: var(--TextLightGrey);
+  }
+
+  .cursor{
+    cursor: pointer;
+  }

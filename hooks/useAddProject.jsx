@@ -14,7 +14,12 @@ export const useAddProject = () => {
     projectId: '',
     title: '',
     constructora: '',
-    date: ''
+    date: '',
+    endDate: '',
+    localidad: '',
+    barrio: '',
+    contratista: '',
+    estado: 0
   })
 
   const handleOnChange = ({ target }) => {
@@ -25,8 +30,8 @@ export const useAddProject = () => {
     setFormState({
       ...formState,
       [name]: value,
-      projectId: randomId,
-      date: new Date().toISOString()
+      projectId: randomId
+      // date: new Date().toISOString()
     })
 
     console.log(formState)
@@ -46,6 +51,7 @@ export const useAddProject = () => {
         title: 'Tu proyecto ha sido creado',
         text: 'Revisa proyectos para verlo y añadir bítacoras',
         icon: 'success',
+        iconColor: '#0164FF',
         confirmButtonText: 'Ir a proyectos',
         showCancelButton: true,
         cancelButtonText: 'Crear otro proyecto',

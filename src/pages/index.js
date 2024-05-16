@@ -6,7 +6,9 @@ export * from './projectDetailPage/ProjectDetailPage'
 
 // Bitacoras
 
+export * from './bitacoraCarpetaPage/BitacoraCarpetaPage'
 export * from './bitacoraPage/BitacoraPage'
+export * from './notaDetailPage/notaDetailPage'
 export * from './submitPage/SubmitPage'
 
 // Notificaciones

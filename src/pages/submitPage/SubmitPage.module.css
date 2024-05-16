@@ -1,35 +1,9 @@
-.mainDiv{
+.header{
   display: flex;
-  flex-direction: row;
+  align-items: first baseline;
+  margin-top: 39.6574px;
 }
 
-.content{
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  margin: 0 3rem;
-  padding: 0;
-}
-
-/* Estilo para el botón de navegación */
-  .navigationButton {
-    display: block; /* Para que el botón ocupe toda la línea */
-    width: 200px; /* Ancho del botón */
-    padding: 10px; /* Espacio interno */
-    margin: 20px auto; /* Para centrar el botón */
-    background-color: #4CAF50; /* Color de fondo verde */
-    color: white; /* Color del texto */
-    text-align: center; /* Centrar el texto */
-    border: none; /* Sin borde */
-    border-radius: 5px; /* Bordes redondeados */
-    cursor: pointer; /* Cambiar el cursor cuando se coloca sobre el botón */
+  .title{
+    margin-bottom: 0;
   }
-  
-  /* Cambiar el color del botón cuando se coloca el ratón encima */
-  .navigationButton:hover {
-    background-color: #45a049; /* Cambiar a un tono más oscuro */
-  }
-
-  h1{
-  margin: 1.5rem;
-}

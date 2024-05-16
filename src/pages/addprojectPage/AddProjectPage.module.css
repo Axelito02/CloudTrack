@@ -14,3 +14,9 @@
   margin: 0 3rem;
   padding: 0;
 }
+
+.header{
+  display: flex;
+  align-items: first baseline;
+  margin-top: 39.6574px;
+}

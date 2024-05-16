@@ -1,0 +1,9 @@
+
+    .noMatch{
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .title{
+        margin-bottom: 0;
+    }

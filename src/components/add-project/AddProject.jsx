@@ -13,7 +13,7 @@ export function AddProject () {
   return (
     <form className={styles.form}>
       <div className={styles.inputs}>
-        <h4 htmlFor='project-title'>Título</h4>
+        <h4 htmlFor='project-title'>Nombre del proyecto</h4>
         <input
           className={styles.textInput}
           type='text'
@@ -22,13 +22,53 @@ export function AddProject () {
           onChange={handleOnChange}
         />
 
-        <h4>Nombre de la costructora</h4>
-        <textarea
+        <h4>Empresa costructora</h4>
+        <input
           className={styles.costructorInput}
           id='project-constructor'
           name='constructora'
-          rows='4'
-          cols='50'
+          onChange={handleOnChange}
+        />
+
+        <h4>Localidad</h4>
+        <input
+          className={styles.costructorInput}
+          id='project-location'
+          name='localidad'
+          onChange={handleOnChange}
+        />
+
+        <h4>Barrio</h4>
+        <input
+          className={styles.costructorInput}
+          id='project-barrio'
+          name='barrio'
+          onChange={handleOnChange}
+        />
+
+        <h4>Contratista</h4>
+        <input
+          className={styles.costructorInput}
+          id='project-constratista'
+          name='contratista'
+          onChange={handleOnChange}
+        />
+
+        <h4>Fecha de inicio</h4>
+        <input
+          type='date'
+          className={styles.costructorInput}
+          id='project-date'
+          name='date'
+          onChange={handleOnChange}
+        />
+
+        <h4>Fecha estimada de finalización</h4>
+        <input
+          type='date'
+          className={styles.costructorInput}
+          id='project-endDate'
+          name='endDate'
           onChange={handleOnChange}
         />
       </div>

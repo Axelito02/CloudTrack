@@ -7,11 +7,13 @@ import { ref, uploadBytes, deleteObject } from 'firebase/storage'
 import { v4 as uuidv4 } from 'uuid'
 import Swal from 'sweetalert2'
 
-export const useUploadForm = (projectId) => {
+export const useUploadForm = (Id) => {
+  const { projectId, bitacoraId } = Id
+
   const [imageUpload, setimageUpload] = useState(null)
 
   const [formState, setFormState] = useState({
-    bitacoraId: '',
+    notaId: '',
     title: '',
     description: '',
     writeBinnacle: '',
@@ -30,7 +32,7 @@ export const useUploadForm = (projectId) => {
     setFormState({
       ...formState,
       [name]: value,
-      bitacoraId: randomId,
+      notaId: randomId,
       date: new Date().toISOString()
     })
 
@@ -49,11 +51,11 @@ export const useUploadForm = (projectId) => {
       return
     }
     try {
-      const tituloImagen = formState.title.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, '') + formState.bitacoraId
+      const tituloImagen = formState.title.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, '') + formState.notaId
 
       const imageRef = ref(storage, `documentosImages/${tituloImagen}`)
 
-      const bitacorasRef = collection(db, 'documentos', projectId, 'Bitacoras')
+      const bitacorasRef = collection(db, 'documentos', projectId, 'Bitacoras', bitacoraId, 'Notas')
       await addDoc(bitacorasRef, formState)
 
       uploadBytes(imageRef, imageUpload).then(() => {

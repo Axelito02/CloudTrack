@@ -1,12 +1,13 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import { ErrorPage, ProjectsPage, AddProjectPage, ProjectDetailPage, BitacoraPage, SubmitPage, Notification, ApprovalsPage, Progress, LoginPage, RegisterPage } from './pages'
+import { ErrorPage, ProjectsPage, AddProjectPage, ProjectDetailPage, BitacoraCarpetaPage, BitacoraPage, NotaDetailPage, SubmitPage, Notification, ApprovalsPage, Progress, LoginPage, RegisterPage } from './pages'
 
 export function AppRouter () {
   return (
     <main>
       <Routes>
 
+        {/* Proyecto */}
         <Route
           path='/'
           element={<ProjectsPage />}
@@ -22,16 +23,28 @@ export function AppRouter () {
           element={<ProjectDetailPage />}
         />
 
+        {/* Bitacora */}
         <Route
           path='/:title/bitacora'
+          element={<BitacoraCarpetaPage />}
+        />
+
+        <Route
+          path='/:title/bitacora/:bitacora'
           element={<BitacoraPage />}
         />
 
         <Route
-          path='/:title/bitacora/crear-bitacora'
+          path='/:title/bitacora/:bitacora/:nota'
+          element={<NotaDetailPage />}
+        />
+
+        <Route
+          path='/:title/bitacora/:bitacora/crear-bitacora'
           element={<SubmitPage />}
         />
 
+        {/* Otros */}
         <Route
           path='/:title/notificaciones'
           element={<Notification />}

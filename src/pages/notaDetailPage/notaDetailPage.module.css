@@ -1,0 +1,21 @@
+.header{
+    display: flex;
+    align-items: first baseline;
+    margin-top: 39.6574px;
+  }
+  
+    .title{
+        margin: 0;
+    }
+
+.notaContainer{
+    border-radius: 20px;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.14);
+    padding: 3vh 3vw;
+    margin-top: 3vw;
+}
+
+    .cardImage{
+        margin: 3vw auto;
+        width: 75%;
+    }

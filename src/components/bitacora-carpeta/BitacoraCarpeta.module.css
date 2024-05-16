@@ -1,0 +1,43 @@
+
+  .projectCardContainer {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+}
+
+    .Line{
+        height: 25vh;
+        margin-right: 2vh;
+    }
+
+    .bitacoraCard{
+        width: 90%;
+    }
+
+        .bitacoraTitle{
+            color: var(--MainBlue);
+            display: flex;
+            margin: 0;
+            align-items: center;
+            gap: 2vh;
+        }
+
+        .projectCard {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            background-color: white;  /* Mueve el fondo al CSS */
+            border: 1px solid #ccc;   /* Añade un borde */
+            border-radius: 10px;      /* Bordes redondeados */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra para profundidad */
+            padding: 25px;            /* Espacio interno de la tarjeta */
+            text-align: left;     /* Centra el texto */
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+            .projectCard:hover{
+                scale: 1.02;
+            }
