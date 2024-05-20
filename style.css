@@ -190,7 +190,7 @@ body {
       cursor: pointer;       
       transition: background-color 0.3s; 
       text-align: center;
-      margin: 20px auto;
+      margin: 20px 10px;
       display: block;
       box-shadow: none;
       outline: none;
@@ -203,6 +203,10 @@ body {
       .button.swal2-confirm.swal2-styled:focus{
         box-shadow: none !important;
       }
+
+    button.swal2-cancel.swal2-styled{
+      margin: 20px 10px;
+    }
 
 
 /* Mobile */

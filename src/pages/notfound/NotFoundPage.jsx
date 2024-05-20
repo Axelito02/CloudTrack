@@ -9,7 +9,7 @@ export function ErrorPage () {
     <div className='mainDiv'>
       <section className='content'>
         <h1>Error</h1>
-          <Botones titulo='Volver' onClick={() => navigate(-1)} />
+        <Botones titulo='Volver' onClick={() => navigate(-1)} />
       </section>
     </div>
   )

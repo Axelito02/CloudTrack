@@ -45,10 +45,26 @@
   display: flex;
   flex-direction: row;
   gap: 1rem;
+  font-size: 13.33px;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--TextLightGrey);
+  border-bottom: 1px solid var(--TextLightGrey);
+  cursor: pointer;
 }
+
+  .filter label:has(input:checked) {
+    color: var(--MainBlue);
+    border-bottom: 1px solid var(--MainBlue);
+  }
 
 .filter input{
   align-content: center;
   width: 1rem;
   margin: 0;
+  display: none;
+}
+
+.title{
+  margin-bottom: 0;
 }

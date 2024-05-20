@@ -1,12 +1,14 @@
 // src/pages/ProjectsPage.jsx
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { ProjectCard, Botones, UserProfile } from '../../components'
+import { ProjectCard, AddButtonSmall, UserProfile } from '../../components'
 import { useProjects } from '../../../hooks/useProjects'
 import { useFilters } from '../../../hooks/useFilterProjects'
+import { useApp } from '../../../hooks/useApp'
 import styles from './ProjectsPage.module.css'
 
 export function ProjectsPage () {
+  const { setnavState } = useApp()
   const navigate = useNavigate()
   const { projects } = useProjects()
   const { filteredProjects, setFilters } = useFilters(projects)
@@ -35,27 +37,25 @@ export function ProjectsPage () {
             <div className={styles.title}>
               <h1>Proyectos</h1>
             </div>
-            <div className={styles.headUserProfile}>
-              <div className={styles.profileComponent}>
-                <UserProfile />
-              </div>
+            <div className={styles.profileComponent}>
+              <UserProfile position='header' />
             </div>
           </section>
           <section className={styles.inputs}>
             <div className={styles.inputsFilters}>
               <div>
-              <label htmlFor="startDate">Filtrar Desde </label>
-                  <input
-                    id='startDate'
-                    className='inputBuscar'
-                    type='date'
-                    name='start'
-                    value={tempDateRange.start}
-                    onChange={handleDateRangeChange}
-                  />
+                <label htmlFor='startDate'>Filtrar Desde </label>
+                <input
+                  id='startDate'
+                  className='inputBuscar'
+                  type='date'
+                  name='start'
+                  value={tempDateRange.start}
+                  onChange={handleDateRangeChange}
+                />
               </div>
               <div>
-              <label htmlFor="endDate">hasta </label>
+                <label htmlFor='endDate'>hasta </label>
                 <input
                   id='endDate'
                   className='inputBuscar'
@@ -70,15 +70,17 @@ export function ProjectsPage () {
               </div>
             </div>
             <div className={styles.containerCreateProject}>
-              <Botones onClick={() => navigate('/crear-proyecto')} titulo='Añadir proyecto' />
-              <div>
-                  <input
-                    className='inputBuscar'
-                    type='text'
-                    placeholder='Buscar por título...'
-                    onChange={handleSearchChange}
-                  />
-                </div>
+              <AddButtonSmall onClick={() => navigate('/proyectos/crear-proyecto')} titulo='Nuevo proyecto' icon='../../../../assets/plusIcon.svg' />
+              <div className={styles.searchBar}>
+                <img src='../../../../assets/searchIcon.svg' />
+                <input
+                  className={styles.inputBuscar}
+                  type='text'
+                  placeholder='Buscar por título...'
+                  onChange={handleSearchChange}
+                />
+                <img src='../../../../assets/filterIcon.svg' />
+              </div>
             </div>
           </section>
         </header>
@@ -88,14 +90,24 @@ export function ProjectsPage () {
               ? (
                   sortedProjects.map((project) => {
                     return (
-                      <ProjectCard project={project} onClick={() => navigate(`/${project.title}`, { state: project })} key={project.id} />
+                      <ProjectCard
+                        project={project}
+                        onClick={() => {
+                          setnavState('Proyecto')
+                          navigate(`/proyectos/${project.title}`, { state: project })
+                        }}
+                        key={project.id}
+                      />
                     )
                   })
                 )
               : (
-                <h3 className={styles.noMatch}>Lo sentimos, no hay proyectos.</h3>
+                  null
                 )}
           </div>
+          {sortedProjects.length === 0 && (
+            <h3 className={styles.noMatch}>Los proyectos están cargando </h3>
+          )}
         </div>
       </section>
     </div>

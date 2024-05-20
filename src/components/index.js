@@ -14,6 +14,8 @@ export * from './aprobaciones-card/AprobacionesCard'
 export * from './nav-bar/NavBar'
 export * from './botones/Botones'
 export * from './botones/ButtonBack'
+export * from './botones/AddButtonSmall'
+export * from './botones/AddButtonBig'
 
 export * from './login/Login'
 export * from './register/Register'

@@ -37,7 +37,9 @@ export function AprobacionesCard ({ aprobacion, onDelete }) {
       </div>
       `,
       showConfirmButton: true,
-      confirmButtonText: 'Confirmar'
+      confirmButtonText: 'Aprobar',
+      showCancelButton: true,
+      cancelButtonText: 'Cancelar'
     })
   }
 

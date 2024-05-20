@@ -35,7 +35,7 @@ export function BitacoraCarpetaPage () {
                   sortedBitacoras.map((bitacora, index) => {
                     const numeroBitacora = (index + 1).toString().padStart(2, '0')
                     return (
-                      <BitacoraCarpeta key={bitacora.id} bitacora={bitacora} numero={numeroBitacora} onClick={() => navigate(`/${project.title}/bitacora/${bitacora.title}`, { state: { project, bitacora } })} />
+                      <BitacoraCarpeta key={bitacora.id} bitacora={bitacora} numero={numeroBitacora} onClick={() => navigate(`/proyectos/${project.title}/bitacora/${bitacora.title}`, { state: { project, bitacora } })} />
                     )
                   })
                 )

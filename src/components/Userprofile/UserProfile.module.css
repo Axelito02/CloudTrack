@@ -33,6 +33,11 @@
   z-index: 1000;
 }
 
+.dropdownMenuHeader {
+  top: 100%;
+  left: 0;
+}
+
 .dropdownMenu ul {
   list-style: none;
   margin: 0;

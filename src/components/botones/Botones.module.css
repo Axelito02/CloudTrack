@@ -1,4 +1,4 @@
-.button {
+.mainButton {
     background-color:var(--MainBlue); /* Color del botón */
     color: white;              /* Texto en blanco */
     border: none;              /* Sin borde */
@@ -11,7 +11,7 @@
     display: block;
   }
   
-  .button:hover {
+  .mainButton:hover {
     background-color: #003d9f; /* Color al pasar el ratón */
   }
 
@@ -20,4 +20,42 @@
   border: none;
   cursor: pointer;
   margin-right: 1vw;
+  transition: all 0.3s;
 }
+
+  .buttonBack:hover {
+    background-color: transparent;
+    scale: 1.1;
+    opacity: 0.8;
+  }
+
+.addButtonSmall{
+  background-color: white;
+  color: var(--MainBlue);
+  border: 2px solid var(--MainBlue);
+  border-radius: 100px;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+  .addButtonSmall:hover{
+    background-color: var(--LightBlue);
+  }
+
+.addButtonBig{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border: 2px dashed var(--MainBlue);
+  color: var(--TextLightGrey);
+  width: 100%;
+  height: 34.5vh;
+}
+
+  .addButtonBig:hover{
+    background-color: var(--LightBlue);
+  }

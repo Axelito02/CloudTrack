@@ -7,7 +7,7 @@ export function ButtonBack () {
   return (
     <div>
       <button className={styles.buttonBack} onClick={() => navigate(-1)}>
-        <img src='../../../assets/BackButton.svg' />
+        <img src='../../../../assets/BackButton.svg' />
       </button>
     </div>
   )

@@ -1,7 +1,6 @@
 /* Estilo para el mensaje de "no hay proyectos" */
 .noMatch {
   text-align: center;
-  color: #940000;
   font-size: 1.5em;
   margin: 12rem;
 }
@@ -14,8 +13,8 @@
 }
 
 /* Estilo para los inputs de filtrado */
-header input[type="text"],
-header input[type="date"],
+.inputsFilters input[type="text"],
+.inputsFilters input[type="date"],
 header button {
   padding: 0.5rem;
   font-size: 16px;
@@ -26,8 +25,8 @@ header button {
   margin: 0;
 }
 
-header input[type="text"]:focus,
-header input[type="date"]:focus {
+.inputsFilters input[type="text"]:focus,
+.inputsFilters input[type="date"]:focus {
   outline: none;
   border-color: #007bff; /* Color de resaltado al tener foco */
 }
@@ -61,7 +60,7 @@ header button:hover {
 }
 
 .profileComponent{
-  width: 32%;
+  width: 17%;
 }
 
 .inputs{
@@ -85,3 +84,26 @@ header button:hover {
   align-content: center;
   gap: 1rem;
 }
+
+  .searchBar {
+    border-bottom: 1px solid var(--TextLightGrey);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+  }
+
+    .searchBar input[type="text"]{
+      border: none;
+      outline: none;
+      padding: 0.5rem;
+      font-size: 16px;
+      width: 200px; /* Ajusta el ancho según sea necesario */
+      box-sizing: border-box;
+      margin: 0;
+    }
+
+    .inputBuscar input[type="text"]{
+      border: none;
+      outline: none;
+    }

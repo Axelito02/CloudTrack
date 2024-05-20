@@ -37,7 +37,7 @@ export function ProjectDetailPage () {
           <h1>{project && project.title}</h1>
         </div>
         <div className={styles.inputs}>
-          <Botones onClick={() => navigate('/')} titulo='Volver a proyectos' />
+          <Botones onClick={() => navigate('/proyectos')} titulo='Volver a proyectos' />
           <div>
             <div className={styles.Projects}>
               {/* {sortedBitacoras.length > 0
@@ -54,7 +54,7 @@ export function ProjectDetailPage () {
                   <h3 className={styles.noMatch}>No hay bítacora</h3>
                   )} */}
             </div>
-            <Botones onClick={() => navigate(`/${project && project.title}/bitacora`, { state: project })} titulo='Ver bitacora' />
+            <Botones onClick={() => navigate(`/proyectos/${project.title}/bitacora`, { state: project })} titulo='Ver bitacora' />
           </div>
         </div>
         <div>

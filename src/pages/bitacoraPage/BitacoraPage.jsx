@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
-import { BitacoraCard, Navbar, ButtonBack } from '../../components'
+import { BitacoraCard, Navbar, ButtonBack, AddButtonBig } from '../../components'
 import { useNotas } from '../../../hooks/useNotas'
 import styles from './BitacoraPage.module.css'
-import { Botones } from '../../components/botones/Botones'
 
 export function BitacoraPage () {
   const location = useLocation()
@@ -45,11 +44,9 @@ export function BitacoraPage () {
           </div>
           <div className={styles.containerInputs}>
             <div className={styles.inputs}>
-              <div>
-                <Botones onClick={() => navigate(`/${project.title}/bitacora/${bitacora.title}/crear-bitacora`, { state: { project, bitacora } })} titulo='Añadir nueva nota' />
-              </div>
-              <div className={styles.inputSearch}>
+              <div className={styles.searchBar}>
                 {/* Input para ingresar el nombre a filtrar */}
+                <img src='../../../../assets/searchIcon.svg' />
                 <input
                   className={styles.inputBuscar}
                   type='text'
@@ -57,11 +54,15 @@ export function BitacoraPage () {
                   onChange={e => setFiltroNombre(e.target.value)}
                   placeholder='Filtrar por nombre'
                 />
+                <img src='../../../../assets/filterIcon.svg' />
               </div>
             </div>
           </div>
           <div>
             <div className={styles.Projects}>
+              <div>
+                <AddButtonBig onClick={() => navigate(`/proyectos/${project.title}/bitacora/${bitacora.title}/crear-bitacora`, { state: { project, bitacora } })} titulo='Añadir nueva nota' />
+              </div>
               {/* Aplicar el filtro al mapear las notas */}
               {sortedNotas.filter(filtrarPorNombre).length > 0
                 ? (
@@ -71,7 +72,7 @@ export function BitacoraPage () {
                       const notaImage = imageList.find((img) => img.includes(tituloImagen))
 
                       return (
-                        <BitacoraCard key={bitacora.id} nota={nota} notaImage={notaImage} onClick={() => navigate(`/${project.title}/bitacora/${bitacora.title}/${nota.title}`, { state: { project, bitacora, nota } })} />
+                        <BitacoraCard key={bitacora.id} nota={nota} notaImage={notaImage} onClick={() => navigate(`/proyectos/${project.title}/bitacora/${bitacora.title}/${nota.title}`, { state: { project, bitacora, nota } })} />
                       )
                     })
                   )

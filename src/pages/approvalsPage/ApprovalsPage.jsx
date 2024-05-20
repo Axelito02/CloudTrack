@@ -19,7 +19,12 @@ export function ApprovalsPage () {
         <Navbar project={project} />
       </section>
       <section className='content'>
-        <h1>Aprobaciones</h1>
+        <h1 className={styles.title}>Aprobaciones</h1>
+        <p className='noMargin'>
+          {filter === 'all' && 'Todas las aprobaciones'}
+          {filter === 'approved' && 'Aprobaciones confirmadas'}
+          {filter === 'notApproved' && 'Aprobaciones pendientes'}
+        </p>
 
         <div className={styles.contentContainer}>
           <div className={styles.filterContainer}>
@@ -53,7 +58,7 @@ export function ApprovalsPage () {
                   checked={filter === 'notApproved'}
                   onChange={() => setFilter('notApproved')}
                 />
-                No Aprobadas
+                Pendientes
               </label>
             </div>
           </div>
