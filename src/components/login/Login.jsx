@@ -22,7 +22,7 @@ export function Login () {
         </form>
       </div>
       <div className={styles.inputLogin}>
-        <Botones onClick={() => navigate('/')} titulo='Iniciar sesión' />
+        <Botones onClick={() => navigate('/proyectos')} titulo='Iniciar sesión' />
       </div>
       <div className={styles.ContainerLink}>
         <p className={styles.text}>¿No tienes cuenta?</p>

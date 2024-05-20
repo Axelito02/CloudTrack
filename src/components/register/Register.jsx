@@ -35,7 +35,7 @@ export function Register () {
         </form>
       </div>
       <div className={styles.inputRegister}>
-        <Botones onClick={() => navigate('/')} titulo='Registrarme' />
+        <Botones onClick={() => navigate('/proyectos')} titulo='Registrarme' />
       </div>
       <div className={styles.ContainerLink}>
         <p className={styles.text}>¿Ya tienes cuenta?</p>

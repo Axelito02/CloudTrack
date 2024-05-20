@@ -5,7 +5,7 @@
   margin: 12rem;
 }
 
-.Projects{
+.Projects {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10vh 6vw;
@@ -41,69 +41,101 @@ header button:hover {
   background-color: #0056b3; /* Color más oscuro al pasar el ratón */
 }
 
-.head{
+.head {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
 }
 
-.headUserProfile{
+.headUserProfile {
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex: 1;
 }
 
-.title{
+.title {
   flex: 1;
 }
 
-.profileComponent{
+.profileComponent {
   width: 17%;
 }
 
-.inputs{
+.inputs {
   display: flex;
   flex-direction: row;
   padding: 2rem 0;
   flex: 1;
   justify-content: space-between;
+  position: relative; /* Añadido */
 }
 
-.inputsFilters{
+.inputsFilters {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  gap: 1rem;
+  position: absolute; /* Añadido */
+  top: 100%; /* Ajusta la posición según sea necesario */
+  left: 0; /* Ajusta la posición según sea necesario */
+  background: white; /* Añadido para que tenga un fondo blanco */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Añadido para una sombra */
+  padding: 1rem; /* Ajusta el padding según sea necesario */
+  z-index: 10; /* Asegúrate de que esté por encima de otros elementos */
+}
+
+.containerCreateProject {
   display: flex;
   flex-wrap: wrap;
   align-content: center;
   gap: 1rem;
 }
 
-.containerCreateProject{
+.searchBar {
+  border-bottom: 1px solid var(--TextLightGrey);
   display: flex;
-  flex-wrap: wrap;
-  align-content: center;
-  gap: 1rem;
+  flex-direction: row;
+  align-items: center;
 }
 
-  .searchBar {
-    border-bottom: 1px solid var(--TextLightGrey);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+.searchBar input[type="text"] {
+  border: none;
+  outline: none;
+  padding: 0.5rem;
+  font-size: 16px;
+  width: 200px; /* Ajusta el ancho según sea necesario */
+  box-sizing: border-box;
+  margin: 0;
+}
 
-  }
+.inputBuscar input[type="text"] {
+  border: none;
+  outline: none;
+}
 
-    .searchBar input[type="text"]{
-      border: none;
-      outline: none;
-      padding: 0.5rem;
-      font-size: 16px;
-      width: 200px; /* Ajusta el ancho según sea necesario */
-      box-sizing: border-box;
-      margin: 0;
-    }
+/* Estilo para el botón de mostrar/ocultar filtros */
+.toggleButton {
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  padding: 0.5rem;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 200px;
+  box-sizing: border-box;
+  margin: 0;
+  outline: none;
+  border-color: #007bff;
+}
 
-    .inputBuscar input[type="text"]{
-      border: none;
-      outline: none;
-    }
+.toggleButton:hover {
+  background-color: #0056b3;
+}
+
+/* Contenedor relativo para los filtros */
+.filterContainer {
+  position: relative;
+}
