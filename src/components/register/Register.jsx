@@ -7,7 +7,7 @@ export function Register () {
   const navigate = useNavigate()
 
   return (
-    <section className={styles.Containerformlogin}>
+    <section className={styles.ContainerformRegister}>
       <div className={styles.Containertitle}>
         <h1>Crea una cuenta</h1>
       </div>
@@ -34,7 +34,7 @@ export function Register () {
           </div>
         </form>
       </div>
-      <div>
+      <div className={styles.inputRegister}>
         <Botones onClick={() => navigate('/')} titulo='Registrarme' />
       </div>
       <div className={styles.ContainerLink}>

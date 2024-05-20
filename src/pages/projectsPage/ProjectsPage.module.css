@@ -3,7 +3,7 @@
   text-align: center;
   color: #940000;
   font-size: 1.5em;
-  margin-top: 20px;
+  margin: 12rem;
 }
 
 .Projects{
@@ -17,14 +17,13 @@
 header input[type="text"],
 header input[type="date"],
 header button {
-  margin-right: 10px;
-  margin-bottom: 20px;
-  padding: 8px 12px;
+  padding: 0.5rem;
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 4px;
   width: 200px; /* Ajusta el ancho según sea necesario */
   box-sizing: border-box;
+  margin: 0;
 }
 
 header input[type="text"]:focus,
@@ -41,4 +40,48 @@ header button {
 
 header button:hover {
   background-color: #0056b3; /* Color más oscuro al pasar el ratón */
+}
+
+.head{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.headUserProfile{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex: 1;
+}
+
+.title{
+  flex: 1;
+}
+
+.profileComponent{
+  width: 32%;
+}
+
+.inputs{
+  display: flex;
+  flex-direction: row;
+  padding: 2rem 0;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.inputsFilters{
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  gap: 1rem;
+}
+
+.containerCreateProject{
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  gap: 1rem;
 }

@@ -1,11 +1,10 @@
 // src/pages/ProjectsPage.jsx
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { ProjectCard } from '../../components'
+import { ProjectCard, Botones, UserProfile } from '../../components'
 import { useProjects } from '../../../hooks/useProjects'
 import { useFilters } from '../../../hooks/useFilterProjects'
 import styles from './ProjectsPage.module.css'
-import { Botones } from '../../components/botones/Botones'
 
 export function ProjectsPage () {
   const navigate = useNavigate()
@@ -31,31 +30,57 @@ export function ProjectsPage () {
   return (
     <div className='mainDiv'>
       <section className='content'>
-        <div className={styles.spaceWidth} />
         <header>
-          <h1>Proyectos</h1>
-          <Botones onClick={() => navigate('/crear-proyecto')} titulo='Añadir proyecto' />
-          <input
-            className='inputBuscar'
-            type='text'
-            placeholder='Buscar por título...'
-            onChange={handleSearchChange}
-          />
-          <input
-            className='inputBuscar'
-            type='date'
-            name='start'
-            value={tempDateRange.start}
-            onChange={handleDateRangeChange}
-          />
-          <input
-            className='inputBuscar'
-            type='date'
-            name='end'
-            value={tempDateRange.end}
-            onChange={handleDateRangeChange}
-          />
-          <button className='button' onClick={applyDateFilter}>Filtrar por fecha</button>
+          <section className={styles.head}>
+            <div className={styles.title}>
+              <h1>Proyectos</h1>
+            </div>
+            <div className={styles.headUserProfile}>
+              <div className={styles.profileComponent}>
+                <UserProfile />
+              </div>
+            </div>
+          </section>
+          <section className={styles.inputs}>
+            <div className={styles.inputsFilters}>
+              <div>
+              <label htmlFor="startDate">Filtrar Desde </label>
+                  <input
+                    id='startDate'
+                    className='inputBuscar'
+                    type='date'
+                    name='start'
+                    value={tempDateRange.start}
+                    onChange={handleDateRangeChange}
+                  />
+              </div>
+              <div>
+              <label htmlFor="endDate">hasta </label>
+                <input
+                  id='endDate'
+                  className='inputBuscar'
+                  type='date'
+                  name='end'
+                  value={tempDateRange.end}
+                  onChange={handleDateRangeChange}
+                />
+              </div>
+              <div>
+                <button className='button' onClick={applyDateFilter}>Filtrar por fecha</button>
+              </div>
+            </div>
+            <div className={styles.containerCreateProject}>
+              <Botones onClick={() => navigate('/crear-proyecto')} titulo='Añadir proyecto' />
+              <div>
+                  <input
+                    className='inputBuscar'
+                    type='text'
+                    placeholder='Buscar por título...'
+                    onChange={handleSearchChange}
+                  />
+                </div>
+            </div>
+          </section>
         </header>
         <div>
           <div className={styles.Projects}>

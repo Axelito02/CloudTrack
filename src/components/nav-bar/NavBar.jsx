@@ -2,15 +2,16 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import styles from './NavBar.module.css'
 import { useApp } from '../../../hooks/useApp'
+import { UserProfile } from '../Userprofile/UserProfile'
 
 export function Navbar ({ project }) {
   const navigate = useNavigate()
   const { activeLink, setActiveLink } = useApp() // Usa el hook useApp para acceder al estado del enlace activo
 
   const handleNavLinkClick = (path) => {
-    setActiveLink(path) // Actualiza el estado del enlace activo
-    // navigate(path, { state: project })
-  }
+    setActiveLink(path); // Actualiza el estado del enlace activo
+    navigate(path, { state: project });
+  };
 
   return (
     <div className={styles.ContainerMain}>
@@ -78,6 +79,9 @@ export function Navbar ({ project }) {
             <span className={styles.tag}>Notificaciones</span>
           </button>
         </div>
+      </div>
+      <div className={styles.userProfile}>
+          <UserProfile/>
       </div>
     </div>
   )

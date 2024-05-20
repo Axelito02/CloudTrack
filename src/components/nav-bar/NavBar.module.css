@@ -39,6 +39,10 @@
     width: 100%;
     background-color: #F1F7FF;
   }
+
+  .btnLink:hover {
+    background-color: #F1F7FF;
+  }
   
   .btnLink:hover .icon,
   .btnLink:hover .tag {
@@ -62,6 +66,12 @@
   /* Añade esta regla para cambiar el color de fondo del enlace activo */
   .link.active .icon, 
   .link.active .tag{
-    filter: invert(40%) sepia(100%) saturate(1109%) hue-rotate(191deg) brightness(95%) contrast(93%);
+    filter: invert(32%) sepia(100%) saturate(1109%) hue-rotate(191deg) brightness(95%) contrast(93%);
     color: #0071FF;
+  }
+
+  .userProfile{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
   }

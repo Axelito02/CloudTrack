@@ -1,0 +1,50 @@
+.containerUserProfile{
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.userProfile, .userName{
+  display: flex;
+  align-items: center;
+}
+
+.containerUserProfile:hover {
+  background-color: #3f95ff;
+  border-radius: 0.5rem;
+}
+
+.containerUserProfile:hover .name{
+  color: rgb(255, 255, 255);
+}
+
+.dropdownMenu {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 100%;
+  background-color: white;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  border-radius: 0.5rem;
+  z-index: 1000;
+}
+
+.dropdownMenu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdownMenu li {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.dropdownMenu li:hover {
+  background-color: #3f95ff;
+  color: rgb(255, 255, 255);
+}

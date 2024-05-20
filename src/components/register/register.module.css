@@ -1,8 +1,9 @@
-.Containerformlogin{
+.ContainerformRegister{
     display: flex;
     flex-direction: column;
     justify-content: center;
     flex: 1;
+    gap: 1rem;
 }
 
 .Containertitle{
@@ -47,4 +48,9 @@
 
 .link:hover{
     color: var(--MainBlue);
+}
+
+.inputRegister{
+    display: flex;
+    justify-content: center;
 }

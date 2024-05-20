@@ -21,7 +21,7 @@ export function Login () {
           </div>
         </form>
       </div>
-      <div>
+      <div className={styles.inputLogin}>
         <Botones onClick={() => navigate('/')} titulo='Iniciar sesión' />
       </div>
       <div className={styles.ContainerLink}>

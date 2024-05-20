@@ -33,25 +33,32 @@ export function ProjectDetailPage () {
       </section>
 
       <section className='content'>
-        <h1>{project && project.title}</h1>
-        <Botones onClick={() => navigate('/')} titulo='Volver a proyectos' />
         <div>
-          <div className={styles.Projects}>
-            {/* {sortedBitacoras.length > 0
-              ? (
-                <BitacoraCard
-                  bitacora={sortedBitacoras[sortedBitacoras.length - 1]} // Obtener el último elemento del array
-                  bitacoraImage={imageList.find((img) =>
-                    img.includes(sortedBitacoras[sortedBitacoras.length - 1].title.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, '') + sortedBitacoras[sortedBitacoras.length - 1].bitacoraId
-                    )
-                  )}
-                />
-                )
-              : (
-                <h3 className={styles.noMatch}>No hay bítacora</h3>
-                )} */}
+          <h1>{project && project.title}</h1>
+        </div>
+        <div className={styles.inputs}>
+          <Botones onClick={() => navigate('/')} titulo='Volver a proyectos' />
+          <div>
+            <div className={styles.Projects}>
+              {/* {sortedBitacoras.length > 0
+                ? (
+                  <BitacoraCard
+                    bitacora={sortedBitacoras[sortedBitacoras.length - 1]} // Obtener el último elemento del array
+                    bitacoraImage={imageList.find((img) =>
+                      img.includes(sortedBitacoras[sortedBitacoras.length - 1].title.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, '') + sortedBitacoras[sortedBitacoras.length - 1].bitacoraId
+                      )
+                    )}
+                  />
+                  )
+                : (
+                  <h3 className={styles.noMatch}>No hay bítacora</h3>
+                  )} */}
+            </div>
+            <Botones onClick={() => navigate(`/${project && project.title}/bitacora`, { state: project })} titulo='Ver bitacora' />
           </div>
-          <Botones onClick={() => navigate(`/${project && project.title}/bitacora`, { state: project })} titulo='Ver bitacora' />
+        </div>
+        <div>
+          Contenido
         </div>
       </section>
     </div>

@@ -1,7 +1,6 @@
-import { Navbar } from '../../components/nav-bar/NavBar'
 import { useLocation } from 'react-router-dom'
 import { useAprobaciones } from '../../../hooks/useAprobaciones'
-import { AprobacionesCard } from '../../components'
+import { AprobacionesCard, Navbar } from '../../components'
 import { useFilterApprovals } from '../../../hooks/useFilterApprovals'
 import styles from './ApprovalsPage.module.css'
 
@@ -22,35 +21,41 @@ export function ApprovalsPage () {
       <section className='content'>
         <h1>Aprobaciones</h1>
 
-        <div>
+        <div className={styles.contentContainer}>
           <div className={styles.filterContainer}>
-            <label>
-              <input
-                type='radio'
-                value='all'
-                checked={filter === 'all'}
-                onChange={() => setFilter('all')}
-              />
-              Todas
-            </label>
-            <label>
-              <input
-                type='radio'
-                value='approved'
-                checked={filter === 'approved'}
-                onChange={() => setFilter('approved')}
-              />
-              Aprobadas
-            </label>
-            <label>
-              <input
-                type='radio'
-                value='notApproved'
-                checked={filter === 'notApproved'}
-                onChange={() => setFilter('notApproved')}
-              />
-              No Aprobadas
-            </label>
+            <div className={styles.filter}>
+              <label>
+                <input
+                  type='radio'
+                  value='all'
+                  checked={filter === 'all'}
+                  onChange={() => setFilter('all')}
+                />
+                Todas
+              </label>
+            </div>
+            <div className={styles.filter}>
+              <label>
+                <input
+                  type='radio'
+                  value='approved'
+                  checked={filter === 'approved'}
+                  onChange={() => setFilter('approved')}
+                />
+                Aprobadas
+              </label>
+            </div>
+            <div className={styles.filter}>
+              <label>
+                <input
+                  type='radio'
+                  value='notApproved'
+                  checked={filter === 'notApproved'}
+                  onChange={() => setFilter('notApproved')}
+                />
+                No Aprobadas
+              </label>
+            </div>
           </div>
 
           <div className={styles.approvals}>

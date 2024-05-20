@@ -35,42 +35,52 @@ export function BitacoraPage () {
       </section>
 
       <section className='content'>
-        <div className={styles.header}>
-          <ButtonBack />
+        <div className={styles.containerContent}>
+          <div className={styles.header}>
+            <ButtonBack />
+            <div>
+              <h1 className={styles.title}>Actualizaciones</h1>
+              <p className='noMargin'> Proyecto {project.title} - {bitacora.title}</p>
+            </div>
+          </div>
+          <div className={styles.containerInputs}>
+            <div className={styles.inputs}>
+              <div>
+                <Botones onClick={() => navigate(`/${project.title}/bitacora/${bitacora.title}/crear-bitacora`, { state: { project, bitacora } })} titulo='Añadir nueva nota' />
+              </div>
+              <div className={styles.inputSearch}>
+                {/* Input para ingresar el nombre a filtrar */}
+                <input
+                  className={styles.inputBuscar}
+                  type='text'
+                  value={filtroNombre}
+                  onChange={e => setFiltroNombre(e.target.value)}
+                  placeholder='Filtrar por nombre'
+                />
+              </div>
+            </div>
+          </div>
           <div>
-            <h1 className={styles.title}>Actualizaciones</h1>
-            <p className='noMargin'> Proyecto {project.title} - {bitacora.title}</p>
-          </div>
-        </div>
-        {/* Input para ingresar el nombre a filtrar */}
-        <input
-          className={styles.inputBuscar}
-          type='text'
-          value={filtroNombre}
-          onChange={e => setFiltroNombre(e.target.value)}
-          placeholder='Filtrar por nombre'
-        />
-        <Botones onClick={() => navigate(`/${project.title}/bitacora/${bitacora.title}/crear-bitacora`, { state: { project, bitacora } })} titulo='Añadir nueva nota' />
-        <div>
-          <div className={styles.Projects}>
-            {/* Aplicar el filtro al mapear las notas */}
-            {sortedNotas.filter(filtrarPorNombre).length > 0
-              ? (
-                  sortedNotas.filter(filtrarPorNombre).map((nota) => {
-                    const tituloImagen = nota.title.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, '') + nota.notaId
+            <div className={styles.Projects}>
+              {/* Aplicar el filtro al mapear las notas */}
+              {sortedNotas.filter(filtrarPorNombre).length > 0
+                ? (
+                    sortedNotas.filter(filtrarPorNombre).map((nota) => {
+                      const tituloImagen = nota.title.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, '') + nota.notaId
 
-                    const notaImage = imageList.find((img) => img.includes(tituloImagen))
+                      const notaImage = imageList.find((img) => img.includes(tituloImagen))
 
-                    return (
-                      <BitacoraCard key={bitacora.id} nota={nota} notaImage={notaImage} onClick={() => navigate(`/${project.title}/bitacora/${bitacora.title}/${nota.title}`, { state: { project, bitacora, nota } })} />
-                    )
-                  })
-                )
-              : <h3 className={styles.noMatch}>No hay notas que coincidan con el filtro.</h3>}
+                      return (
+                        <BitacoraCard key={bitacora.id} nota={nota} notaImage={notaImage} onClick={() => navigate(`/${project.title}/bitacora/${bitacora.title}/${nota.title}`, { state: { project, bitacora, nota } })} />
+                      )
+                    })
+                  )
+                : <h3 className={styles.noMatch}>No hay notas que coincidan con el filtro.</h3>}
+            </div>
+            {sortedNotas.length === 0 && (
+              <h3 className={styles.noMatch}>No hay notas en esta carpeta. </h3>
+            )}
           </div>
-          {sortedNotas.length === 0 && (
-            <h3 className={styles.noMatch}>No hay notas en esta carpeta. </h3>
-          )}
         </div>
       </section>
     </div>

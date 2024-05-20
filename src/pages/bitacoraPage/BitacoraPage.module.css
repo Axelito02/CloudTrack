@@ -8,12 +8,10 @@
   flex-direction: row;
 }
 
-.content{
+.containerContent{
   display: flex;
   flex-direction: column;
-  flex: 1;
-  margin: 0 3rem;
-  padding: 0;
+  gap: 2rem;
 }
 
   .Projects{
@@ -39,7 +37,7 @@
     }
 
 .inputBuscar {
-      margin-top: 20px;
+  margin: 0;
       padding: 8px 12px;
       font-size: 16px;
       border: 1px solid #ccc;
@@ -52,3 +50,17 @@
       outline: none;
       border-color: #007bff; 
     }
+
+.containerInputs{
+  display: flex;
+  flex-direction: row;
+}
+
+.inputs{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+  gap: 1rem;
+}
