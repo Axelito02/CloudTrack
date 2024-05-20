@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { BitacoraCard, Navbar, ButtonBack } from '../../components'
 import { useNotas } from '../../../hooks/useNotas'
-// import { useFilters } from '../../hooks/useFilters';
 import styles from './BitacoraPage.module.css'
 import { Botones } from '../../components/botones/Botones'
 
@@ -21,6 +20,14 @@ export function BitacoraPage () {
 
   const sortedNotas = notas.sort((a, b) => new Date(b.date) - new Date(a.date))
 
+  // Estado para manejar el valor del filtro por nombre
+  const [filtroNombre, setFiltroNombre] = useState('')
+
+  // Función para filtrar notas por nombre
+  const filtrarPorNombre = nota => {
+    return nota.title.toLowerCase().includes(filtroNombre.toLowerCase())
+  }
+
   return (
     <div className='mainDiv'>
       <section className='navbar'>
@@ -35,12 +42,21 @@ export function BitacoraPage () {
             <p className='noMargin'> Proyecto {project.title} - {bitacora.title}</p>
           </div>
         </div>
+        {/* Input para ingresar el nombre a filtrar */}
+        <input
+          className={styles.inputBuscar}
+          type='text'
+          value={filtroNombre}
+          onChange={e => setFiltroNombre(e.target.value)}
+          placeholder='Filtrar por nombre'
+        />
         <Botones onClick={() => navigate(`/${project.title}/bitacora/${bitacora.title}/crear-bitacora`, { state: { project, bitacora } })} titulo='Añadir nueva nota' />
         <div>
           <div className={styles.Projects}>
-            {sortedNotas.length > 0
+            {/* Aplicar el filtro al mapear las notas */}
+            {sortedNotas.filter(filtrarPorNombre).length > 0
               ? (
-                  sortedNotas.map((nota) => {
+                  sortedNotas.filter(filtrarPorNombre).map((nota) => {
                     const tituloImagen = nota.title.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, '') + nota.notaId
 
                     const notaImage = imageList.find((img) => img.includes(tituloImagen))
@@ -50,7 +66,7 @@ export function BitacoraPage () {
                     )
                   })
                 )
-              : null}
+              : <h3 className={styles.noMatch}>No hay notas que coincidan con el filtro.</h3>}
           </div>
           {sortedNotas.length === 0 && (
             <h3 className={styles.noMatch}>No hay notas en esta carpeta. </h3>

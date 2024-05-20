@@ -11,6 +11,14 @@ export function ProjectDetailPage () {
   const project = location.state
   const navigate = useNavigate()
 
+  // Verifica si project está definido y no es null
+  if (!project) {
+    // Si no hay proyecto, redirige a la página de error o muestra un mensaje
+    navigate('/error') // Cambia '/error' por la ruta correcta de tu página de error
+    // return <div>No se encontró el proyecto.</div>;
+    // O puedes mostrar un mensaje en lugar de redirigir
+  }
+
   // const {
   //   bitacoras,
   //   imageList
@@ -25,7 +33,7 @@ export function ProjectDetailPage () {
       </section>
 
       <section className='content'>
-        <h1>{project.title}</h1>
+        <h1>{project && project.title}</h1>
         <Botones onClick={() => navigate('/')} titulo='Volver a proyectos' />
         <div>
           <div className={styles.Projects}>
@@ -43,7 +51,7 @@ export function ProjectDetailPage () {
                 <h3 className={styles.noMatch}>No hay bítacora</h3>
                 )} */}
           </div>
-          <Botones onClick={() => navigate(`/${project.title}/bitacora`, { state: project })} titulo='Ver bitacora' />
+          <Botones onClick={() => navigate(`/${project && project.title}/bitacora`, { state: project })} titulo='Ver bitacora' />
         </div>
       </section>
     </div>

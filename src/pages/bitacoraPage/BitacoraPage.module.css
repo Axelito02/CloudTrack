@@ -37,3 +37,18 @@
     .title{
       margin: 0;
     }
+
+.inputBuscar {
+      margin-top: 20px;
+      padding: 8px 12px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    
+.inputBuscar:focus {
+      outline: none;
+      border-color: #007bff; 
+    }

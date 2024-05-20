@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Swal from 'sweetalert2'
 import styles from './AprobacionesCard.module.css' // CSS Modules
 // import logo from '../../../assets/logo.png'
 
 export function AprobacionesCard ({ aprobacion, onDelete }) {
+  const [isChecked, setIsChecked] = useState(aprobacion.checked)
+
   function formatHour (dateString) {
     const date = new Date(dateString)
     const options = { timeZone: 'America/Bogota', hour: '2-digit', minute: '2-digit', hour12: true }
@@ -39,18 +41,27 @@ export function AprobacionesCard ({ aprobacion, onDelete }) {
     })
   }
 
+  const handleCheckboxChange = (event) => {
+    setIsChecked(event.target.checked)
+  }
+
   return (
     <div className={styles.aprobacionesCardContainer}>
-
       <div className={styles.aprobacionesCard}>
         <div className={styles.firstPart}>
           <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCzCpWFudzdS4vJwzfCyIgrX7FCeLPPBzGJJPzlC70_g&s' alt='Logo' className={styles.cardImage} />
-          <input checked={aprobacion.checked} className={styles.approvalCheck} id='aprovado' type='checkbox' />
+          <input
+            checked={isChecked}
+            className={styles.approvalCheck}
+            id='aprovado'
+            type='checkbox'
+            onChange={handleCheckboxChange}
+          />
         </div>
 
         <div className={styles.secondPart}>
           <i>{aprobacion.title}</i>
-          {aprobacion.checked
+          {isChecked
             ? (
               <p className='subTextLight'><span className={styles.greenText}>Aprobada</span> el {date}, a las {hour}</p>
               )

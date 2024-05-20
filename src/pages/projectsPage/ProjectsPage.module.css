@@ -12,3 +12,33 @@
   gap: 10vh 6vw;
   width: 100%;
 }
+
+/* Estilo para los inputs de filtrado */
+header input[type="text"],
+header input[type="date"],
+header button {
+  margin-right: 10px;
+  margin-bottom: 20px;
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 200px; /* Ajusta el ancho según sea necesario */
+  box-sizing: border-box;
+}
+
+header input[type="text"]:focus,
+header input[type="date"]:focus {
+  outline: none;
+  border-color: #007bff; /* Color de resaltado al tener foco */
+}
+
+header button {
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+header button:hover {
+  background-color: #0056b3; /* Color más oscuro al pasar el ratón */
+}

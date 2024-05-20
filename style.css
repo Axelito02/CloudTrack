@@ -177,9 +177,9 @@ body {
       border-radius: 30px;
     }
 
-    .swal2-actions{
+    /* .swal2-actions{
       margin: 0;
-    }
+    } */
 
     button.swal2-confirm.swal2-styled{
       background-color: #0164FF;
