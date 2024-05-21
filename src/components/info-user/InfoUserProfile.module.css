@@ -1,0 +1,92 @@
+.containerInfoUserProfile {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.containerInfo {
+    display: flex;
+    flex-direction: column;
+    color: #29364B;
+    gap: 1rem;
+}
+
+.description {
+    border-bottom: 0.1rem solid #BEC5CC;
+}
+
+.name h2 {
+    margin: 0;
+}
+
+.description {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex: 1;
+    justify-content: space-between;
+}
+
+.name, .iconEdit, .inputsInfo {
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.tag h4, .role h6, .ocupation h6, .number h6, .email h6, .availability h6, .availability p {
+    margin: 0;
+    padding: 0 2rem;
+}
+
+.labelIcon {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.role, .ocupation, .number, .email {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 0.1rem solid #BEC5CC;
+}
+
+.inputsInfo {
+    flex: 1;
+}
+
+.inputsInfo input {
+    margin: 0;
+    border: none;
+    padding: 0.5rem;
+    background-color: transparent;
+}
+
+.inputsInfo.enabled input {
+    border: 2px solid #2e8cff; /* Borde azul para inputs habilitados */
+    background-color: #f0f8ff; /* Fondo ligeramente azul para inputs habilitados */
+}
+
+.iconEdit:hover img {
+    filter: invert(50%) sepia(100%) saturate(1109%) hue-rotate(191deg) brightness(95%) contrast(93%);
+    color: #2e8cff;
+}
+
+.roleOccupation, .contactInformation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.availability {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.availability p {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #808080;
+}

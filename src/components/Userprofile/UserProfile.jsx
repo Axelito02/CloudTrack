@@ -21,7 +21,7 @@ export function UserProfile ({ position }) {
       {menuVisible && (
         <div className={`${styles.dropdownMenu} ${position === 'header' ? styles.dropdownMenuHeader : ''}`}>
           <ul>
-            <li>Perfil</li>
+            <li onClick={() => navigate('/perfil')}>Perfil</li>
             <li>Ajustes</li>
             <li onClick={() => navigate('/iniciar-sesion')}>Cerrar sesión</li>
           </ul>

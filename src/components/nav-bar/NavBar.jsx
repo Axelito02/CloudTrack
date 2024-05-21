@@ -26,7 +26,7 @@ export function Navbar ({ project }) {
               navigate(`/proyectos/${project.title}`, { state: project })
             }}
           >
-            <img className={styles.icon} src='../../../../assets/IconHome.svg' />
+            <img className={styles.icon} src='../../../../assets/IconProject.svg' />
             <span className={styles.tag}>Proyecto</span>
           </button>
         </div>

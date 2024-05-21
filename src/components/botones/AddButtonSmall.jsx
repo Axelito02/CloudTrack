@@ -5,7 +5,7 @@ export function AddButtonSmall ({ onClick, titulo, icon }) {
   return (
     <div>
       <button className={styles.addButtonSmall} onClick={onClick}>
-        <img class='icon' src={icon} alt='Icon' />
+        <img className='icon' src={icon} alt='Icon' />
         {titulo}
       </button>
     </div>

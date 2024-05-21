@@ -22,3 +22,5 @@ export * from './register/Register'
 
 export * from './Notification/NotificationCard'
 export * from './Userprofile/UserProfile'
+
+export * from './info-user/InfoUserProfile'
