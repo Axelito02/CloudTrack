@@ -60,7 +60,7 @@ export const useAddProject = () => {
         }
       }).then((result) => {
         if (result.isConfirmed) {
-          navigate('/')
+          navigate('/proyectos')
         }
       })
     } catch (error) {
