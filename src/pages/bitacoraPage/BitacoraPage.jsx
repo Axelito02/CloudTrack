@@ -76,10 +76,10 @@ export function BitacoraPage () {
                       )
                     })
                   )
-                : <h3 className={styles.noMatch}>No hay notas que coincidan con el filtro.</h3>}
+                : <h5 className={styles.noMatch}>No hay notas o ninguna coincide con el filtro.</h5>}
             </div>
             {sortedNotas.length === 0 && (
-              <h3 className={styles.noMatch}>No hay notas en esta carpeta. </h3>
+              <h4 className={styles.noMatch}>No hay notas en esta carpeta. <br /> Agrega una desde el botón "Añadir nueva nota" </h4>
             )}
           </div>
         </div>

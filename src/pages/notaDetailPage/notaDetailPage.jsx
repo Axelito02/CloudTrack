@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { Navbar, ButtonBack } from '../../components'
 import { useNotas } from '../../../hooks/useNotas'
+import { useUploadForm } from '../../../hooks/useUploadForm'
 // import { useFilters } from '../../hooks/useFilters';
 import styles from './notaDetailPage.module.css'
 
@@ -11,13 +12,27 @@ export function NotaDetailPage () {
   const { project, bitacora, nota } = location.state
   const projectId = project.id
   const bitacoraId = bitacora.id
+  const notaId = nota.notaId
+
+  const {
+    imageList
+  } = useNotas({ projectId, bitacoraId })
 
   const [isLoading, setIsLoading] = useState(true)
   const [imageError, setImageError] = useState(false)
 
-  // const handleDeleteClick = () => {
-  //   onDelete(notaId, imageName)
-  // }
+  const tituloImagen = nota.title.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, '') + nota.notaId
+  const notaImage = imageList.find((img) => img.includes(tituloImagen))
+  console.log(notaImage)
+  console.log(notaId)
+
+  const {
+    handleErase
+  } = useUploadForm(projectId, bitacoraId)
+
+  const handleDeleteClick = () => {
+    handleErase(projectId, bitacoraId, notaId, notaImage)
+  }
 
   const handleImageLoad = () => {
     setIsLoading(false)
@@ -28,14 +43,6 @@ export function NotaDetailPage () {
     setImageError(true)
     console.error('Error al cargar la imagen')
   }
-
-  const {
-    imageList
-  } = useNotas({ projectId, bitacoraId })
-
-  const tituloImagen = nota.title.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, '') + nota.notaId
-  const notaImage = imageList.find((img) => img.includes(tituloImagen))
-  console.log(notaImage)
 
   function formatHour (dateString) {
     const date = new Date(dateString)
@@ -66,7 +73,13 @@ export function NotaDetailPage () {
           </div>
         </div>
         <div className={styles.notaContainer}>
-          <p className='subTextLight'>{date} | {hour}</p>
+          <div className={styles.containerTopPart}>
+            <p className='subTextLight'>{date} | {hour}</p>
+            <div>
+              <img onClick={handleDeleteClick} className={styles.icon} src='../../../../assets/trashBtn.svg' />
+              <img className={styles.icon} src='../../../../assets/EditIcon3.svg' />
+            </div>
+          </div>
           <h3>{nota.title}</h3>
           <p className='smallText'>{nota.description}</p>
           {nota.writeBinnacle !== '' ? (<p>{nota.writeBinnacle}</p>) : (null)}

@@ -7,8 +7,8 @@ const NotificationCard = ({ name, text, rol }) => {
     <section className={styles.notification}>
       <div className={styles.notificationCard}>
         <div className={styles.name}>
-          <h3>{name}</h3>
-          <p>{rol}</p>
+          <h4>{name}</h4>
+          <p className='smallText'>{rol}</p>
         </div>
         <div className={styles.rectangulo}>
           <p className={styles.cursor}>{text} <span><a><u>Ver Todos</u></a></span></p>

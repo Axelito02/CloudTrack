@@ -8,23 +8,18 @@ export function Notification () {
   const project = location.state
   return (
 
-    <div className={styles.mainDiv}>
+    <div className='mainDiv'>
       <section className='navbar'>
         {/* <Main /> */}
         <Navbar project={project} />
       </section>
 
-      <section className={styles.content}>
-        <h1>Notificaciones</h1>
-        <section className={styles.filters}>
-          <div className={styles.Recientes}>
-            <p>Recientes</p>
-            <hr />
-          </div>
-          <div className={styles.todos}>
-            <p>Todos</p>
-            <hr />
-          </div>
+      <section className='content'>
+        <h1 className={styles.title}>Notificaciones</h1>
+        <p className='noMargin'>Notificaciones recientes</p>
+        <section className={`${styles.filters} noMargin`}>
+          <p className={styles.Recientes}>Recientes</p>
+          <p className={styles.todos}>Todos</p>
         </section>
 
         {/* Aquí estoy llamando al componente NotificationCard y pasando los valores */}

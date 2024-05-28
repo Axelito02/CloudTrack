@@ -15,6 +15,22 @@
     margin-top: 3vw;
 }
 
+    .containerTopPart{
+        display: flex;
+        justify-content: space-between;
+    }
+
+        .icon{
+            scale: 0.9;
+            margin-left: 1vh;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+            .icon:hover{
+                scale: 1;
+            }
+
     .cardImage{
         margin: 3vw auto;
         width: 75%;

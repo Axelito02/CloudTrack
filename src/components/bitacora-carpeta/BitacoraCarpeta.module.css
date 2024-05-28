@@ -1,5 +1,5 @@
 
-  .projectCardContainer {
+.projectCardContainer {
     display: flex;
     align-items: flex-start;
     width: 100%;
@@ -41,3 +41,15 @@
             .projectCard:hover{
                 scale: 1.02;
             }
+
+        .blueText{
+            color: var(--MainBlue);
+        }
+
+        .darkText{
+            color: var(--TextDarkGrey);
+        }
+
+        .greyText{
+            color: var(--TextLightGrey);
+        }

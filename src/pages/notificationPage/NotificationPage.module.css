@@ -1,6 +1,5 @@
-.mainDiv{
-  display: flex;
-  flex-direction: row;
+.title{
+  margin-bottom: 0;
 }
 
 .content{
@@ -17,21 +16,19 @@
 
 .Recientes{
   color: var(--MainBlue);
-}
-
-.Recientes hr{
-  width: 75px;
-  height: 1px;
-  background: var(--MainBlue);
+  font-size: 13.33px;
+  font-style: italic;
+  font-weight: 500;
+  border-bottom: 1px solid var(--MainBlue);
+  cursor: pointer;
 }
 
 .todos{
   margin-left: 20px;
-}
-
-.todos hr{
-  width: 100px;
-  height: 1px;
-  background: #D9D9D9;
-  margin-left: -20px;
+  font-size: 13.33px;
+  font-style: italic;
+  font-weight: 500;
+  border-bottom: 1px solid var(--TextLightGrey);
+  color: var(--TextLightGrey);
+  cursor: pointer;
 }

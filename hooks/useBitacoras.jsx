@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { db, storage } from '../src/config/firebase'
-import { onSnapshot, collection, doc } from 'firebase/firestore'
+import { onSnapshot, collection, doc, getDocs } from 'firebase/firestore'
 import { ref, listAll, getDownloadURL } from 'firebase/storage'
 
 export const useBitacoras = (projectId) => {
@@ -14,13 +14,20 @@ export const useBitacoras = (projectId) => {
 
     const projectRef = doc(db, 'documentos', projectId)
     const bitacorasRef = collection(projectRef, 'Bitacoras')
+
     // Función para manejar el snapshot de la colección
-    const unsubscribe = onSnapshot(bitacorasRef, (snapshot) => {
-      const updatedBitacoras = snapshot.docs.map((doc) => ({
-        ...doc.data(),
-        id: doc.id
-      }))
-      setBitacoras(updatedBitacoras)
+    const unsubscribe = onSnapshot(bitacorasRef, async (snapshot) => {
+      const bitacorasList = []
+
+      for (const doc of snapshot.docs) {
+        const bitacora = { id: doc.id, ...doc.data() }
+        const notasRef = collection(db, 'documentos', projectId, 'Bitacoras', doc.id, 'Notas')
+        const notasSnapshot = await getDocs(notasRef)
+        bitacora.hasNotes = !notasSnapshot.empty
+        bitacorasList.push(bitacora)
+      }
+
+      setBitacoras(bitacorasList)
     })
 
     // Limpia el listener cuando el componente se desmonta o cambia

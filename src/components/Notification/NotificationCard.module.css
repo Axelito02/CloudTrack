@@ -1,5 +1,5 @@
-.notification:last-child {
-  margin-bottom: 50px; /* Puedes ajustar el valor del margen según tus preferencias */
+.notification{
+  margin-bottom: 3vh;
 }
 
 .name{
@@ -8,7 +8,7 @@
   }
   
   .name p{
-    margin-left: 20px;
+    margin-left: 1vw;
   }
   
   .rectangulo {
@@ -20,6 +20,7 @@
     background: #FFF;
     box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.14);
     transition: all 0.3s;
+    margin-top: -2vh;
   }
   
     .rectangulo a {

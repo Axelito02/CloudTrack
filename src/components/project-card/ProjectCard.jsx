@@ -56,7 +56,7 @@ export function ProjectCard ({ project, onClick }) {
         <div className={styles.mainInfo}>
           <div>
             {endDate !== 'Invalid Date' ? (<p className='subText'>{date} - {endDate}</p>) : (<p className='subText'>{date}</p>)}
-            <h5 style={noMargin}>{project.title}</h5>
+            <h5 style={noMargin} className={styles.renglon}>{project.title}</h5>
             <p className='subText'>{project.constructora}</p>
           </div>
 

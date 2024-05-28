@@ -6,8 +6,10 @@ import { ref, uploadBytes, deleteObject } from 'firebase/storage'
 
 import { v4 as uuidv4 } from 'uuid'
 import Swal from 'sweetalert2'
+import { useNavigate } from 'react-router-dom'
 
 export const useUploadForm = (Id) => {
+  const navigate = useNavigate()
   const { projectId, bitacoraId } = Id
 
   const [imageUpload, setimageUpload] = useState(null)
@@ -51,6 +53,12 @@ export const useUploadForm = (Id) => {
       return
     }
     try {
+      Swal.fire({
+        title: 'Cargando...',
+        html: '<div class="loaderWrapper"><div class="loader"></div></div>',
+        allowOutsideClick: false,
+        showConfirmButton: false
+      })
       const tituloImagen = formState.title.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, '') + formState.notaId
 
       const imageRef = ref(storage, `documentosImages/${tituloImagen}`)
@@ -68,6 +76,10 @@ export const useUploadForm = (Id) => {
           customClass: {
             confirmButton: 'swal-button'
           }
+        }).then((result) => {
+          if (result.isConfirmed) {
+            navigate(-1)
+          }
         })
       })
     } catch (error) {
@@ -84,12 +96,13 @@ export const useUploadForm = (Id) => {
     }
   }
 
-  const handleErase = async (bitacoraId, imageName) => {
-    const bitacorasRef = collection(db, 'documentos', projectId, 'Bitacoras')
-    const q = query(bitacorasRef, where('bitacoraId', '==', bitacoraId))
+  const handleErase = async (projectId, bitacoraId, notaId, imageName) => {
+    console.log(imageName)
+    const notasRef = collection(db, 'documentos', projectId, 'Bitacoras', bitacoraId, 'Notas')
+    const q = query(notasRef, where('notaId', '==', notaId))
 
     Swal.fire({
-      title: '¿Quieres borrar la bítacora',
+      title: '¿Quieres borrar la nota',
       text: 'Si lo haces no podrá ser recuperada',
       icon: 'warning',
       showCancelButton: true,
@@ -116,20 +129,25 @@ export const useUploadForm = (Id) => {
           }
 
           // Borrar la imagen en Storage
-          const imageRef = ref(storage, `documentosImages/${imageName}`)
+          const imageRef = ref(storage, `${imageName}`)
           await deleteObject(imageRef)
 
           // Borrar cada documento que coincida (debería ser uno solo si bitacoraId es único)
           querySnapshot.forEach(async (document) => {
-            await deleteDoc(doc(db, 'documentos', projectId, 'Bitacoras', document.id))
+            await deleteDoc(doc(db, 'documentos', projectId, 'Bitacoras', bitacoraId, 'Notas', document.id))
           })
 
           Swal.fire({
-            title: 'Tu proyecto se ha eliminado correctamente',
+            title: 'Tu nota se ha eliminado correctamente',
             icon: 'success',
+            iconColor: '#0164FF',
             confirmButtonText: 'Continuar',
             customClass: {
               confirmButton: 'swal-button'
+            }
+          }).then((result) => {
+            if (result.isConfirmed) {
+              navigate(-1)
             }
           })
         } catch (error) {

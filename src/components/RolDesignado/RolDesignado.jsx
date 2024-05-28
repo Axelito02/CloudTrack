@@ -1,11 +1,11 @@
 import React from 'react'
-import './RolDesignado.css'
+import styles from './RolDesignado.module.css'
 import icono from '../../../assets/mas.png'
 
 const RolDesignado = ({ titulo, avatarSrc, nombre, cantidad }) => {
   return (
     <div className='RolDesignado'>
-      <h3>{titulo}</h3>
+      <h3 className={styles.title}>{titulo}</h3>
       <div className='RolDesignado-avatar'>
         <img src={avatarSrc} alt='Avatar' />
         <div className='RolDesignado-add'>

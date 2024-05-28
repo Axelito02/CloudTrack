@@ -15,7 +15,7 @@ export function UploadForm ({ projectId, bitacoraId }) {
   return (
     <form className={styles.form}>
       <div className={styles.inputs}>
-        <h4 htmlFor='project-title'>Título</h4>
+        <h4 className={styles.title} htmlFor='project-title'>Título</h4>
         <input
           className={styles.textInput}
           type='text'
@@ -54,7 +54,7 @@ export function UploadForm ({ projectId, bitacoraId }) {
           </div>
         </div>
 
-        <h4>Descripción</h4>
+        <h4 className={styles.title}>Descripción</h4>
         <textarea
           className={styles.descriptionInput}
           id='project-description'
@@ -64,7 +64,7 @@ export function UploadForm ({ projectId, bitacoraId }) {
           onChange={handleOnChange}
         />
 
-        <h4>Escribir aqui una Bitacora</h4>
+        <h4 className={styles.title}>Escribir aqui una Bitacora</h4>
         <textarea
           className={styles.writeBinnacleInput}
           id='project-writeBinnacle'

@@ -17,6 +17,7 @@ export function AddProject () {
       <div className={styles.inputs}>
         <div className={styles.formGroup}>
           <h4
+            className={styles.sectionTitle}
             htmlFor='project-title'
           >
             Nombre del proyecto
@@ -31,7 +32,7 @@ export function AddProject () {
         </div>
 
         <div className={styles.formGroup}>
-          <h4>Empresa constructora</h4>
+          <h4 className={styles.sectionTitle}>Empresa constructora</h4>
           <input
             className={styles.costructorInput}
             id='project-constructor'
@@ -41,7 +42,7 @@ export function AddProject () {
         </div>
 
         <div className={styles.formGroup}>
-          <h4>Localidad</h4>
+          <h4 className={styles.sectionTitle}>Localidad</h4>
           <input
             className={styles.costructorInput}
             id='project-location'
@@ -51,7 +52,7 @@ export function AddProject () {
         </div>
 
         <div className={styles.formGroup}>
-          <h4>Barrio</h4>
+          <h4 className={styles.sectionTitle}>Barrio</h4>
           <input
             className={styles.costructorInput}
             id='project-barrio'
@@ -61,7 +62,7 @@ export function AddProject () {
         </div>
 
         <div className={styles.formGroup}>
-          <h4>Contratista</h4>
+          <h4 className={styles.sectionTitle}>Contratista</h4>
           <input
             className={styles.costructorInput}
             id='project-constratista'
@@ -72,7 +73,7 @@ export function AddProject () {
 
         {/* Nuevo div: Tipo de venta */}
         <div className={styles.formGroup}>
-          <h4>Tipo de venta</h4>
+          <h4 className={styles.sectionTitle}>Tipo de venta</h4>
           <div className={styles.radioGroup}>
             <label>
               <input type='radio' name='tipoVenta' value='soloInterna' onChange={handleOnChange} />
@@ -91,7 +92,7 @@ export function AddProject () {
 
         {/* Nuevo div: Tipo de construcción */}
         <div className={styles.formGroup}>
-          <h4>Tipo de construcción</h4>
+          <h4 className={styles.sectionTitle}>Tipo de construcción</h4>
           <div className={styles.radioGroup}>
             <label>
               <input type='radio' name='tipoConstruccion' value='casa' onChange={handleOnChange} />
@@ -125,7 +126,7 @@ export function AddProject () {
 
         {/* Nuevo div: Cantidades */}
         <div className={styles.CantidadesGroup}>
-          <h4> Cantidades</h4>
+          <h4 className={styles.sectionTitle}> Cantidades</h4>
           <label className={styles.Cantidades}>
             <p>Torres:</p>
             <input
@@ -156,7 +157,7 @@ export function AddProject () {
         </div>
 
         <div className={styles.formGroup}>
-          <h4>Fecha de inicio</h4>
+          <h4 className={styles.sectionTitle}>Fecha de inicio</h4>
           <input
             type='date'
             className={styles.costructorInput}
@@ -167,7 +168,7 @@ export function AddProject () {
         </div>
 
         <div className={styles.formGroup}>
-          <h4>Fecha estimada finalización</h4>
+          <h4 className={styles.sectionTitle}>Fecha estimada finalización</h4>
           <input
             type='date'
             className={styles.costructorInput}

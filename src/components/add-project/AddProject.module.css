@@ -14,7 +14,7 @@
   flex-wrap: nowrap;
 }
 
-h4 {
+.sectionTitle {
   margin: 0;
   width: 40%;
   white-space: nowrap; 
@@ -58,29 +58,4 @@ h4 {
 .Cantidades input{
   width: 25px;
   margin-right: 50px;
-}
-
-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  border-radius: 4px;
-  background-color: #007bff;
-  color: white;
-  cursor: pointer;
-  margin-top: 20px;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-
-button:hover:disabled {
-  background-color: #b3b3b3;
-  cursor: not-allowed;
 }
