@@ -43,8 +43,8 @@ export function ProjectsPage () {
           </section>
           <section className={styles.inputs}>
             <div className={styles.filterContainer}>
-              <button 
-                className={styles.toggleButton} 
+              <button
+                className={styles.toggleButton}
                 onClick={() => setShowFilters(!showFilters)}
               >
                 {showFilters ? 'Ocultar filtros' : 'Filtrar por fecha'}

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import { ErrorPage, ProjectsPage, ProfilePage, AddProjectPage, ProjectDetailPage, BitacoraCarpetaPage, BitacoraPage, NotaDetailPage, SubmitPage, Notification, ApprovalsPage, Progress, LoginPage, RegisterPage } from './pages'
+import { ErrorPage, ProjectsPage, ProfilePage, AddProjectPage, EditProject, ProjectDetailPage, BitacoraCarpetaPage, BitacoraPage, NotaDetailPage, SubmitPage, Notification, ApprovalsPage, Progress, LoginPage, RegisterPage } from './pages'
 
 export function AppRouter () {
   return (
@@ -9,6 +9,7 @@ export function AppRouter () {
         <Route path='/proyectos' element={<ProjectsPage />} />
         <Route path='/perfil' element={<ProfilePage />} />
         <Route path='/proyectos/crear-proyecto' element={<AddProjectPage />} />
+        <Route path='/proyectos/editar-proyecto' element={<EditProject />} />
         <Route path='/iniciar-sesion' element={<LoginPage />} />
         <Route path='/registro' element={<RegisterPage />} />
         <Route path='/proyectos/:title/bitacora/:bitacora/:nota' element={<NotaDetailPage />} />

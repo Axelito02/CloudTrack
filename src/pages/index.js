@@ -2,6 +2,7 @@
 
 export * from './projectsPage/ProjectsPage'
 export * from './addprojectPage/AddProjectPage'
+export * from './EditProject/EditProject'
 export * from './projectDetailPage/ProjectDetailPage'
 
 // Bitacoras

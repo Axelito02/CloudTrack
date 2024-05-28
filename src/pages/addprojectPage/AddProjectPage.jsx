@@ -1,5 +1,6 @@
 import React from 'react'
 import { AddProject, ButtonBack } from '../../components'
+import RolesContainer from '../../components/RolesContainer/RolesContainer'
 import styles from './AddProjectPage.module.css'
 
 export function AddProjectPage () {
@@ -11,6 +12,7 @@ export function AddProjectPage () {
           <h1 className={styles.title}>Crea un nuevo proyecto</h1>
         </div>
         <AddProject />
+        <RolesContainer />
       </section>
     </div>
   )

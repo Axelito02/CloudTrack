@@ -3,6 +3,7 @@
 // export * from './cat-card/Cat-Card'
 
 export * from './add-project/AddProject'
+export * from './RolesContainer/RolesContainer'
 export * from './project-card/ProjectCard'
 
 export * from './bitacora-carpeta/BitacoraCarpeta'
