@@ -13,29 +13,43 @@ export const useUploadForm = (Id) => {
   const { projectId, bitacoraId } = Id
 
   const [imageUpload, setimageUpload] = useState(null)
+  const [signUpload, setsignUpload] = useState(null)
 
   const [formState, setFormState] = useState({
     notaId: '',
+    date: '',
+    pisos: false,
+    torres: false,
+    apartamentos: false,
+    otros: false,
+    etapa: '',
     title: '',
     description: '',
     writeBinnacle: '',
-    date: ''
+    materials: '',
+    process: '',
+    planos: ''
   })
 
   const handleImageChange = (event) => {
     setimageUpload(event.target.files[0])
   }
 
+  const handleSignChange = (event) => {
+    setsignUpload(event.target.files[0])
+  }
+
   const handleOnChange = ({ target }) => {
-    const { name, value } = target
+    const { name, value, type, checked } = target
+
+    const newValue = type === 'checkbox' ? checked : value
 
     const randomId = uuidv4()
 
     setFormState({
       ...formState,
-      [name]: value,
-      notaId: randomId,
-      date: new Date().toISOString()
+      [name]: newValue,
+      notaId: randomId
     })
 
     console.log(formState)
@@ -59,31 +73,34 @@ export const useUploadForm = (Id) => {
         allowOutsideClick: false,
         showConfirmButton: false
       })
-      const tituloImagen = formState.title.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, '') + formState.notaId
 
+      const tituloImagen = formState.title.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, '') + formState.notaId
       const imageRef = ref(storage, `documentosImages/${tituloImagen}`)
+      await uploadBytes(imageRef, imageUpload)
+
+      const tituloFirma = 'Firma' + formState.title.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, '') + formState.notaId
+      const firmaRef = ref(storage, `documentosFirmas/${tituloFirma}`)
+      await uploadBytes(firmaRef, signUpload)
 
       const bitacorasRef = collection(db, 'documentos', projectId, 'Bitacoras', bitacoraId, 'Notas')
       await addDoc(bitacorasRef, formState)
 
-      uploadBytes(imageRef, imageUpload).then(() => {
-        // window.alert('Subido')
-        Swal.fire({
-          title: 'Tu bitacora se ha subido',
-          text: 'Revisa bitacoras para verlo',
-          icon: 'success',
-          confirmButtonText: 'Continuar',
-          customClass: {
-            confirmButton: 'swal-button'
-          }
-        }).then((result) => {
-          if (result.isConfirmed) {
-            navigate(-1)
-          }
-        })
+      Swal.fire({
+        title: 'Tu bitácora se ha subido',
+        text: 'Revisa bitácoras para verlo',
+        icon: 'success',
+        iconColor: '#0164FF',
+        confirmButtonText: 'Continuar',
+        customClass: {
+          confirmButton: 'swal-button'
+        }
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate(-1)
+        }
       })
     } catch (error) {
-      console.log(error)
+      console.error(error)
       Swal.fire({
         title: 'Ha ocurrido un error',
         text: `${error}`,
@@ -96,7 +113,7 @@ export const useUploadForm = (Id) => {
     }
   }
 
-  const handleErase = async (projectId, bitacoraId, notaId, imageName) => {
+  const handleErase = async (projectId, bitacoraId, notaId, imageName, firmaName) => {
     console.log(imageName)
     const notasRef = collection(db, 'documentos', projectId, 'Bitacoras', bitacoraId, 'Notas')
     const q = query(notasRef, where('notaId', '==', notaId))
@@ -131,6 +148,10 @@ export const useUploadForm = (Id) => {
           // Borrar la imagen en Storage
           const imageRef = ref(storage, `${imageName}`)
           await deleteObject(imageRef)
+
+          // Borrar la imagen en Storage
+          const firmaRef = ref(storage, `${firmaName}`)
+          await deleteObject(firmaRef)
 
           // Borrar cada documento que coincida (debería ser uno solo si bitacoraId es único)
           querySnapshot.forEach(async (document) => {
@@ -170,9 +191,11 @@ export const useUploadForm = (Id) => {
     {
       disableBtn,
       handleImageChange,
+      handleSignChange,
       handleOnChange,
       handleBitacoraSubmit,
       imageUpload,
+      signUpload,
       handleErase
     }
   )

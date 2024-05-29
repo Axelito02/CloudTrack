@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './BitacoraCarpeta.module.css'
 
-export function BitacoraCarpeta ({ bitacora, hasNotes, onClick }) {
+export function BitacoraCarpeta ({ bitacora, hasNotes, onClick, oldestdate }) {
   function formatHour (dateString) {
     const date = new Date(dateString)
     const options = { timeZone: 'America/Bogota', hour: '2-digit', minute: '2-digit', hour12: true }
@@ -13,8 +13,8 @@ export function BitacoraCarpeta ({ bitacora, hasNotes, onClick }) {
     return new Date(dateString).toLocaleDateString('es-ES', options)
   }
 
-  const date = formatDate(bitacora.date)
-  const hour = formatHour(bitacora.date)
+  const date = formatDate(oldestdate)
+  const hour = formatHour(oldestdate)
   const numero = String(bitacora.order + 1).padStart(2, '0')
 
   const titleColor = hasNotes ? styles.blueText : styles.greyText
@@ -32,7 +32,19 @@ export function BitacoraCarpeta ({ bitacora, hasNotes, onClick }) {
         </div>
         <div className={styles.projectCard} onClick={onClick}>
           <h6 className={`noMargin ${textColor}`}>Actualizaciones de bitácora</h6>
-          <p className={`subtext' ${textColor}`}>{date} | {hour}</p>
+          {date !== 'Invalid Date'
+            ? (
+                hour !== 'Invalid Date'
+                  ? (
+                    <p className={textColor}>{date} | {hour}</p>
+                    )
+                  : (
+                    <p className={textColor}>{date}</p>
+                    )
+              )
+            : (
+              <p className={textColor}>Etapa no iniciada</p>
+              )}
         </div>
       </div>
     </div>

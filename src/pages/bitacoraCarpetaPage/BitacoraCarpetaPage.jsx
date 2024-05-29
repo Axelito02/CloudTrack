@@ -53,7 +53,6 @@ export function BitacoraCarpetaPage () {
                   onChange={e => setFiltroNombre(e.target.value)}
                   placeholder='Filtrar por nombre'
                 />
-                <img src='../../../../assets/filterIcon.svg' />
               </div>
             </div>
           </div>
@@ -65,7 +64,7 @@ export function BitacoraCarpetaPage () {
               ? (
                   sortedBitacoras.filter(filtrarPorNombre).map((bitacora) => {
                     return (
-                      <BitacoraCarpeta key={bitacora.id} bitacora={bitacora} hasNotes={bitacora.hasNotes} onClick={() => navigate(`/proyectos/${project.title}/bitacora/${bitacora.title}`, { state: { project, bitacora } })} />
+                      <BitacoraCarpeta key={bitacora.id} bitacora={bitacora} hasNotes={bitacora.hasNotes} oldestdate={bitacora.oldestNoteDate} onClick={() => navigate(`/proyectos/${project.title}/bitacora/${bitacora.title}`, { state: { project, bitacora } })} />
                     )
                   })
                 )

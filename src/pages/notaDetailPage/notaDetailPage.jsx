@@ -15,23 +15,26 @@ export function NotaDetailPage () {
   const notaId = nota.notaId
 
   const {
-    imageList
+    imageList,
+    firmaList
   } = useNotas({ projectId, bitacoraId })
 
   const [isLoading, setIsLoading] = useState(true)
   const [imageError, setImageError] = useState(false)
+  const [firmaError, setFirmaError] = useState(false)
 
   const tituloImagen = nota.title.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, '') + nota.notaId
   const notaImage = imageList.find((img) => img.includes(tituloImagen))
-  console.log(notaImage)
-  console.log(notaId)
+
+  const firmaImagen = 'Firma' + nota.title.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, '') + nota.notaId
+  const notaFirma = firmaList.find((img) => img.includes(firmaImagen))
 
   const {
     handleErase
   } = useUploadForm(projectId, bitacoraId)
 
   const handleDeleteClick = () => {
-    handleErase(projectId, bitacoraId, notaId, notaImage)
+    handleErase(projectId, bitacoraId, notaId, notaImage, notaFirma)
   }
 
   const handleImageLoad = () => {
@@ -42,6 +45,12 @@ export function NotaDetailPage () {
     setIsLoading(false)
     setImageError(true)
     console.error('Error al cargar la imagen')
+  }
+
+  const handleFirmaError = () => {
+    setIsLoading(false)
+    setFirmaError(true)
+    console.error('Error al cargar la firma')
   }
 
   function formatHour (dateString) {
@@ -74,15 +83,35 @@ export function NotaDetailPage () {
         </div>
         <div className={styles.notaContainer}>
           <div className={styles.containerTopPart}>
-            <p className='subTextLight'>{date} | {hour}</p>
+            {date !== 'Invalid Date'
+              ? (
+                  hour !== 'Invalid Date'
+                    ? (
+                      <p className='subTextLight'>{date} | {hour}</p>
+                      )
+                    : (
+                      <p className='subTextLight'>{date}</p>
+                      )
+                )
+              : (
+                <p className='subTextLight'>Sin fecha asignada</p>
+                )}
             <div>
               <img onClick={handleDeleteClick} className={styles.icon} src='../../../../assets/trashBtn.svg' />
               <img className={styles.icon} src='../../../../assets/EditIcon3.svg' />
             </div>
           </div>
-          <h3>{nota.title}</h3>
+          <p className={`${styles.title} smallText`}>{nota.etapa}</p>
+          <h3 className={styles.title}>{nota.title}</h3>
           <p className='smallText'>{nota.description}</p>
-          {nota.writeBinnacle !== '' ? (<p>{nota.writeBinnacle}</p>) : (null)}
+
+          {nota.writeBinnacle !== ''
+            ? (
+              <p className={styles.Binnacle}>{nota.writeBinnacle}</p>
+              )
+            : (
+                null
+              )}
 
           {isLoading && <div className='loaderWrapper'><div className='loader' /></div>}
           {imageError
@@ -100,6 +129,33 @@ export function NotaDetailPage () {
               />
               )}
 
+          {firmaError
+            ? (
+                null
+              )
+            : (
+              <>
+                <p>Foto de firma adjunta:</p>
+                <img
+                  src={notaFirma}
+                  alt={nota.title}
+                  className={styles.cardSign}
+                  style={{ display: isLoading ? 'none' : 'block' }}
+                  onLoad={handleImageLoad}
+                  onError={handleFirmaError}
+                />
+              </>
+              )}
+          {nota.materials !== '' ? (<p>• {nota.materials}</p>) : (null)}
+          {nota.process !== '' ? (<p>• {nota.process}</p>) : (null)}
+          {nota.planos !== '' ? (<p>• {nota.planos}</p>) : (null)}
+
+          <div className={styles.tags}>
+            {nota.pisos === true ? (<p className={styles.tagElement}>Pisos</p>) : (null)}
+            {nota.torres === true ? (<p className={styles.tagElement}>Torres</p>) : (null)}
+            {nota.apartamentos === true ? (<p className={styles.tagElement}>Apartamentos</p>) : (null)}
+            {nota.otros === true ? (<p className={styles.tagElement}>Otros</p>) : (null)}
+          </div>
         </div>
       </section>
     </div>

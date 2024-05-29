@@ -5,11 +5,9 @@ export function ProjectCard ({ project, onClick }) {
   // const [isLoading, setIsLoading] = useState(true)
 
   function formatDate (dateString) {
-    // const date = new Date(dateString)
     const [year, month, day] = dateString.split('-').map(Number)
     const date = new Date(year, month - 1, day)
     const options = { day: 'numeric', month: 'short', year: 'numeric' }
-    console.log(dateString)
     return date.toLocaleDateString('es-ES', options)
   }
 
@@ -55,7 +53,19 @@ export function ProjectCard ({ project, onClick }) {
       <div className={styles.upperHalf}>
         <div className={styles.mainInfo}>
           <div>
-            {endDate !== 'Invalid Date' ? (<p className='subText'>{date} - {endDate}</p>) : (<p className='subText'>{date}</p>)}
+            {date !== 'Invalid Date'
+              ? (
+                  endDate !== 'Invalid Date'
+                    ? (
+                      <p className='subText'>{date} - {endDate}</p>
+                      )
+                    : (
+                      <p className='subText'>{date}</p>
+                      )
+                )
+              : (
+                <p className='subText'>Sin fecha asignada</p>
+                )}
             <h5 style={noMargin} className={styles.renglon}>{project.title}</h5>
             <p className='subText'>{project.constructora}</p>
           </div>

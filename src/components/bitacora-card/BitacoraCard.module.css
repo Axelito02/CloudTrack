@@ -17,8 +17,16 @@
 .projectCard {
   padding: 15px 30px;            /* Espacio interno de la tarjeta */
   text-align: left;     /* Centra el texto */
-  height: 30vh;
 }
+
+  .breakword{
+    width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break:break-word;
+    white-space: normal;
+    hyphens: auto; 
+  }
 
   .cardImage{
     height: 20vh;
@@ -28,3 +36,18 @@
   .Center{
     margin: 20px;
   }
+
+  .tags{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+    .tagElement{
+        font-size: 10px;
+        font-weight: 400;
+        font-style: italic;
+        border: 1px solid var(--TextDarkGrey);
+        border-radius: 50px;
+        padding: 1vh 1.5vh;
+        margin-right: 1vh;
+    }

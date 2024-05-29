@@ -7,8 +7,12 @@ export const useNotas = (Id) => {
   const { projectId, bitacoraId } = Id
 
   const [notas, setNotas] = useState([])
+
   const [imageList, setImageList] = useState([])
   const imageListRef = ref(storage, 'documentosImages/')
+
+  const [firmaList, setFirmaList] = useState([])
+  const firmaListRef = ref(storage, 'documentosFirmas/')
 
   useEffect(() => {
     if (!projectId || !bitacoraId) return
@@ -38,10 +42,18 @@ export const useNotas = (Id) => {
         })
       })
     })
+    listAll(firmaListRef).then((response) => {
+      response.items.forEach((item) => {
+        getDownloadURL(item).then((url) => {
+          setFirmaList((prev) => [...prev, url])
+        })
+      })
+    })
   }, [bitacoraId])
 
   return {
     notas,
-    imageList
+    imageList,
+    firmaList
   }
 }

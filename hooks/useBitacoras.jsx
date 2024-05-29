@@ -24,6 +24,10 @@ export const useBitacoras = (projectId) => {
         const notasRef = collection(db, 'documentos', projectId, 'Bitacoras', doc.id, 'Notas')
         const notasSnapshot = await getDocs(notasRef)
         bitacora.hasNotes = !notasSnapshot.empty
+        if (bitacora.hasNotes) {
+          const oldestNoteDate = getOldestNoteDate(notasSnapshot)
+          bitacora.oldestNoteDate = oldestNoteDate
+        }
         bitacorasList.push(bitacora)
       }
 
@@ -43,6 +47,11 @@ export const useBitacoras = (projectId) => {
       })
     })
   }, [projectId])
+
+  const getOldestNoteDate = (snapshot) => {
+    const dates = snapshot.docs.map(doc => new Date(doc.data().date))
+    return new Date(Math.min.apply(null, dates))
+  }
 
   return {
     bitacoras,

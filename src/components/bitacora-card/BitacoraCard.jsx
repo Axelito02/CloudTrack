@@ -19,9 +19,27 @@ export function BitacoraCard ({ nota, onClick, notaImage, onDelete }) {
   return (
     <div className={styles.projectCardContainer} onClick={onClick}>
       <div className={styles.projectCard}>
-        <p className='subTextLight'>{date} | {hour}</p>
+        {date !== 'Invalid Date'
+          ? (
+              hour !== 'Invalid Date'
+                ? (
+                  <p className='subTextLight'>{date} | {hour}</p>
+                  )
+                : (
+                  <p className='subTextLight'>{date}</p>
+                  )
+            )
+          : (
+            <p className='subTextLight'>Sin fecha asignada</p>
+            )}
         <h4>{nota.title}</h4>
-        <p className='smallText'>{nota.description}</p>
+        <p className={`${styles.breakword} smallText`}>{nota.description}</p>
+        <div className={styles.tags}>
+          {nota.pisos === true ? (<p className={styles.tagElement}>Pisos</p>) : (null)}
+          {nota.torres === true ? (<p className={styles.tagElement}>Torres</p>) : (null)}
+          {nota.apartamentos === true ? (<p className={styles.tagElement}>Aptos</p>) : (null)}
+          {nota.otros === true ? (<p className={styles.tagElement}>Otros</p>) : (null)}
+        </div>
       </div>
     </div>
   )
