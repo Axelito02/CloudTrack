@@ -2,17 +2,20 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 8px;
 }
 
 .containerInfo {
     display: flex;
     flex-direction: column;
     color: #29364B;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
-.description {
-    border-bottom: 0.1rem solid #BEC5CC;
+.name {
+    text-align: center;
 }
 
 .name h2 {
@@ -23,70 +26,81 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    flex: 1;
     justify-content: space-between;
+    border-bottom: 1px solid #BEC5CC;
+    padding: 0.5rem 0;
 }
 
-.name, .iconEdit, .inputsInfo {
-    display: flex;
-    align-items: center;
-    padding: 0 2rem;
-}
-
-.tag h4, .role h6, .ocupation h6, .number h6, .email h6, .availability h6, .availability p {
-    margin: 0;
-    padding: 0 2rem;
-}
-
-.labelIcon {
-    display: flex;
-    align-items: center;
+.iconEdit img {
+    width: 24px;
+    height: 24px;
     cursor: pointer;
+}
+
+.iconEdit:hover img {
+    filter: invert(50%) sepia(100%) saturate(1109%) hue-rotate(191deg) brightness(95%) contrast(93%);
+}
+
+.roleOccupation, .contactInformation, .availability {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #BEC5CC;
 }
 
 .role, .ocupation, .number, .email {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    border-bottom: 0.1rem solid #BEC5CC;
+    flex-direction: column;
+    width: 48%;
+}
+
+label h6 {
+    margin: 0 0 0.5rem 0;
+    font-weight: 600;
 }
 
 .inputsInfo {
     flex: 1;
 }
 
-.inputsInfo input {
+.inputsInfo input, .inputsInfo select, .phoneInput {
+    width: 100%;
     margin: 0;
     border: none;
     padding: 0.5rem;
     background-color: transparent;
+    outline: none;
+    border-radius: 4px;
 }
 
-.inputsInfo.enabled input {
-    border: 2px solid #2e8cff; /* Borde azul para inputs habilitados */
-    background-color: #f0f8ff; /* Fondo ligeramente azul para inputs habilitados */
+.inputsInfo.enabled input, .inputsInfo.enabled select, .inputsInfo.enabled .phoneInput {
+    border: 2px solid #2e8cff;
+    background-color: #f0f8ff;
 }
 
-.iconEdit:hover img {
-    filter: invert(50%) sepia(100%) saturate(1109%) hue-rotate(191deg) brightness(95%) contrast(93%);
-    color: #2e8cff;
+.phoneInputContainer {
+    width: 100%;
 }
 
-.roleOccupation, .contactInformation {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+.phoneInput {
+    border: none; /* Borde eliminado por defecto */
+}
+
+.disabledInput {
+    border: none !important; /* Eliminamos el borde cuando está deshabilitado */
 }
 
 .availability {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    border-bottom: none;
 }
 
-.availability p {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    color: #808080;
+.availability div {
+    width: 100%;
+    text-align: center;
+}
+
+.availability h6, .availability p {
+    margin: 0;
 }
