@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { ProjectCard, AddButtonSmall, UserProfile } from '../../components'
+import { ProjectCard, AddButtonSmall, UserProfile, Botones } from '../../components'
 import { useProjects } from '../../../hooks/useProjects'
 import { useFilters } from '../../../hooks/useFilterProjects'
 import { useApp } from '../../../hooks/useApp'
@@ -35,7 +35,7 @@ export function ProjectsPage () {
         <header>
           <section className={styles.head}>
             <div className={styles.title}>
-              <h1>Proyectos</h1>
+              <h1 className={styles.titleText}>Proyectos</h1>
             </div>
             <div className={styles.profileComponent}>
               <UserProfile position='header' />
@@ -43,12 +43,10 @@ export function ProjectsPage () {
           </section>
           <section className={styles.inputs}>
             <div className={styles.filterContainer}>
-              <button
-                className={styles.toggleButton}
+              <Botones
                 onClick={() => setShowFilters(!showFilters)}
-              >
-                {showFilters ? 'Ocultar filtros' : 'Filtrar por fecha'}
-              </button>
+                titulo={showFilters ? 'Ocultar filtros' : 'Filtrar por fecha'}
+              />
               {showFilters && (
                 <div className={styles.inputsFilters}>
                   <div>
@@ -74,7 +72,7 @@ export function ProjectsPage () {
                     />
                   </div>
                   <div>
-                    <button className='button' onClick={applyDateFilter}>Filtrar</button>
+                    <Botones onClick={applyDateFilter} titulo='Filtrar' />
                   </div>
                 </div>
               )}
@@ -94,7 +92,7 @@ export function ProjectsPage () {
             </div>
           </section>
         </header>
-        <div>
+        <div className={styles.projectsContainer}>
           <div className={styles.Projects}>
             {sortedProjects.length > 0
               ? (

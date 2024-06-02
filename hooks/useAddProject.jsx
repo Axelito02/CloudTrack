@@ -19,6 +19,8 @@ export const useAddProject = () => {
     localidad: '',
     barrio: '',
     contratista: '',
+    venta: '',
+    construccion: '',
     estado: 0
   })
 
@@ -39,7 +41,11 @@ export const useAddProject = () => {
 
   const disableBtn =
     formState.title.trim() === '' ||
-    formState.constructora.trim() === ''
+    formState.constructora.trim() === '' ||
+    formState.localidad.trim() === '' ||
+    formState.barrio.trim() === '' ||
+    formState.contratista.trim() === '' ||
+    formState.date === ''
 
   const documentosRef = collection(db, 'documentos')
 

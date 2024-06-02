@@ -42,18 +42,6 @@ export function Navbar ({ project }) {
             <span className={styles.tag}>Bitácora</span>
           </button>
         </div>
-        <div className={`${styles.link} ${navState === 'Progreso' ? styles.active : ''}`}>
-          <button
-            className={styles.btnLink}
-            onClick={() => {
-              handleNavLinkClick('Progreso')
-              navigate(`/proyectos/${project.title}/progreso`, { state: project })
-            }}
-          >
-            <img className={styles.icon} src='../../../../assets/IconProgress.svg' />
-            <span className={styles.tag}>Progreso</span>
-          </button>
-        </div>
         <div className={`${styles.link} ${navState === 'Aprobaciones' ? styles.active : ''}`}>
           <button
             className={styles.btnLink}

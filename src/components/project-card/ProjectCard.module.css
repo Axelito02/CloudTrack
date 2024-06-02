@@ -69,11 +69,30 @@
     box-sizing: border-box;
     padding: 3vh 2vw;
   }
-
+  
     .icons{
       display: flex;
       gap: 1vh;
+      color: white;
     }
+
+      .pendiente{
+        background-color: var(--MainBlue);
+        padding: 1vh;
+        border-radius: 6px;
+      }
+
+      .progreso{
+        background-color: #E6B312;
+        padding: 1vh;
+        border-radius: 6px;
+      }
+
+      .completo{
+        background-color: var(--MainGreen);
+        padding: 1vh;
+        border-radius: 6px;
+      }
 
     .renglon{
       width: 100%;

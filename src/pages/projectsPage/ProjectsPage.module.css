@@ -12,10 +12,13 @@
   width: 100%;
 }
 
+.projectsContainer{
+  margin-top: 2vh;
+}
+
 /* Estilo para los inputs de filtrado */
 .inputsFilters input[type="text"],
-.inputsFilters input[type="date"],
-header button {
+.inputsFilters input[type="date"] {
   padding: 0.5rem;
   font-size: 16px;
   border: 1px solid #ccc;
@@ -29,16 +32,6 @@ header button {
 .inputsFilters input[type="date"]:focus {
   outline: none;
   border-color: #007bff; /* Color de resaltado al tener foco */
-}
-
-header button {
-  background-color: #007bff;
-  color: white;
-  cursor: pointer;
-}
-
-header button:hover {
-  background-color: #0056b3; /* Color más oscuro al pasar el ratón */
 }
 
 .head {
@@ -59,6 +52,10 @@ header button:hover {
   flex: 1;
 }
 
+  .titleText{
+    margin: 3vh 0;
+  }
+
 .profileComponent {
   width: 17%;
 }
@@ -66,7 +63,7 @@ header button:hover {
 .inputs {
   display: flex;
   flex-direction: row;
-  padding: 2rem 0;
+  padding: 0 0 5vh 0;
   flex: 1;
   justify-content: space-between;
   position: relative; /* Añadido */
@@ -113,26 +110,6 @@ header button:hover {
 .inputBuscar input[type="text"] {
   border: none;
   outline: none;
-}
-
-/* Estilo para el botón de mostrar/ocultar filtros */
-.toggleButton {
-  background-color: #007bff;
-  color: white;
-  cursor: pointer;
-  padding: 0.5rem;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 200px;
-  box-sizing: border-box;
-  margin: 0;
-  outline: none;
-  border-color: #007bff;
-}
-
-.toggleButton:hover {
-  background-color: #0056b3;
 }
 
 /* Contenedor relativo para los filtros */

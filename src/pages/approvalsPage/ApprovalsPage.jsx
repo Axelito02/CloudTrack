@@ -75,7 +75,7 @@ export function ApprovalsPage () {
               : null}
           </div>
           {sortedAprobaciones.length === 0 && (
-            <h3 className={styles.noMatch}>Aún no se han solicitado aprobaciones</h3>
+            <h3 className={styles.noMatch}>No hay aprobaciones en esta categoría</h3>
           )}
         </div>
       </section>

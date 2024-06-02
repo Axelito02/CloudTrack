@@ -29,16 +29,24 @@ export function ProjectCard ({ project, onClick }) {
 
   let statusImage = ''
   let statusText = ''
+  let statusClass = ''
+  let notificationDisplay = {}
 
   if (project.estado === 0) {
     statusImage = '../../../assets/Clock.svg'
     statusText = 'Pendiente'
+    statusClass = styles.pendiente
+    notificationDisplay = { opacity: 1 }
   } else if (project.estado === 1) {
     statusImage = '../../../assets/Sandclock.svg'
     statusText = 'En progreso'
+    statusClass = styles.progreso
+    notificationDisplay = { opacity: 1 }
   } else if (project.estado === 2) {
     statusImage = '../../../assets/IconCheckFilledColor.svg'
     statusText = 'Completo'
+    statusClass = styles.completo
+    notificationDisplay = { opacity: 0 }
   }
 
   const progressPercentage = getProgressPercentage(project.estado)
@@ -78,13 +86,10 @@ export function ProjectCard ({ project, onClick }) {
       </div>
 
       <div className={styles.lowerHalf}>
-        {project.estado !== 2 && (
-          <div className={styles.icons}>
-            <img src='../../../assets/IconNotificationFilled.svg' alt='Notification icon' />
-            <p className='subText'>12</p>
-          </div>
-        )}
-        <div className={styles.icons}>
+        <div className={styles.icons} style={notificationDisplay}>
+          <img src='../../../assets/IconNotificationFilled.svg' alt='Notification icon' />
+        </div>
+        <div className={`${styles.icons} ${statusClass}`}>
           <img src={statusImage} alt='Status icon' />
           <p className='subText'>{statusText}</p>
         </div>
