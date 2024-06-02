@@ -1,13 +1,12 @@
 import React, { useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { Navbar, ButtonBack } from '../../components'
 import { useNotas } from '../../../hooks/useNotas'
 import { useUploadForm } from '../../../hooks/useUploadForm'
-// import { useFilters } from '../../hooks/useFilters';
 import styles from './notaDetailPage.module.css'
 
 export function NotaDetailPage () {
-  //   const navigate = useNavigate()
+  const navigate = useNavigate()
   const location = useLocation()
   const { project, bitacora, nota } = location.state
   const projectId = project.id
@@ -75,7 +74,7 @@ export function NotaDetailPage () {
 
       <section className='content'>
         <div className={styles.header}>
-          <ButtonBack />
+          <ButtonBack onClick={() => navigate(-1)} />
           <div>
             <h1 className={styles.title}>Bitácora</h1>
             <p className='noMargin'> Proyecto {project.title} - {bitacora.title}</p>

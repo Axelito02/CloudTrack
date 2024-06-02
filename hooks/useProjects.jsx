@@ -14,7 +14,6 @@ export const useProjects = () => {
         id: doc.id
       }))
       setProjects(updatedProjects)
-      console.log(updatedProjects)
     })
 
     // Limpia el listener cuando el componente se desmonta o cambia

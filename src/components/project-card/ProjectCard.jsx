@@ -13,7 +13,6 @@ export function ProjectCard ({ project, onClick }) {
 
   const date = formatDate(project.date)
   const endDate = formatDate(project.endDate)
-  console.log(endDate)
 
   function getProgressPercentage (state) {
     switch (state) {

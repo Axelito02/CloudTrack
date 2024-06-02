@@ -1,39 +1,29 @@
 import React from 'react'
 import styles from './BitacoraCard.module.css'
 
-export function BitacoraCard ({ nota, onClick, notaImage, onDelete }) {
-  function formatHour (dateString) {
-    const date = new Date(dateString)
-    const options = { timeZone: 'America/Bogota', hour: '2-digit', minute: '2-digit', hour12: true }
-    return date.toLocaleTimeString('es-ES', options)
-  }
-
+export function BitacoraCard ({ nota, onClick }) {
   function formatDate (dateString) {
     const options = { day: 'numeric', month: 'short', year: 'numeric' }
     return new Date(dateString).toLocaleDateString('es-ES', options)
   }
 
   const date = formatDate(nota.date)
-  const hour = formatHour(nota.date)
 
   return (
     <div className={styles.projectCardContainer} onClick={onClick}>
       <div className={styles.projectCard}>
-        {date !== 'Invalid Date'
-          ? (
-              hour !== 'Invalid Date'
-                ? (
-                  <p className='subTextLight'>{date} | {hour}</p>
-                  )
-                : (
-                  <p className='subTextLight'>{date}</p>
-                  )
-            )
-          : (
-            <p className='subTextLight'>Sin fecha asignada</p>
-            )}
+        <div className={styles.flex}>
+          {date !== 'Invalid Date'
+            ? (
+              <p className='subTextLight'>{date}</p>
+              )
+            : (
+              <p className='subTextLight'>Sin fecha asignada</p>
+              )}
+          <p className={`subTextLight ${styles.textRight}`}>{nota.etapa}</p>
+        </div>
         <h4>{nota.title}</h4>
-        <p className={`${styles.breakword} smallText`}>{nota.description}</p>
+        <p className={`${styles.breakword} ${styles.truncatedText} smallText`}>{nota.description}</p>
         <div className={styles.tags}>
           {nota.pisos === true ? (<p className={styles.tagElement}>Pisos</p>) : (null)}
           {nota.torres === true ? (<p className={styles.tagElement}>Torres</p>) : (null)}

@@ -1,13 +1,9 @@
 import { useEffect, useState } from 'react'
-import { db, storage } from '../src/config/firebase'
+import { db } from '../src/config/firebase'
 import { onSnapshot, collection, doc, getDocs } from 'firebase/firestore'
-import { ref, listAll, getDownloadURL } from 'firebase/storage'
 
 export const useBitacoras = (projectId) => {
   const [bitacoras, setBitacoras] = useState([])
-
-  const [imageList, setImageList] = useState([])
-  const imageListRef = ref(storage, 'documentosImages/')
 
   useEffect(() => {
     if (!projectId) return
@@ -38,23 +34,12 @@ export const useBitacoras = (projectId) => {
     return () => unsubscribe()
   }, [projectId]) // El segundo argumento [] significa que solo se suscribirá una vez al montar el componente
 
-  useEffect(() => {
-    listAll(imageListRef).then((response) => {
-      response.items.forEach((item) => {
-        getDownloadURL(item).then((url) => {
-          setImageList((prev) => [...prev, url])
-        })
-      })
-    })
-  }, [projectId])
-
   const getOldestNoteDate = (snapshot) => {
     const dates = snapshot.docs.map(doc => new Date(doc.data().date))
     return new Date(Math.min.apply(null, dates))
   }
 
   return {
-    bitacoras,
-    imageList
+    bitacoras
   }
 }

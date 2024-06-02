@@ -36,7 +36,7 @@ export function BitacoraPage () {
       <section className='content'>
         <div className={styles.containerContent}>
           <div className={styles.header}>
-            <ButtonBack />
+            <ButtonBack onClick={() => navigate(-1)} />
             <div>
               <h1 className={styles.title}>Actualizaciones</h1>
               <p className='noMargin'> Proyecto {project.title} - {bitacora.title}</p>

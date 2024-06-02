@@ -1,8 +1,4 @@
 /* Estilo para el título */
-.header {
-  color: #333; /* Color oscuro para el texto */
-}
-
 .mainDiv{
   display: flex;
   flex-direction: row;

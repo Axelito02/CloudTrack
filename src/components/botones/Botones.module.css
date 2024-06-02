@@ -36,17 +36,26 @@
 
 .addButtonSmall{
   background-color: white;
-  color: var(--MainBlue);
   border: 2px solid var(--MainBlue);
+  color: var(--TextBlack);
   border-radius: 100px;
   transition: all 0.3s;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  align-items: center;
+  cursor: pointer;
+  padding: 1vh 2vh;
+  font-family: 'DMSans';
 }
 
   .addButtonSmall:hover{
     background-color: var(--LightBlue);
+  }
+
+  .icon{
+    width: 2.5vh;
+    margin-right: 1vh;
   }
 
 .addButtonBig{

@@ -1,12 +1,10 @@
 // import React, { useState } from 'react'
 import styles from './Botones.module.css'
-import { useNavigate } from 'react-router-dom'
 
-export function ButtonBack () {
-  const navigate = useNavigate()
+export function ButtonBack ({ onClick }) {
   return (
     <div>
-      <button className={styles.buttonBack} onClick={() => navigate(-1)}>
+      <button className={styles.buttonBack} onClick={onClick}>
         <img src='../../../../assets/BackButton.svg' />
       </button>
     </div>
