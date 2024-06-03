@@ -29,6 +29,7 @@
     }
 
     .breakword {
+      margin-bottom: 4vh;
       width: 100%;
       word-wrap: break-word;
       overflow-wrap: break-word;
@@ -69,4 +70,8 @@
         border-radius: 50px;
         padding: 1vh 1.5vh;
         margin-right: 1vh;
+    }
+
+    .cardTitle{
+      margin: 2vh 0;
     }

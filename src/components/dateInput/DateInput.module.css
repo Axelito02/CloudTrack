@@ -1,0 +1,74 @@
+.dateInputContainer {
+    position: relative;
+    display: inline-block;
+    border: 3px solid var(--TextLightGrey);
+    border-radius: 8px;
+    padding: 2vh;
+    font-family: 'DMSans';
+    background-color: #fff;
+    cursor: pointer;
+    width: 25vh;
+    height: 8vh; /* Ajustar según sea necesario */
+    box-sizing: border-box; /* Incluye padding y border en el ancho y alto */
+  }
+  
+  .hiddenDateInput {
+    position: absolute;
+    height: 100%;
+    width: 92%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: 2;
+    cursor: pointer;
+  }
+  
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    font-size: 30px; /* Tamaño deseado del icono */
+}
+
+  .formattedDateDisplay {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centrar contenido */
+    height: 100%;
+    width: 100%;
+    pointer-events: none; /* Permite que los clics pasen al input oculto */
+  }
+  
+  .flex{
+    display: flex;
+    color: var(--Grey);
+    gap: 1vh;
+  }
+
+  .day {
+    font-size: 2rem;
+    margin-right: 5px;
+    position: absolute;
+    top: 2px;
+    left: 2vh;
+  }
+  
+  .monthYear {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9rem;
+  }
+  
+  .sf{
+    color: var(--TextLightGrey);
+    font-size: 18.2px;
+    font-weight: 500;
+    position: absolute;
+    left: 2vh;
+    word-wrap: break-word;
+    line-height: 1;
+  }
+
+  .editIcon{
+    position: absolute;
+    top: 1.5vh;
+    right: 2vh;
+    cursor: pointer;
+  }

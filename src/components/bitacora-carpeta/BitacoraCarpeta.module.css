@@ -42,6 +42,10 @@
                 scale: 1.02;
             }
 
+        .date{
+            font-size: 13.33px;
+        }
+
         .blueText{
             color: var(--MainBlue);
         }
@@ -53,3 +57,9 @@
         .greyText{
             color: var(--TextLightGrey);
         }
+
+    .description{
+        color: var(--TextLightGrey);
+        margin: 0
+    }
+

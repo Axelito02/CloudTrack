@@ -22,13 +22,12 @@ export function BitacoraCard ({ nota, onClick }) {
               )}
           <p className={`subTextLight ${styles.textRight}`}>{nota.etapa}</p>
         </div>
-        <h4>{nota.title}</h4>
+        <h4 className={styles.cardTitle}>{nota.title}</h4>
         <p className={`${styles.breakword} ${styles.truncatedText} smallText`}>{nota.description}</p>
         <div className={styles.tags}>
-          {nota.pisos === true ? (<p className={styles.tagElement}>Pisos</p>) : (null)}
-          {nota.torres === true ? (<p className={styles.tagElement}>Torres</p>) : (null)}
-          {nota.apartamentos === true ? (<p className={styles.tagElement}>Aptos</p>) : (null)}
-          {nota.otros === true ? (<p className={styles.tagElement}>Otros</p>) : (null)}
+          {nota.pisos !== '' ? (<p className={styles.tagElement}>Pisos {nota.pisos}</p>) : (null)}
+          {nota.torres !== '' ? (<p className={styles.tagElement}>Torres {nota.torres}</p>) : (null)}
+          {nota.apartamentos !== '' ? (<p className={styles.tagElement}>Aptos {nota.apartamentos}</p>) : (null)}
         </div>
       </div>
     </div>

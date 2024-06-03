@@ -36,6 +36,13 @@
       .cardLogo{
         width: 3vw;
         height: 3vw;
+        border-radius: 50%;
+      }
+
+      .noLogo{
+        width: 3vw;
+        height: 3vw;
+        border-radius: 50%;
       }
 
       progress[value] {

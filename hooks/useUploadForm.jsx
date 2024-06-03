@@ -18,10 +18,9 @@ export const useUploadForm = (Id) => {
   const [formState, setFormState] = useState({
     notaId: '',
     date: '',
-    pisos: false,
-    torres: false,
-    apartamentos: false,
-    otros: false,
+    pisos: '',
+    torres: '',
+    apartamentos: '',
     etapa: '',
     title: '',
     description: '',
@@ -40,15 +39,13 @@ export const useUploadForm = (Id) => {
   }
 
   const handleOnChange = ({ target }) => {
-    const { name, value, type, checked } = target
-
-    const newValue = type === 'checkbox' ? checked : value
+    const { name, value } = target
 
     const randomId = uuidv4()
 
     setFormState({
       ...formState,
-      [name]: newValue,
+      [name]: value,
       notaId: randomId
     })
 

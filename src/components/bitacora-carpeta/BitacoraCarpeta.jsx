@@ -31,19 +31,25 @@ export function BitacoraCarpeta ({ bitacora, hasNotes, onClick, oldestdate }) {
           <h6 className={`noMargin ${titleColor}`}>{bitacora.title}</h6>
         </div>
         <div className={styles.projectCard} onClick={onClick}>
-          <h6 className={`noMargin ${textColor}`}>Actualizaciones de bitácora</h6>
+          <div>
+            {hasNotes
+              ? <h6 className={`noMargin ${textColor}`}>Actualizaciones de bitácora</h6>
+              : <h6 className={`noMargin ${textColor}`}>Aún no hay documentación</h6>}
+            {hasNotes ? <p className={styles.description}>{bitacora.description}</p> : null}
+
+          </div>
           {date !== 'Invalid Date'
             ? (
                 hour !== 'Invalid Date'
                   ? (
-                    <p className={textColor}>{date} | {hour}</p>
+                    <p className={`${styles.date} ${textColor}`}>{date} | {hour}</p>
                     )
                   : (
-                    <p className={textColor}>{date}</p>
+                    <p className={`${styles.date} ${textColor}`}>{date}</p>
                     )
               )
             : (
-              <p className={textColor}>Etapa no iniciada</p>
+              <p className={`${styles.date} ${textColor}`}>Etapa no iniciada</p>
               )}
         </div>
       </div>

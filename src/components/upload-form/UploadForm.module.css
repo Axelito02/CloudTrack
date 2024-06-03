@@ -21,39 +21,56 @@
     }
 
     .topInputs{
-      margin-top: 5vh;
+      margin-top: 1vh;
       display: flex;
       justify-content: space-between;
+      align-items:flex-end;
     }
 
       .dateInput{
-        font-family: DMSans;
+        font-family: 'DMSans';
         border: 1px solid var(--MainBlue);
         border-radius: 50px;
-        padding: 1vh;
+        padding: 1vh 2vh;
         cursor: pointer;
+        margin: 0;
       }
 
-      .tags label {
-        display: inline-block;
-        padding: 1vh 1vw;
-        border: 1px solid var(--MainBlue);
-        border-radius: 50px;
-        font-size: 13.33px;
-        font-style: italic;
-        font-weight: 500;
-        cursor: pointer;
-        transition: all 0.3s;
-        margin: 0 1vh;
+      .tags{
+        display: flex;
+        flex-direction: row;
+        gap: 2vh;
       }
 
-        .tagsInput:checked + label {
-          background-color: var(--MainBlue);
-          color: white;
+        .tagInput{
+          outline: none;
+          border: 1px solid var(--MainBlue);
+          border-radius: 6px;
+          padding: 0.5vh 1vh;
+          color: var(--Grey);
+          font-style: italic;
+          font-size: 13px;
+          width: 6vw;
+          display: flex;
+          align-items: center;
         }
 
-        .tagsInput {
-          display: none; /* Oculta el checkbox */
+          .tagInput input{
+            outline: none;
+            border: none;
+            color: var(--Grey);
+            font-style: italic;
+            font-size: 13px;
+            width: 60%;
+            margin-left: 4px;
+          }
+
+        .tagsTitle{
+          font-size: 14px;
+          font-style: italic;
+          font-weight: 500;
+          margin: 0;
+          margin-bottom: 0.5vh;
         }
     
   .inputs {
@@ -62,12 +79,11 @@
   }
   
     .inputContainer {
-      width: auto;
+      width: 100%;
       position: relative;
       display: flex;
       flex-direction: column;
       border: none;
-      border-bottom: 1px solid var(--TextLightGrey); 
       margin-top: 2vh;
     }
 
@@ -202,7 +218,7 @@
   
     .descriptionInput, .writeBinnacleInput, .extraInput {      
       width: 98%;
-      font-family: DMSans;
+      font-family: 'DMSans';
       border: none;
     }
 

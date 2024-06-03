@@ -1,8 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useProjects } from '../../../hooks/useProjects'
 import styles from './ProjectCard.module.css' // CSS Modules
 
 export function ProjectCard ({ project, onClick }) {
-  // const [isLoading, setIsLoading] = useState(true)
+  const { logoList } = useProjects()
+
+  const [imageError, setImageError] = useState(false)
+
+  const tituloLogo = project.constructora.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, '') + project.projectId
+  const logoImage = logoList.find((img) => img.includes(tituloLogo))
+
+  const handleImageError = () => {
+    setImageError(true)
+    console.error('Error al cargar la imagen')
+  }
 
   function formatDate (dateString) {
     const [year, month, day] = dateString.split('-').map(Number)
@@ -76,8 +87,13 @@ export function ProjectCard ({ project, onClick }) {
             <h5 style={noMargin} className={styles.renglon}>{project.title}</h5>
             <p className='subText'>{project.constructora}</p>
           </div>
-
-          <img className={styles.cardLogo} src='https://cdn-icons-png.flaticon.com/512/5149/5149019.png' />
+          {imageError
+            ? (
+              <div className={styles.noLogo} />
+              )
+            : (
+              <img className={styles.cardLogo} src={logoImage} onError={handleImageError} />
+              )}
         </div>
         <div>
           <p style={noMargin} className='subText'>{progressPercentage}%</p>

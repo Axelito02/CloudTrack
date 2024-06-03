@@ -13,8 +13,7 @@ export function BitacoraPage () {
   const bitacoraId = bitacora.id
 
   const {
-    notas,
-    imageList
+    notas
   } = useNotas({ projectId, bitacoraId })
 
   const sortedNotas = notas.sort((a, b) => new Date(b.date) - new Date(a.date))
@@ -54,7 +53,6 @@ export function BitacoraPage () {
                   onChange={e => setFiltroNombre(e.target.value)}
                   placeholder='Filtrar por nombre'
                 />
-                <img src='../../../../assets/filterIcon.svg' />
               </div>
             </div>
           </div>
@@ -67,12 +65,8 @@ export function BitacoraPage () {
               {sortedNotas.filter(filtrarPorNombre).length > 0
                 ? (
                     sortedNotas.filter(filtrarPorNombre).map((nota) => {
-                      const tituloImagen = nota.title.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, '') + nota.notaId
-
-                      const notaImage = imageList.find((img) => img.includes(tituloImagen))
-
                       return (
-                        <BitacoraCard key={bitacora.id} nota={nota} notaImage={notaImage} onClick={() => navigate(`/proyectos/${project.title}/bitacora/${bitacora.title}/${nota.title}`, { state: { project, bitacora, nota } })} />
+                        <BitacoraCard key={bitacora.id} nota={nota} onClick={() => navigate(`/proyectos/${project.title}/bitacora/${bitacora.title}/${nota.title}`, { state: { project, bitacora, nota } })} />
                       )
                     })
                   )

@@ -1,7 +1,6 @@
 import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { AddProject, ButtonBack, Navbar } from '../../components'
-import RolesContainer from '../../components/RolesContainer/RolesContainer'
+import { AddProject, ButtonBack, Navbar, RolesContainer } from '../../components'
 import styles from './EditProject.module.css'
 import icono from '../../../assets/SandClock.png'
 import flecha from '../../../assets/flecha.png'
@@ -10,6 +9,8 @@ export function EditProject () {
   const location = useLocation()
   const { project } = location.state
   const navigate = useNavigate()
+
+  console.log(project.tecnicos)
 
   return (
     <div className='mainDiv'>
@@ -31,7 +32,12 @@ export function EditProject () {
           <img src={flecha} alt='Flecha' className={styles.buttonIcon} />
         </div>
         <AddProject />
-        <RolesContainer />
+        <RolesContainer
+          chosenTecnicos={project.tecnicos}
+          chosenConexiones={project.onexiones}
+          chosenRedes={project.redes}
+          chosenComercial={project.comercial}
+        />
       </section>
     </div>
   )

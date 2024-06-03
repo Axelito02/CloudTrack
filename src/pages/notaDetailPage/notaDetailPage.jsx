@@ -150,10 +150,9 @@ export function NotaDetailPage () {
           {nota.planos !== '' ? (<p>• {nota.planos}</p>) : (null)}
 
           <div className={styles.tags}>
-            {nota.pisos === true ? (<p className={styles.tagElement}>Pisos</p>) : (null)}
-            {nota.torres === true ? (<p className={styles.tagElement}>Torres</p>) : (null)}
-            {nota.apartamentos === true ? (<p className={styles.tagElement}>Apartamentos</p>) : (null)}
-            {nota.otros === true ? (<p className={styles.tagElement}>Otros</p>) : (null)}
+            {nota.pisos !== '' ? (<p className={styles.tagElement}>Pisos {nota.pisos}</p>) : (null)}
+            {nota.torres !== '' ? (<p className={styles.tagElement}>Torres {nota.torres}</p>) : (null)}
+            {nota.apartamentos !== '' ? (<p className={styles.tagElement}>Aptos {nota.apartamentos}</p>) : (null)}
           </div>
         </div>
       </section>

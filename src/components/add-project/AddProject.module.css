@@ -1,6 +1,9 @@
 /* Estilo para el formulario */
 .form {
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .inputs {
@@ -12,22 +15,21 @@
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
+  justify-content: baseline;
+  margin: 2vh 2vw;
 }
 
 .sectionTitle {
   margin: 0;
-  width: 40%;
+  width: 35%;
   white-space: nowrap; 
-  color: #BEC5CC;
+  color: var(--Grey);
 }
 
 .quantityInput,
 .radioGroup input[type="text"],
-.textInput,
-.costructorInput {
-  width: 60%;
-  margin-left: 10px; 
-  padding: 8px 0;
+.textInput {
+  width: 65%;
   font-size: 16px;
   border: none;
   border-bottom: 2px solid #BEC5CC;
@@ -35,14 +37,29 @@
   background: transparent;
 }
 
+.costructorInput{
+  width: 48%;
+  font-size: 16px;
+  border: none;
+  border-bottom: 2px solid #BEC5CC;
+  box-sizing: border-box;
+  background: transparent;
+  margin-right: 5vh;
+}
+
+    .quantityInput:focus,
+    .radioGroup input[type="text"]:focus,
+    .textInput:focus,
+    .costructorInput:focus {
+      border: none;
+      outline: none;
+      border-bottom: 2px solid var(--Grey);
+    }
+
 .radioGroup{
   display: flex;
   align-items: center;
   gap: 90px; 
-}
-.radioGroup label {
-  display: block;
-  margin-bottom: 5px;
 }
 
 
@@ -52,10 +69,86 @@
 
 .Cantidades {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  color: var(--Grey);
 }
 
-.Cantidades input{
-  width: 25px;
-  margin-right: 50px;
+  .Cantidades input{
+    width: 5vh;
+    margin: 0 4vh 0 2vh;
+  }
+
+
+.radioGroup label{
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  color: var(--Grey);
+  cursor: pointer;
 }
+
+  .radioGroup label:has(input:checked) {
+    color: var(--MainBlue);
+  }
+
+
+.radioGroup input[type="radio"] { /* remove standard background appearance */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 1rem;
+  height: 1rem;
+  padding: 3px;
+  background-clip: content-box;
+  border: 2px solid var(--Grey);
+  background-color: white;
+  border-radius: 50%;
+}
+  
+  .radioGroup input[type="radio"]:checked {
+    border-color: var(--MainBlue);
+    background-color: var(--MainBlue);
+  }
+
+.otherInput input{
+  width: 5vw;
+}
+
+.flexGroup{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+
+
+.ImagesSection {
+  border: none;
+  transition: all 0.3s;
+  cursor: pointer;  
+}
+
+  .ImagesSection:hover {
+    scale: 1.03;
+    cursor: pointer;
+  }
+
+.inputFile {
+  display: none; 
+}
+
+.addLogo{
+  display: flex;
+  gap: 1vh;
+}
+
+  .LoadImg {
+    height: 3vh;
+    cursor: pointer;
+  }
+
+  .LoadText{
+    margin: 0;
+    cursor: pointer;
+    color: var(--Grey);
+  }

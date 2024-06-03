@@ -17,6 +17,7 @@ export * from './botones/Botones'
 export * from './botones/ButtonBack'
 export * from './botones/AddButtonSmall'
 export * from './botones/AddButtonBig'
+export * from './dateInput/DateInput'
 
 export * from './login/Login'
 export * from './register/Register'

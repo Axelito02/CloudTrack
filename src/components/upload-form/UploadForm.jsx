@@ -40,18 +40,39 @@ export function UploadForm ({ projectId, bitacoraId }) {
 
       <div className={styles.topInputs}>
         <input className={styles.dateInput} name='date' type='datetime-local' onChange={handleOnChange} />
-        <div className={styles.tags}>
-          <input className={styles.tagsInput} type='checkbox' id='tagPisos' name='pisos' onChange={handleOnChange} />
-          <label htmlFor='tagPisos'>Pisos</label>
-
-          <input className={styles.tagsInput} type='checkbox' id='tagTorres' name='torres' onChange={handleOnChange} />
-          <label htmlFor='tagTorres'>Torres</label>
-
-          <input className={styles.tagsInput} type='checkbox' id='tagApartamentos' name='apartamentos' onChange={handleOnChange} />
-          <label htmlFor='tagApartamentos'>Apartamentos</label>
-
-          <input className={styles.tagsInput} type='checkbox' id='tagOtros' name='otros' onChange={handleOnChange} />
-          <label htmlFor='tagOtros'>Otros</label>
+        <div>
+          <p className={styles.tagsTitle}>Escriba aquí la información de</p>
+          <div className={styles.tags}>
+            <div className={styles.tagInput}>
+              <label>Pisos</label>
+              <input
+                type='text'
+                id='tagPisos'
+                name='pisos'
+                onChange={handleOnChange}
+              />
+            </div>
+            <div className={styles.tagInput}>
+              <label>Torres</label>
+              <input
+                className={styles.tagInput}
+                type='text'
+                id='tagTorres'
+                name='torres'
+                onChange={handleOnChange}
+              />
+            </div>
+            <div className={styles.tagInput}>
+              <label>Aptos</label>
+              <input
+                className={styles.tagInput}
+                type='text'
+                id='tagApartamentos'
+                name='apartamentos'
+                onChange={handleOnChange}
+              />
+            </div>
+          </div>
         </div>
       </div>
 

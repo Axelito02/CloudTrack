@@ -1,34 +1,30 @@
 .RolDesignado{
-    padding: 2%;
+  padding: 2vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-  .RolDesignado:first-child {
-    border-left: none;
+
+.RolDesignadoAvatar {
+  width: 6vh;
+  margin-bottom: 2vh;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+  .RolDesignadoAvatar:hover{
+    scale: 1.1;
   }
-  
-  .RolDesignado-avatar {
-    display: flex;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-  }
-  
-  .RolDesignado-add {
-    margin-top: 90%;
-    margin-left: -100%;
-  }
-  
-  .RolDesignado-info {
-    margin-left: 10px;
-  }
-  
-  .RolDesignado-info p {
-    margin: 0;
-    color: rgba(41, 54, 75, 1);
-  }
-  
-  .title {
-    font-size: 20px;
-    font-weight: 600;
-    color: #D9D9D9;
-  }
-  
+
+.RolDesignadoInfo p {
+  margin: 0;
+  color: rgba(41, 54, 75, 1);
+  margin-bottom: 2vh;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #D9D9D9;
+}

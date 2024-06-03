@@ -6,6 +6,7 @@ import { useApp } from '../../../hooks/useApp'
 import styles from './ProjectDetailPage.module.css'
 import DetailProject from '../../components/detail-project/DetailProject'
 import RolDetailProject from '../../components/RolDetallesProject/RolDetailProject'
+import Swal from 'sweetalert2'
 
 export function ProjectDetailPage () {
   const location = useLocation()
@@ -34,20 +35,20 @@ export function ProjectDetailPage () {
           'Eliminado',
           'El proyecto ha sido eliminado correctamente',
           'success'
-        )} else if (result.dismiss === Swal.DismissReason.cancel) {
-          // Si se cancela la eliminación
-          Swal.fire({
-            icon: 'info',
-            title: 'Cancelado',
-            text: 'La eliminación del proyecto ha sido cancelada',
-            timer: 3000,
-            timerProgressBar: true,
-            showConfirmButton: false 
+        )
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        // Si se cancela la eliminación
+        Swal.fire({
+          icon: 'info',
+          title: 'Cancelado',
+          text: 'La eliminación del proyecto ha sido cancelada',
+          timer: 1000,
+          timerProgressBar: true,
+          showConfirmButton: false
         })
-        }
+      }
     })
-  };
-  
+  }
 
   const [filter, setFilter] = useState('info')
 
@@ -96,8 +97,8 @@ export function ProjectDetailPage () {
               </div>
             </div>
             <div className={styles.iz}>
-            <img onClick={handleDeleteClick} className={styles.icon} src='../../../../assets/trashBtn.svg' />
-            <AddButtonSmall onClick={() => navigate('/proyectos/editar-proyecto', { state: { project } })} titulo='Editar proyecto' icon='../../../../assets/EditIcon3.svg' />
+              <img onClick={handleDeleteClick} className={styles.icon} src='../../../../assets/trashBtn.svg' />
+              <AddButtonSmall onClick={() => navigate('/proyectos/editar-proyecto', { state: { project } })} titulo='Editar proyecto' icon='../../../../assets/EditIcon3.svg' />
             </div>
           </div>
 
@@ -107,10 +108,8 @@ export function ProjectDetailPage () {
           </div>
 
           <div className={displayRoles}>
-              <RolDetailProject/>
+            <RolDetailProject />
           </div>
-
-          
 
           <div className={styles.flex}>
             <div className={styles.temporalidad}>
@@ -121,9 +120,7 @@ export function ProjectDetailPage () {
               <h3>Bitácora</h3>
               {latestNote === null
                 ? (
-                  <>
-                    <div className='loaderWrapper'><div className='loader' /></div>
-                  </>
+                    null
                   )
                 : (
                   <BitacoraCard
