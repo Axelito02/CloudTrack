@@ -1,4 +1,3 @@
-/* Estilo para el mensaje de "no hay proyectos" */
 .noMatch {
   text-align: center;
   font-size: 1.5em;
@@ -115,4 +114,8 @@
 /* Contenedor relativo para los filtros */
 .filterContainer {
   position: relative;
+}
+
+.iconofiltros {
+  cursor: pointer;
 }

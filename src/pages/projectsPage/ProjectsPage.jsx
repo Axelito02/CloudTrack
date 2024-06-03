@@ -1,23 +1,29 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ProjectCard, AddButtonSmall, UserProfile, Botones } from '../../components'
 import { useProjects } from '../../../hooks/useProjects'
 import { useFilters } from '../../../hooks/useFilterProjects'
 import { useApp } from '../../../hooks/useApp'
 import styles from './ProjectsPage.module.css'
+import FilterComponent from './FilterComponent'
 
 export function ProjectsPage () {
   const { setnavState } = useApp()
   const navigate = useNavigate()
   const { projects } = useProjects()
-  const { filteredProjects, setFilters } = useFilters(projects)
+  const { filteredProjects, setFilters, setSearchTerm } = useFilters(projects)
   const [tempDateRange, setTempDateRange] = useState({ start: '', end: '' })
   const [showFilters, setShowFilters] = useState(false)
+  const [showAdvancedFilters, setShowAdvancedFilters] = useState(false)
 
   const sortedProjects = filteredProjects.sort((a, b) => new Date(b.date) - new Date(a.date))
 
+  useEffect(() => {
+    console.log('Filtered Projects:', filteredProjects)
+  }, [filteredProjects])
+
   const handleSearchChange = (e) => {
-    setFilters(prev => ({ ...prev, search: e.target.value }))
+    setSearchTerm(e.target.value)
   }
 
   const handleDateRangeChange = (e) => {
@@ -27,6 +33,7 @@ export function ProjectsPage () {
 
   const applyDateFilter = () => {
     setFilters(prev => ({ ...prev, dateRange: tempDateRange }))
+    console.log('Date Range Applied:', tempDateRange)
   }
 
   return (
@@ -87,11 +94,17 @@ export function ProjectsPage () {
                   placeholder='Buscar por título...'
                   onChange={handleSearchChange}
                 />
-                <img src='../../../../assets/filterIcon.svg' />
+                <img className={styles.iconofiltros} src='../../../../assets/filterIcon.svg' onClick={() => setShowAdvancedFilters(!showAdvancedFilters)} />
               </div>
             </div>
           </section>
         </header>
+        {showAdvancedFilters && (
+          <FilterComponent
+            setFilters={setFilters}
+            setSearchTerm={setSearchTerm}
+          />
+        )}
         <div className={styles.projectsContainer}>
           <div className={styles.Projects}>
             {sortedProjects.length > 0
@@ -110,12 +123,9 @@ export function ProjectsPage () {
                   })
                 )
               : (
-                  null
+                <h3 className={styles.noMatch}>Los proyectos están cargando</h3>
                 )}
           </div>
-          {sortedProjects.length === 0 && (
-            <h3 className={styles.noMatch}>Los proyectos están cargando </h3>
-          )}
         </div>
       </section>
     </div>

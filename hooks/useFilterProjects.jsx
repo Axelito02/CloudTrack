@@ -5,6 +5,12 @@ export function useFilters (projects) {
   const [filters, setFilters] = useState({
     search: '',
     dateRange: { start: '', end: '' },
+    empresaConstructora: '',
+    contratista: '',
+    localidad: '',
+    barrio: '',
+    tipoVenta: '',
+    tipoConstruccion: '',
     checked: null
     // más filtros
   })
@@ -25,8 +31,48 @@ export function useFilters (projects) {
       })
     }
 
+    if (filters.empresaConstructora) {
+      result = result.filter(project =>
+        project.empresaConstructora === filters.empresaConstructora
+      )
+    }
+
+    if (filters.contratista) {
+      result = result.filter(project =>
+        project.contratista === filters.contratista
+      )
+    }
+
+    if (filters.localidad) {
+      result = result.filter(project =>
+        project.localidad === filters.localidad
+      )
+    }
+
+    if (filters.barrio) {
+      result = result.filter(project =>
+        project.barrio === filters.barrio
+      )
+    }
+
+    if (filters.tipoVenta) {
+      result = result.filter(project =>
+        project.tipoVenta === filters.tipoVenta
+      )
+    }
+
+    if (filters.tipoConstruccion) {
+      result = result.filter(project =>
+        project.tipoConstruccion === filters.tipoConstruccion
+      )
+    }
+
     setFilteredProjects(result)
   }, [projects, filters])
 
-  return { filteredProjects, setFilters }
+  const setSearchTerm = (searchTerm) => {
+    setFilters(prev => ({ ...prev, search: searchTerm }))
+  }
+
+  return { filteredProjects, setFilters, setSearchTerm }
 }
