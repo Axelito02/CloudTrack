@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { ProjectCard, AddButtonSmall, UserProfile, Botones } from '../../components'
+import { ProjectCard, AddButtonSmall, UserProfile, Botones, FilterComponent } from '../../components'
 import { useProjects } from '../../../hooks/useProjects'
 import { useFilters } from '../../../hooks/useFilterProjects'
 import { useApp } from '../../../hooks/useApp'
 import styles from './ProjectsPage.module.css'
-import FilterComponent from './FilterComponent'
 
 export function ProjectsPage () {
   const { setnavState } = useApp()
@@ -95,16 +94,18 @@ export function ProjectsPage () {
                   onChange={handleSearchChange}
                 />
                 <img className={styles.iconofiltros} src='../../../../assets/filterIcon.svg' onClick={() => setShowAdvancedFilters(!showAdvancedFilters)} />
+                {showAdvancedFilters && (
+                  <div className={styles.advancedFiltersContainer}>
+                    <FilterComponent
+                      setFilters={setFilters}
+                      setSearchTerm={setSearchTerm}
+                    />
+                  </div>
+                )}
               </div>
             </div>
           </section>
         </header>
-        {showAdvancedFilters && (
-          <FilterComponent
-            setFilters={setFilters}
-            setSearchTerm={setSearchTerm}
-          />
-        )}
         <div className={styles.projectsContainer}>
           <div className={styles.Projects}>
             {sortedProjects.length > 0

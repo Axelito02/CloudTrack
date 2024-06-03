@@ -25,6 +25,18 @@
     padding: 1rem;
     border-radius: 4px;
     border: 1px solid var(--TextLightGrey);
+    background-color: #F1F7FF;
+}
+
+.inputForm:focus {
+    outline: none;
+    border-color: #007bff; /* Cambia el color del borde cuando el select esté enfocado */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Añadir un efecto de sombra */
+  }
+  
+
+.inputForm::placeholder{
+    color: #BEC5CC;
 }
 
 .ContainerLink{
@@ -40,15 +52,25 @@
 }
 
 .link{
-    color: var(--TextDarkGrey);
     cursor: pointer;
+    color: #A2CDFF;
 }
 
 .link:hover{
     color: var(--MainBlue);
+    text-decoration: underline;
 }
 
 .inputLogin{
     display: flex;
     justify-content: center;
+}
+
+.description{
+    margin: 0;
+    color: #BEC5CC;
+}
+
+.title{
+    margin: 0;
 }

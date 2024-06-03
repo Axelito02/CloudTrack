@@ -11,7 +11,7 @@
   width: 100%;
 }
 
-.projectsContainer{
+.projectsContainer {
   margin-top: 2vh;
 }
 
@@ -51,9 +51,9 @@
   flex: 1;
 }
 
-  .titleText{
-    margin: 3vh 0;
-  }
+.titleText {
+  margin: 3vh 0;
+}
 
 .profileComponent {
   width: 17%;
@@ -94,6 +94,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  position: relative; /* Añadido para contener el filtro avanzado */
 }
 
 .searchBar input[type="text"] {
@@ -119,3 +120,17 @@
 .iconofiltros {
   cursor: pointer;
 }
+
+/* Contenedor absoluto para el filtro avanzado */
+.advancedFiltersContainer {
+  position: absolute;
+  top: 100%; /* Muestra justo debajo de la barra de búsqueda */
+  right: 0; /* Posición en el extremo derecho */
+  width: calc(100vw - 6rem); /* Ajusta el ancho según sea necesario */
+  max-width: 400px; /* Ancho máximo opcional */
+  background: white;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  z-index: 10;
+}
+

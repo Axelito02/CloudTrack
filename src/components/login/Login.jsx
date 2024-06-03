@@ -10,6 +10,7 @@ export function Login () {
     <section className={styles.Containerformlogin}>
       <div className={styles.Containertitle}>
         <h1 className={styles.title}>Iniciar sesión</h1>
+        <h6 className={styles.description}>Bienvenido de nuevo, ingresa a la plataforma con tu cuenta</h6>
       </div>
       <div className={styles.Containerform}>
         <form className={styles.form}>
