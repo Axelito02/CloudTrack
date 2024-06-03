@@ -52,6 +52,18 @@
                     margin: 0;
                     display: none;
                 }
+
+                .iz{
+                    display: flex;
+                    column-gap: 10%;
+                    align-items: center;
+                }
+
+                .iz img{
+                    width: auto;
+                    height: 30px;
+                    cursor: pointer;
+                }
                 
         .showPage{
             display: block;
@@ -63,6 +75,7 @@
     
     .flex{
         display: flex;
+        margin-top: 30px;
     }
 
         .temporalidad{

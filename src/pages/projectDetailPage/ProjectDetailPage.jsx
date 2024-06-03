@@ -4,6 +4,8 @@ import { Navbar, ButtonBack, AddButtonSmall, BitacoraCard } from '../../componen
 import { useLastestNote } from '../../../hooks/useLastestNote'
 import { useApp } from '../../../hooks/useApp'
 import styles from './ProjectDetailPage.module.css'
+import DetailProject from '../../components/detail-project/DetailProject'
+import RolDetailProject from '../../components/RolDetallesProject/RolDetailProject'
 
 export function ProjectDetailPage () {
   const location = useLocation()
@@ -14,6 +16,38 @@ export function ProjectDetailPage () {
   const handleNavLinkClick = (path) => {
     setnavState(path) // Actualiza el estado del enlace activo
   }
+
+  const handleDeleteClick = () => {
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'Esta acción no se puede deshacer',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#0164FF',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        navigate('/proyectos')
+        Swal.fire(
+          'Eliminado',
+          'El proyecto ha sido eliminado correctamente',
+          'success'
+        )} else if (result.dismiss === Swal.DismissReason.cancel) {
+          // Si se cancela la eliminación
+          Swal.fire({
+            icon: 'info',
+            title: 'Cancelado',
+            text: 'La eliminación del proyecto ha sido cancelada',
+            timer: 3000,
+            timerProgressBar: true,
+            showConfirmButton: false 
+        })
+        }
+    })
+  };
+  
 
   const [filter, setFilter] = useState('info')
 
@@ -61,16 +95,22 @@ export function ProjectDetailPage () {
                 </label>
               </div>
             </div>
+            <div className={styles.iz}>
+            <img onClick={handleDeleteClick} className={styles.icon} src='../../../../assets/trashBtn.svg' />
             <AddButtonSmall onClick={() => navigate('/proyectos/editar-proyecto', { state: { project } })} titulo='Editar proyecto' icon='../../../../assets/EditIcon3.svg' />
+            </div>
           </div>
 
           <div className={displayInfo}>
             <p>Información general</p>
+            <DetailProject project={project} />
           </div>
 
           <div className={displayRoles}>
-            <p>Roles</p>
+              <RolDetailProject/>
           </div>
+
+          
 
           <div className={styles.flex}>
             <div className={styles.temporalidad}>
