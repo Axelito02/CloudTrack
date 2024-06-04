@@ -1,3 +1,6 @@
+// Home
+export * from './home/home'
+
 // Proyectos
 
 export * from './projectsPage/ProjectsPage'
@@ -19,10 +22,6 @@ export * from './notificationPage/notificationPage'
 // Aprobaciones
 
 export * from './approvalsPage/ApprovalsPage'
-
-// Progreso
-
-export * from './progressPage/ProgressPage'
 
 // Error
 

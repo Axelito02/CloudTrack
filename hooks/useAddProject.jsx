@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 
 import { db, storage } from '../src/config/firebase'
-import { collection, addDoc } from 'firebase/firestore'
-import { ref, uploadBytes } from 'firebase/storage'
+import { collection, addDoc, deleteDoc, query, where, getDocs } from 'firebase/firestore'
+import { ref, uploadBytes, deleteObject } from 'firebase/storage'
 
 import { v4 as uuidv4 } from 'uuid'
 import Swal from 'sweetalert2'
@@ -214,6 +214,77 @@ export const useAddProject = () => {
     }
   }
 
+  const handleEraseProject = async (projectId, projectLogo) => {
+    console.log(projectLogo)
+    const docsRef = collection(db, 'documentos')
+    const q = query(docsRef, where('projectId', '==', projectId))
+
+    Swal.fire({
+      title: '¿Estás seguro que quieres eliminar el proyecto?',
+      text: 'Esta acción no se puede deshacer',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, eliminar',
+      cancelButtonText: 'Cancelar'
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          const querySnapshot = await getDocs(q)
+          if (querySnapshot.empty) {
+            console.log('No se encontró en la base de datos')
+            Swal.fire({
+              title: 'Ha ocurrido un error',
+              text: 'No se encontró en la base de datos',
+              icon: 'error',
+              confirmButtonText: 'Cerrar',
+              customClass: {
+                confirmButton: 'swal-button'
+              }
+            })
+            return
+          }
+
+          // Borrar la imagen en Storage
+          const imageRef = ref(storage, `${projectLogo}`)
+          await deleteObject(imageRef)
+          console.log('Imagen eliminada:', projectLogo)
+
+          // Eliminar todos los documentos que coinciden con la consulta
+          querySnapshot.docs.forEach(async (doc) => {
+            await deleteDoc(doc.ref)
+          })
+
+          Swal.fire({
+            title: 'El proyecto se ha eliminado correctamente',
+            icon: 'success',
+            iconColor: '#0164FF',
+            confirmButtonText: 'Continuar',
+            customClass: {
+              confirmButton: 'swal-button'
+            }
+          }).then((result) => {
+            if (result.isConfirmed) {
+              navigate('/proyectos')
+            }
+          })
+        } catch (error) {
+          console.error('Error al borrar:', error)
+          Swal.fire({
+            title: 'Ha ocurrido un error',
+            text: `${error}`,
+            icon: 'error',
+            confirmButtonText: 'Cerrar',
+            customClass: {
+              confirmButton: 'swal-button'
+            }
+          })
+        }
+      }
+    })
+  }
+
   return (
     {
       disableBtn,
@@ -225,7 +296,8 @@ export const useAddProject = () => {
       chosenConexiones,
       chosenRedes,
       chosenComercial,
-      handleToggleChoice
+      handleToggleChoice,
+      handleEraseProject
     }
   )
 }

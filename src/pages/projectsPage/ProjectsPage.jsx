@@ -6,7 +6,7 @@ import { useFilters } from '../../../hooks/useFilterProjects'
 import { useApp } from '../../../hooks/useApp'
 import { useFilteredProjects } from '../../../hooks/filteredByStatus'
 import styles from './ProjectsPage.module.css'
-import FlechaDespegable from '../../../assets/arrowIconBlue.svg';
+import FlechaDespegable from '../../../assets/arrowIconBlue.svg'
 
 export function ProjectsPage () {
   const { setnavState } = useApp()
@@ -70,9 +70,9 @@ export function ProjectsPage () {
                     <option value='InProgress'>En progreso</option>
                     <option value='completed'>Completo</option>
                   </select>
-                  <img src={FlechaDespegable} alt="Flecha despegable" className={styles.selectIcon} />
+                  <img src={FlechaDespegable} alt='Flecha despegable' className={styles.selectIcon} />
                 </div>
-                  <span className={styles.filteredCount}>({filteredByStatus.length})</span> {/* Nuevo elemento para mostrar la cantidad */}
+                <span className={styles.filteredCount}>({filteredByStatus.length})</span> {/* Nuevo elemento para mostrar la cantidad */}
               </div>
               <Botones
                 onClick={() => setShowFilters(!showFilters)}
@@ -149,9 +149,12 @@ export function ProjectsPage () {
                   })
                 )
               : (
-                <h3 className={styles.noMatch}>Los proyectos están cargando</h3>
+                  null
                 )}
           </div>
+          {sortedProjects.length === 0 && (
+            <h3 className={styles.noMatch}>No se encontraron proyectos</h3>
+          )}
         </div>
       </section>
     </div>

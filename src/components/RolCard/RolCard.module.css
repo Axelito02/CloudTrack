@@ -1,0 +1,9 @@
+.RolCard{
+    display: flex;
+    align-items: center;
+}
+
+.RolCard img{
+    width: 4vw;
+    margin-right: 1vh;
+}

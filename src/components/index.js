@@ -3,6 +3,7 @@
 // export * from './cat-card/Cat-Card'
 
 export * from './add-project/AddProject'
+export * from './edit-project/EditProject'
 export * from './RolesContainer/RolesContainer'
 export * from './project-card/ProjectCard'
 
@@ -18,6 +19,7 @@ export * from './botones/ButtonBack'
 export * from './botones/AddButtonSmall'
 export * from './botones/AddButtonBig'
 export * from './dateInput/DateInput'
+export * from './botones/button-home'
 
 export * from './login/Login'
 export * from './register/Register'

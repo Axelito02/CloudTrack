@@ -1,0 +1,39 @@
+.Main {
+  background-image: url('../../../assets/fondoCloudTrack.png');
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Alinear el contenido en el centro vertical */
+  align-items: center;     /* Alinear los elementos en el centro horizontal */
+}
+
+.header {
+  width: 100%;
+  text-align: center;
+}
+
+.headerContent {
+  display: flex;          /* Utilizar flexbox para alinear los botones */
+  justify-content: center; /* Centrar los botones horizontalmente */
+  align-items: flex-end;  /* Alinear los botones en la parte inferior */
+  position: absolute;     /* Establecer posición absoluta para los botones */
+  bottom: 200px;           /* Desplazamiento desde abajo */
+  right: 250px;            /* Desplazamiento desde la derecha */
+}
+
+@media screen and (max-width: 768px) {
+  .Main {
+    background-image: url('../../../assets/FondoHomeMobile.png');
+  }
+  .headerContent {
+    flex-direction: column; 
+    align-items: center;    
+    bottom: 1rem;           
+    left: 50%;              
+    transform: translateX(-50%);
+    margin-bottom: 20px; /* Agregar margen inferior entre botones */
+  }
+}

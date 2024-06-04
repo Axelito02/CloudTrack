@@ -1,3 +1,27 @@
+.icons{
+    display: flex;
+    gap: 1vh;
+    color: white;
+  }
+
+    .pendiente{
+      background-color: var(--MainBlue);
+      padding: 1vh;
+      border-radius: 6px;
+    }
+
+    .progreso{
+      background-color: #E6B312;
+      padding: 1vh;
+      border-radius: 6px;
+    }
+
+    .completo{
+      background-color: var(--MainGreen);
+      padding: 1vh;
+      border-radius: 6px;
+    }
+
 
 .sectionTitle {
     width: 30%;
@@ -82,3 +106,31 @@
     display: flex;
     flex-direction: column;
 }
+
+.flex{
+    display: flex;
+    margin-top: 30px;
+}
+
+    .temporalidad{
+        width: 60%;
+    }
+
+        .periodo{
+            color: var(--TextLightGrey);
+            display: flex;
+            gap: 2vw;
+        }
+
+            .periodoTitle{
+                margin-top: 5vh;
+            }
+
+            .fechaContainer{
+                display: flex;
+                gap: 1vw;
+            }
+
+    .bitacora{
+        width: 40%;
+    }

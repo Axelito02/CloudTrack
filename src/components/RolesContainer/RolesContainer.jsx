@@ -128,7 +128,10 @@ export function RolesContainer ({ onClick, chosenTecnicos, chosenConexiones, cho
                 placeholder='Buscar nombre'
               />
             </div>
-            {renderContent()}
+            <div className={styles.scroll}>
+
+              {renderContent()}
+            </div>
             <button className={styles.closeButton} onClick={handleClosePopup}>X</button>
           </div>
         </div>

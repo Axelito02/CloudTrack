@@ -35,8 +35,6 @@
 
 .iconTextContainer {
   border-radius: 7px;
-  background-color: #FEF0C7;
-  width: 160px;
   height: 30px;
   display: inline-flex;
   justify-content: center;
@@ -60,3 +58,48 @@
   margin-left: 12px;
   cursor: pointer;
 }
+
+
+.pendiente{
+  background-color: var(--MainBlue);
+  border-radius: 6px;
+  margin: 2vw;
+}
+
+.progreso{
+  background-color: #E6B312;
+  border-radius: 6px;
+  margin: 2vw;
+}
+
+.completo{
+  background-color: var(--MainGreen);
+  border-radius: 6px;
+  margin: 2vw;
+}
+
+.estadoSelect {
+  border: none;
+  background: none;
+  font-size: 1em; /* Ajusta el tamaño del texto si es necesario */
+  color: inherit; /* Mantiene el color del texto */
+  appearance: none; /* Elimina el estilo predeterminado del navegador en algunos navegadores */
+  -webkit-appearance: none; /* Elimina el estilo predeterminado del navegador en WebKit */
+  -moz-appearance: none; /* Elimina el estilo predeterminado del navegador en Firefox */
+  padding: 1vh 2vh; /* Elimina el relleno interno */
+  color: white;
+  width: 100%;
+}
+
+  .estadoSelect:focus {
+    outline: none; /* Elimina el borde de enfoque */
+  }
+
+  .estadoSelect option{
+    color: var(--TextBlack);
+  }
+
+
+  .update{
+    margin-top: 5vh;
+  }

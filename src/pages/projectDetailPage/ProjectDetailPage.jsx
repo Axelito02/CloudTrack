@@ -1,53 +1,29 @@
 import React, { useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
-import { Navbar, ButtonBack, AddButtonSmall, BitacoraCard } from '../../components'
-import { useLastestNote } from '../../../hooks/useLastestNote'
-import { useApp } from '../../../hooks/useApp'
+import { Navbar, ButtonBack, AddButtonSmall } from '../../components'
 import styles from './ProjectDetailPage.module.css'
 import DetailProject from '../../components/detail-project/DetailProject'
 import RolDetailProject from '../../components/RolDetallesProject/RolDetailProject'
-import Swal from 'sweetalert2'
+import { useAddProject } from '../../../hooks/useAddProject'
+import { useProjects } from '../../../hooks/useProjects'
 
 export function ProjectDetailPage () {
   const location = useLocation()
   const project = location.state
   const navigate = useNavigate()
-  const { setnavState } = useApp() // Usa el hook useApp para acceder al estado del enlace activo
 
-  const handleNavLinkClick = (path) => {
-    setnavState(path) // Actualiza el estado del enlace activo
-  }
+  const projectId = project.projectId
 
-  const handleDeleteClick = () => {
-    Swal.fire({
-      title: '¿Estás seguro?',
-      text: 'Esta acción no se puede deshacer',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#0164FF',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Sí, eliminar',
-      cancelButtonText: 'Cancelar'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        navigate('/proyectos')
-        Swal.fire(
-          'Eliminado',
-          'El proyecto ha sido eliminado correctamente',
-          'success'
-        )
-      } else if (result.dismiss === Swal.DismissReason.cancel) {
-        // Si se cancela la eliminación
-        Swal.fire({
-          icon: 'info',
-          title: 'Cancelado',
-          text: 'La eliminación del proyecto ha sido cancelada',
-          timer: 1000,
-          timerProgressBar: true,
-          showConfirmButton: false
-        })
-      }
-    })
+  const { logoList } = useProjects()
+  const tituloLogo = project.constructora.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, '') + projectId
+  const projectLogo = logoList.find((img) => img.includes(tituloLogo))
+
+  const {
+    handleEraseProject
+  } = useAddProject(projectId)
+
+  const handleDeleteProject = () => {
+    handleEraseProject(projectId, projectLogo)
   }
 
   const [filter, setFilter] = useState('info')
@@ -55,12 +31,6 @@ export function ProjectDetailPage () {
   if (!project) {
     navigate('/error')
   }
-
-  const {
-    latestNote
-  } = useLastestNote(project.id)
-
-  console.log(latestNote)
 
   const displayInfo = filter === 'info' ? styles.showPage : styles.hidePage
   const displayRoles = filter === 'roles' ? styles.showPage : styles.hidePage
@@ -97,8 +67,8 @@ export function ProjectDetailPage () {
               </div>
             </div>
             <div className={styles.iz}>
-              <img onClick={handleDeleteClick} className={styles.icon} src='../../../../assets/trashBtn.svg' />
-              <AddButtonSmall onClick={() => navigate('/proyectos/editar-proyecto', { state: { project } })} titulo='Editar proyecto' icon='../../../../assets/EditIcon3.svg' />
+              <img onClick={handleDeleteProject} className={styles.icon} src='../../../../assets/trashBtn.svg' />
+              <AddButtonSmall onClick={() => navigate(`/proyectos/${project.title}/editar-proyecto`, { state: { project } })} titulo='Editar proyecto' icon='../../../../assets/EditIcon3.svg' />
             </div>
           </div>
 
@@ -108,31 +78,7 @@ export function ProjectDetailPage () {
           </div>
 
           <div className={displayRoles}>
-            <RolDetailProject />
-          </div>
-
-          <div className={styles.flex}>
-            <div className={styles.temporalidad}>
-              <h3>Temporalidad</h3>
-              <p>Período del proyecto</p>
-            </div>
-            <div className={styles.bitacora}>
-              <h3>Bitácora</h3>
-              {latestNote === null
-                ? (
-                    null
-                  )
-                : (
-                  <BitacoraCard
-                    key='preview'
-                    nota={latestNote}
-                    onClick={() => {
-                      handleNavLinkClick('Bitacora')
-                      navigate(`/proyectos/${project.title}/bitacora`, { state: project })
-                    }}
-                  />
-                  )}
-            </div>
+            <RolDetailProject project={project} />
           </div>
         </div>
       </section>

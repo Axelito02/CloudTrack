@@ -1,83 +1,84 @@
 .header{
-  display: flex;
-  align-items: first baseline;
-}
-
-.title{
-    margin-bottom: 0;
+    display: flex;
+    align-items: first baseline;
   }
-
-.projectBody{
-    margin-top: 5vh;
-}
-
-    .pageDisplay{
-        display: flex;
-        justify-content: space-between;
+  
+  .title{
+      margin-bottom: 0;
     }
-
-        .filterContainer{
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            padding: 1rem 0;
-            gap: 2rem;
-        }
-        
-            .filter{
-                display: flex;
-                flex-direction: row;
-            }
-            
-                .filter label{
-                    display: flex;
-                    flex-direction: row;
-                    gap: 1rem;
-                    font-size: 13.33px;
-                    font-style: italic;
-                    font-weight: 500;
-                    color: var(--TextLightGrey);
-                    border-bottom: 1px solid var(--TextLightGrey);
-                    cursor: pointer;
-                }
-                
-                        .filter label:has(input:checked) {
-                        color: var(--MainBlue);
-                        border-bottom: 1px solid var(--MainBlue);
-                        }
-                
-                .filter input{
-                    align-content: center;
-                    width: 1rem;
-                    margin: 0;
-                    display: none;
-                }
-
-                .iz{
-                    display: flex;
-                    column-gap: 10%;
-                    align-items: center;
-                }
-
-                .iz img{
-                    width: auto;
-                    height: 30px;
-                    cursor: pointer;
-                }
-                
-        .showPage{
-            display: block;
-        }
-
-        .hidePage{
-            display: none;
-        }
-    
-    .flex{
-        display: flex;
-        margin-top: 30px;
-    }
-
-        .temporalidad{
-            width: 60%;
-        }
+  
+  .projectBody{
+      margin-top: 5vh;
+  }
+  
+      .pageDisplay{
+          display: flex;
+          justify-content: space-between;
+      }
+  
+          .filterContainer{
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              padding: 1rem 0;
+              gap: 2rem;
+          }
+          
+              .filter{
+                  display: flex;
+                  flex-direction: row;
+              }
+              
+                  .filter label{
+                      display: flex;
+                      flex-direction: row;
+                      gap: 1rem;
+                      font-size: 13.33px;
+                      font-style: italic;
+                      font-weight: 500;
+                      color: var(--TextLightGrey);
+                      border-bottom: 1px solid var(--TextLightGrey);
+                      cursor: pointer;
+                  }
+                  
+                          .filter label:has(input:checked) {
+                          color: var(--MainBlue);
+                          border-bottom: 1px solid var(--MainBlue);
+                          }
+                  
+                  .filter input{
+                      align-content: center;
+                      width: 1rem;
+                      margin: 0;
+                      display: none;
+                  }
+  
+                  .iz{
+                      display: flex;
+                      column-gap: 10%;
+                      align-items: center;
+                      width: 20vw;
+                  }
+  
+                  .iz img{
+                      width: auto;
+                      height: 30px;
+                      cursor: pointer;
+                  }
+                  
+          .showPage{
+              display: block;
+          }
+  
+          .hidePage{
+              display: none;
+          }
+      
+      .flex{
+          display: flex;
+          margin-top: 30px;
+      }
+  
+          .temporalidad{
+              width: 60%;
+          }

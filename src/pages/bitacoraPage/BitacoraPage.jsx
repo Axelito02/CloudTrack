@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
-import { BitacoraCard, Navbar, ButtonBack, AddButtonBig } from '../../components'
+import { BitacoraCard, Navbar, ButtonBack, AddButtonBig, Botones } from '../../components'
 import { useNotas } from '../../../hooks/useNotas'
+import { useFiltersNotas } from '../../../hooks/useFilterNotas'
 import styles from './BitacoraPage.module.css'
 
 export function BitacoraPage () {
@@ -12,18 +13,27 @@ export function BitacoraPage () {
   const projectId = project.id
   const bitacoraId = bitacora.id
 
-  const {
-    notas
-  } = useNotas({ projectId, bitacoraId })
+  const { notas } = useNotas({ projectId, bitacoraId })
 
-  const sortedNotas = notas.sort((a, b) => new Date(b.date) - new Date(a.date))
+  const { filterednotas, setFilters, setSearchTerm } = useFiltersNotas(notas)
 
-  // Estado para manejar el valor del filtro por nombre
-  const [filtroNombre, setFiltroNombre] = useState('')
+  const sortedNotas = filterednotas.sort((a, b) => new Date(b.date) - new Date(a.date))
 
-  // Función para filtrar notas por nombre
-  const filtrarPorNombre = nota => {
-    return nota.title.toLowerCase().includes(filtroNombre.toLowerCase())
+  const [tempDateRange, setTempDateRange] = useState({ start: '', end: '' })
+  const [showFilters, setShowFilters] = useState(false)
+
+  const handleDateRangeChange = (e) => {
+    const { name, value } = e.target
+    setTempDateRange(prev => ({ ...prev, [name]: value }))
+  }
+
+  const applyDateFilter = () => {
+    setFilters(prev => ({ ...prev, dateRange: tempDateRange }))
+    console.log('Date Range Applied:', tempDateRange)
+  }
+
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value)
   }
 
   return (
@@ -43,14 +53,49 @@ export function BitacoraPage () {
           </div>
           <div className={styles.containerInputs}>
             <div className={styles.inputs}>
+              <div className={styles.filterContainer}>
+
+                <Botones
+                  onClick={() => setShowFilters(!showFilters)}
+                  titulo={showFilters ? 'Ocultar filtro' : 'Filtrar por fecha'}
+                />
+                {showFilters && (
+                  <div className={styles.inputsFilters}>
+                    <div>
+                      <label htmlFor='startDate'>Desde </label>
+                      <input
+                        id='startDate'
+                        className='inputBuscar'
+                        type='date'
+                        name='start'
+                        value={tempDateRange.start}
+                        onChange={handleDateRangeChange}
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor='endDate'>Hasta </label>
+                      <input
+                        id='endDate'
+                        className='inputBuscar'
+                        type='date'
+                        name='end'
+                        value={tempDateRange.end}
+                        onChange={handleDateRangeChange}
+                      />
+                    </div>
+                    <div>
+                      <Botones onClick={applyDateFilter} titulo='Filtrar' />
+                    </div>
+                  </div>
+                )}
+              </div>
               <div className={styles.searchBar}>
                 {/* Input para ingresar el nombre a filtrar */}
                 <img src='../../../../assets/searchIcon.svg' />
                 <input
                   className={styles.inputBuscar}
                   type='text'
-                  value={filtroNombre}
-                  onChange={e => setFiltroNombre(e.target.value)}
+                  onChange={handleSearchChange}
                   placeholder='Filtrar por nombre'
                 />
               </div>
@@ -62,18 +107,20 @@ export function BitacoraPage () {
                 <AddButtonBig onClick={() => navigate(`/proyectos/${project.title}/bitacora/${bitacora.title}/crear-bitacora`, { state: { project, bitacora } })} titulo='Añadir nueva nota' />
               </div>
               {/* Aplicar el filtro al mapear las notas */}
-              {sortedNotas.filter(filtrarPorNombre).length > 0
+              {sortedNotas.length > 0
                 ? (
-                    sortedNotas.filter(filtrarPorNombre).map((nota) => {
+                    sortedNotas.map((nota) => {
                       return (
                         <BitacoraCard key={bitacora.id} nota={nota} onClick={() => navigate(`/proyectos/${project.title}/bitacora/${bitacora.title}/${nota.title}`, { state: { project, bitacora, nota } })} />
                       )
                     })
                   )
-                : <h5 className={styles.noMatch}>No hay notas o ninguna coincide con el filtro.</h5>}
+                : (
+                    null
+                  )}
             </div>
             {sortedNotas.length === 0 && (
-              <h4 className={styles.noMatch}>No hay notas en esta carpeta. <br /> Agrega una desde el botón "Añadir nueva nota" </h4>
+              <h4 className={styles.noMatch}>No se encontraron notas en esta carpeta. <br /> Agrega una desde el botón "Añadir nueva nota" </h4>
             )}
           </div>
         </div>

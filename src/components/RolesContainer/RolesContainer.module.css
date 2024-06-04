@@ -39,17 +39,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 3;
+  z-index: 4;
 }
 
   .popupInner {
     position: relative;
     background: white;
-    width: 30%;
+    width: 40%;
+    height: 80%;
+    box-sizing: border-box;
     padding: 3vh 3vw;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-    z-index: 4;
+    z-index: 5;
   }
 
   .closeButton{
@@ -119,4 +121,11 @@
 
     .addRemove{
       width: 2vw;
+    }
+
+    .scroll{
+      padding: 2vh;
+      height: 70%;
+      overflow-y: scroll;
+      overflow-x: hidden;
     }

@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Botones } from '../botones/Botones';
-import styles from './register.module.css';
-import FlechaDespegable from '../../../assets/FlechaDespegable.svg';
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { Botones } from '../botones/Botones'
+import styles from './register.module.css'
+import FlechaDespegable from '../../../assets/FlechaDespegable.svg'
 
-export function Register() {
-  const navigate = useNavigate();
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [role, setRole] = useState('');
-  const [password, setPassword] = useState('');
+export function Register () {
+  const navigate = useNavigate()
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [role, setRole] = useState('')
+  const [password, setPassword] = useState('')
 
   const handleInputChange = (event, setState) => {
-    setState(event.target.value);
-  };
+    setState(event.target.value)
+  }
 
   return (
     <section className={styles.ContainerformRegister}>
@@ -28,8 +28,8 @@ export function Register() {
           <div className={`${styles.Containerinput} ${name ? styles.hasContent : ''}`}>
             <input
               className={styles.inputForm}
-              type="text"
-              placeholder="Escribe tu nombre"
+              type='text'
+              placeholder='Escribe tu nombre'
               value={name}
               onChange={(event) => handleInputChange(event, setName)}
             />
@@ -38,8 +38,8 @@ export function Register() {
           <div className={`${styles.Containerinput} ${email ? styles.hasContent : ''}`}>
             <input
               className={styles.inputForm}
-              type="email"
-              placeholder="Correo electrónico"
+              type='email'
+              placeholder='Correo electrónico'
               value={email}
               onChange={(event) => handleInputChange(event, setEmail)}
             />
@@ -49,28 +49,28 @@ export function Register() {
             <div className={styles.selectContainer}>
               <select
                 className={styles.inputForm}
-                defaultValue="0"
+                defaultValue='0'
                 value={role}
                 onChange={(event) => handleInputChange(event, setRole)}
               >
-                <option value="0" disabled hidden>
+                <option value='0' disabled hidden>
                   Selecciona tu rol
                 </option>
-                <option value="1">Técnico superior</option>
-                <option value="2">Redes internas</option>
-                <option value="3">Redes externas</option>
-                <option value="4">Conexiones</option>
-                <option value="5">Comercial</option>
+                <option value='1'>Técnico superior</option>
+                <option value='2'>Redes internas</option>
+                <option value='3'>Redes externas</option>
+                <option value='4'>Conexiones</option>
+                <option value='5'>Comercial</option>
               </select>
-              <img src={FlechaDespegable} alt="Flecha despegable" className={styles.selectIcon} />
+              <img src={FlechaDespegable} alt='Flecha despegable' className={styles.selectIcon} />
             </div>
             <label className={styles.labelForm}>Rol</label>
           </div>
           <div className={`${styles.Containerinput} ${password ? styles.hasContent : ''}`}>
             <input
               className={styles.inputForm}
-              type="password"
-              placeholder="Contraseña"
+              type='password'
+              placeholder='Contraseña'
               value={password}
               onChange={(event) => handleInputChange(event, setPassword)}
             />
@@ -79,7 +79,7 @@ export function Register() {
         </form>
       </div>
       <div className={styles.inputRegister}>
-        <Botones onClick={() => navigate('/proyectos')} titulo="Registrarme" />
+        <Botones onClick={() => navigate('/proyectos')} titulo='Registrarme' />
       </div>
       <div className={styles.ContainerLink}>
         <p className={styles.text}>¿Ya tienes cuenta?</p>
@@ -88,5 +88,5 @@ export function Register() {
         </a>
       </div>
     </section>
-  );
+  )
 }
