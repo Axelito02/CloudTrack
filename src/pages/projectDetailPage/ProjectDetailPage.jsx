@@ -67,8 +67,8 @@ export function ProjectDetailPage () {
               </div>
             </div>
             <div className={styles.iz}>
-              <img onClick={handleDeleteProject} className={styles.icon} src='../../../../assets/trashBtn.svg' />
-              <AddButtonSmall onClick={() => navigate(`/proyectos/${project.title}/editar-proyecto`, { state: { project } })} titulo='Editar proyecto' icon='../../../../assets/EditIcon3.svg' />
+              <img onClick={handleDeleteProject} className={styles.icon} src='/assets/trashBtn.svg' />
+              <AddButtonSmall onClick={() => navigate(`/proyectos/${project.title}/editar-proyecto`, { state: { project } })} titulo='Editar proyecto' icon='/assets/EditIcon3.svg' />
             </div>
           </div>
 

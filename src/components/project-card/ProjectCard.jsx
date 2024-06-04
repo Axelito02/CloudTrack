@@ -44,17 +44,17 @@ export function ProjectCard ({ project, onClick }) {
   let notificationDisplay = {}
 
   if (project.estado === 0) {
-    statusImage = '../../../assets/Clock.svg'
+    statusImage = '/assets/Clock.svg'
     statusText = 'Pendiente'
     statusClass = styles.pendiente
     notificationDisplay = { opacity: 1 }
   } else if (project.estado === 1) {
-    statusImage = '../../../assets/Sandclock.svg'
+    statusImage = '/assets/Sandclock.svg'
     statusText = 'En progreso'
     statusClass = styles.progreso
     notificationDisplay = { opacity: 1 }
   } else if (project.estado === 2) {
-    statusImage = '../../../assets/IconCheckFilledColor.svg'
+    statusImage = '/assets/IconCheckFilledColor.svg'
     statusText = 'Completo'
     statusClass = styles.completo
     notificationDisplay = { opacity: 0 }
@@ -103,7 +103,7 @@ export function ProjectCard ({ project, onClick }) {
 
       <div className={styles.lowerHalf}>
         <div className={styles.icons} style={notificationDisplay}>
-          <img src='../../../assets/IconNotificationFilled.svg' alt='Notification icon' />
+          <img src='/assets/IconNotificationFilled.svg' alt='Notification icon' />
         </div>
         <div className={`${styles.icons} ${statusClass}`}>
           <img src={statusImage} alt='Status icon' />

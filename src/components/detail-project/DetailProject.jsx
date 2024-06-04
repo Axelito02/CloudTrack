@@ -27,15 +27,15 @@ const DetailProject = () => {
   let statusClass = ''
 
   if (project.estado === 0) {
-    statusImage = '../../../assets/Clock.svg'
+    statusImage = '/assets/Clock.svg'
     statusText = 'Pendiente'
     statusClass = styles.pendiente
   } else if (project.estado === 1) {
-    statusImage = '../../../assets/Sandclock.svg'
+    statusImage = '/assets/Sandclock.svg'
     statusText = 'En progreso'
     statusClass = styles.progreso
   } else if (project.estado === 2) {
-    statusImage = '../../../assets/IconCheckFilledColor.svg'
+    statusImage = '/assets/IconCheckFilledColor.svg'
     statusText = 'Completo'
     statusClass = styles.completo
   }

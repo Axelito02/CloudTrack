@@ -123,7 +123,7 @@ export function UploadForm ({ projectId, bitacoraId }) {
                     <>
                       <img
                         className={styles.LoadImg}
-                        src='../../../../assets/LoadImage.svg'
+                        src='/assets/LoadImage.svg'
                       // src='/IconLoadImage.svg'
                         alt='Load icon'
                       />
@@ -151,7 +151,7 @@ export function UploadForm ({ projectId, bitacoraId }) {
                     <>
                       <img
                         className={styles.LoadImg}
-                        src='../../../../assets/LoadSign.svg'
+                        src='/assets/LoadSign.svg'
                       // src='/IconLoadSign.svg'
                         alt='Load icon'
                       />

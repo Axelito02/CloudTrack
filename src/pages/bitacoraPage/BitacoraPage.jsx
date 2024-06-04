@@ -91,7 +91,7 @@ export function BitacoraPage () {
               </div>
               <div className={styles.searchBar}>
                 {/* Input para ingresar el nombre a filtrar */}
-                <img src='../../../../assets/searchIcon.svg' />
+                <img src='/assets/searchIcon.svg' />
                 <input
                   className={styles.inputBuscar}
                   type='text'

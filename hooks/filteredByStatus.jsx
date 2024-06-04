@@ -1,6 +1,6 @@
-import { useMemo, useState, useEffect } from 'react'
+import { useMemo, useState } from 'react'
 
-export function useFilteredProjects(projects, initialStatusFilter = 'all') {
+export function useFilteredProjects (projects, initialStatusFilter = 'all') {
   const [statusFilter, setStatusFilter] = useState(initialStatusFilter)
 
   const filteredByStatus = useMemo(() => {

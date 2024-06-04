@@ -13,7 +13,7 @@ export function UserProfile ({ position }) {
   return (
     <div className={styles.containerUserProfile} onClick={toggleMenu}>
       <div className={styles.userProfile}>
-        <img className={styles.userImg} src='../../../../assets/ImgUser.png' alt='User' />
+        <img className={styles.userImg} src='/assets/ImgUser.png' alt='User' />
       </div>
       <div className={styles.userName}>
         <p className={styles.name}>Laura Sanchez</p>

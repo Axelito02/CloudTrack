@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Botones } from '../botones/Botones';
-import styles from './login.module.css';
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { Botones } from '../botones/Botones'
+import styles from './login.module.css'
 
-export function Login() {
-  const navigate = useNavigate();
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+export function Login () {
+  const navigate = useNavigate()
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
 
   const handleInputChange = (event, setState) => {
-    setState(event.target.value);
-  };
+    setState(event.target.value)
+  }
 
   return (
     <section className={styles.Containerformlogin}>
@@ -52,5 +52,5 @@ export function Login() {
         </a>
       </div>
     </section>
-  );
+  )
 }

@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import Swal from 'sweetalert2'
 import styles from './AprobacionesCard.module.css' // CSS Modules
-// import logo from '../../../assets/logo.png'
 
 export function AprobacionesCard ({ aprobacion, onDelete }) {
   const [isChecked, setIsChecked] = useState(aprobacion.checked)
@@ -75,7 +74,7 @@ export function AprobacionesCard ({ aprobacion, onDelete }) {
         <div className={styles.thirdPart}>
           <u className={`${styles.cursor} subText`} onClick={handleViewDetail}>Ver detalle</u>
           <div className={styles.editIcon}>
-            <img src='../../../assets/EditIcon.svg' />
+            <img src='/assets/EditIcon.svg' />
           </div>
         </div>
       </div>

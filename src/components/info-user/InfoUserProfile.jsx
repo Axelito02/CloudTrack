@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import PhoneInput from 'react-phone-input-2';
-import 'react-phone-input-2/lib/style.css';
-import styles from './InfoUserProfile.module.css';
+import React, { useState } from 'react'
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
+import styles from './InfoUserProfile.module.css'
 
-export function InfoUser() {
-  const [inputsEnabled, setInputsEnabled] = useState(false);
-  const [phone, setPhone] = useState('+573004488715');
+export function InfoUser () {
+  const [inputsEnabled, setInputsEnabled] = useState(false)
+  const [phone, setPhone] = useState('+573004488715')
 
   const toggleInputs = () => {
-    setInputsEnabled(!inputsEnabled);
-  };
+    setInputsEnabled(!inputsEnabled)
+  }
 
   return (
     <div className={styles.containerInfoUserProfile}>
@@ -22,21 +22,21 @@ export function InfoUser() {
             <h4>Acerca de Laura:</h4>
           </div>
           <div className={styles.iconEdit}>
-            <label className={styles.labelIcon} htmlFor="descriptionUser" onClick={toggleInputs}>
-              <img 
-                src={inputsEnabled ? "../../../../assets/IconCheckEdit.svg" : "../../../../assets/EditIcon2.svg"} 
-                alt="Edit Icon" 
+            <label className={styles.labelIcon} htmlFor='descriptionUser' onClick={toggleInputs}>
+              <img
+                src={inputsEnabled ? '/assets/IconCheckEdit.svg' : '/assets/EditIcon2.svg'}
+                alt='Edit Icon'
               />
             </label>
           </div>
         </div>
         <div className={styles.roleOccupation}>
           <div className={styles.role}>
-            <label htmlFor="role">
+            <label htmlFor='role'>
               <h6>Rol:</h6>
             </label>
             <div className={`${styles.inputsInfo} ${inputsEnabled ? styles.enabled : ''}`}>
-              <select className={styles.inputForm} id="role" defaultValue='5' disabled={!inputsEnabled}>
+              <select className={styles.inputForm} id='role' defaultValue='5' disabled={!inputsEnabled}>
                 <option value='0' disabled hidden>Selecciona tu rol</option>
                 <option value='1'>Tecnico superior</option>
                 <option value='2'>Redes internas</option>
@@ -47,7 +47,7 @@ export function InfoUser() {
             </div>
           </div>
           <div className={styles.ocupation}>
-            <label htmlFor="ocupation">
+            <label htmlFor='ocupation'>
               <h6>Ocupación:</h6>
             </label>
             <div className={`${styles.inputsInfo} ${inputsEnabled ? styles.enabled : ''}`}>
@@ -57,12 +57,12 @@ export function InfoUser() {
         </div>
         <div className={styles.contactInformation}>
           <div className={styles.number}>
-            <label htmlFor="number">
+            <label htmlFor='number'>
               <h6>Celular:</h6>
             </label>
             <div className={`${styles.inputsInfo} ${inputsEnabled ? styles.enabled : ''}`}>
               <PhoneInput
-                country={'co'}
+                country='co'
                 value={phone}
                 onChange={setPhone}
                 disabled={!inputsEnabled}
@@ -75,7 +75,7 @@ export function InfoUser() {
             </div>
           </div>
           <div className={styles.email}>
-            <label htmlFor="email">
+            <label htmlFor='email'>
               <h6>Correo electronico:</h6>
             </label>
             <div className={`${styles.inputsInfo} ${inputsEnabled ? styles.enabled : ''}`}>
@@ -93,5 +93,5 @@ export function InfoUser() {
         </div>
       </div>
     </div>
-  );
+  )
 }

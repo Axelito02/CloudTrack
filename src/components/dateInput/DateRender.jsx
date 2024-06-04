@@ -28,14 +28,14 @@ export function DateRender ({ date }) {
                   <span>{formatedDate.month}</span>
                   <span>{formatedDate.year}</span>
                 </span>
-                <img className={styles.editIcon} src='../../../assets/EditIcon2.svg' />
+                <img className={styles.editIcon} src='/assets/EditIcon2.svg' />
               </span>
             </>
             )
           : (
             <>
               <p className={styles.sf}>Sin fecha asignada</p>
-              <img className={styles.editIcon} src='../../../assets/EditIcon2.svg' />
+              <img className={styles.editIcon} src='/assets/EditIcon2.svg' />
             </>
             )}
       </div>

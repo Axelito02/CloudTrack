@@ -46,7 +46,7 @@ export const FilterComponent = ({ setFilters }) => {
 
         <div className={styles.filterGroup}>
           <label>Localidad</label>
-          <select className={styles.filterAdvanced}name='localidad' value={filters.localidad} onChange={handleChange}>
+          <select className={styles.filterAdvanced} name='localidad' value={filters.localidad} onChange={handleChange}>
             <option value=''>Seleccionar</option>
             <option value='Cali'>Cali</option>
             <option value='Jamundí'>Jamundí</option>

@@ -19,7 +19,7 @@ export function BitacoraCarpeta ({ bitacora, hasNotes, onClick, oldestdate }) {
 
   const titleColor = hasNotes ? styles.blueText : styles.greyText
   const textColor = hasNotes ? styles.darkText : styles.greyText
-  const line = hasNotes ? '../../../assets/Line.svg' : '../../../assets/GreyLine.svg'
+  const line = hasNotes ? '/assets/Line.svg' : '/assets/GreyLine.svg'
 
   return (
     <div className={styles.projectCardContainer}>

@@ -109,16 +109,16 @@ export function ProjectsPage () {
               )}
             </div>
             <div className={styles.containerCreateProject}>
-              <AddButtonSmall onClick={() => navigate('/proyectos/crear-proyecto')} titulo='Nuevo proyecto' icon='../../../../assets/plusIcon.svg' />
+              <AddButtonSmall onClick={() => navigate('/proyectos/crear-proyecto')} titulo='Nuevo proyecto' icon='/assets/plusIcon.svg' />
               <div className={styles.searchBar}>
-                <img src='../../../../assets/searchIcon.svg' />
+                <img src='/assets/searchIcon.svg' />
                 <input
                   className={styles.inputBuscar}
                   type='text'
                   placeholder='Buscar por título...'
                   onChange={handleSearchChange}
                 />
-                <img className={styles.iconofiltros} src='../../../../assets/filterIcon.svg' onClick={() => setShowAdvancedFilters(!showAdvancedFilters)} />
+                <img className={styles.iconofiltros} src='/assets/filterIcon.svg' onClick={() => setShowAdvancedFilters(!showAdvancedFilters)} />
                 {showAdvancedFilters && (
                   <div className={styles.advancedFiltersContainer}>
                     <FilterComponent

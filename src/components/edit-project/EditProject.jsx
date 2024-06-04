@@ -101,7 +101,7 @@ export function EditProject ({ project }) {
                   <div className={styles.addLogo}>
                     <img
                       className={styles.LoadImg}
-                      src='../../../../assets/addLogo.svg'
+                      src='/assets/addLogo.svg'
                       // src='/IconLoadlogo.svg'
                       alt='Load icon'
                     />

@@ -15,7 +15,7 @@ export function Navbar ({ project }) {
   return (
     <div className={styles.ContainerMain}>
       <div className={styles.logoCloudTrack}>
-        <img className={styles.icon} src='../../../../assets/LogoCloudTrack.png' onClick={() => navigate('/proyectos')} />
+        <img className={styles.icon} src='/assets/LogoCloudTrack.png' onClick={() => navigate('/proyectos')} />
       </div>
       <div className={styles.linkPages}>
         <div className={`${styles.link} ${navState === 'Proyecto' ? styles.active : ''}`}>
@@ -26,7 +26,7 @@ export function Navbar ({ project }) {
               navigate(`/proyectos/${project.title}`, { state: project })
             }}
           >
-            <img className={styles.icon} src='../../../../assets/IconProject.svg' />
+            <img className={styles.icon} src='/assets/IconProject.svg' />
             <span className={styles.tag}>Proyecto</span>
           </button>
         </div>
@@ -38,7 +38,7 @@ export function Navbar ({ project }) {
               navigate(`/proyectos/${project.title}/bitacora`, { state: project })
             }}
           >
-            <img className={styles.icon} src='../../../../assets/IconBitacoras.svg' />
+            <img className={styles.icon} src='/assets/IconBitacoras.svg' />
             <span className={styles.tag}>Bitácora</span>
           </button>
         </div>
@@ -50,7 +50,7 @@ export function Navbar ({ project }) {
               navigate(`/proyectos/${project.title}/aprobaciones`, { state: project })
             }}
           >
-            <img className={styles.icon} src='../../../../assets/IconCheck.svg' />
+            <img className={styles.icon} src='/assets/IconCheck.svg' />
             <span className={styles.tag}>Aprobaciones</span>
           </button>
         </div>
@@ -62,7 +62,7 @@ export function Navbar ({ project }) {
               navigate(`/proyectos/${project.title}/notificaciones`, { state: project })
             }}
           >
-            <img className={styles.icon} src='../../../../assets/IconCamp.svg' />
+            <img className={styles.icon} src='/assets/IconCamp.svg' />
             <span className={styles.tag}>Notificaciones</span>
           </button>
         </div>

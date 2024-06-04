@@ -5,7 +5,7 @@ export function LoginPage () {
     <div className='mainDiv' style={{ overflowY: 'hidden' }}>
       <section className='navbar'>
         <div>
-          <img src='../../../assets/SignUpImagen.png' />
+          <img src='/assets/SignUpImagen.png' />
         </div>
       </section>
       <section className='content'>

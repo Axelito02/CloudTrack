@@ -119,7 +119,7 @@ export function RolesContainer ({ onClick, chosenTecnicos, chosenConexiones, cho
             <h3 className={styles.title}>{popupType}</h3>
             <div className={styles.searchBar}>
               {/* Input para ingresar el nombre a filtrar */}
-              <img src='../../../../assets/searchIcon.svg' />
+              <img src='/assets/searchIcon.svg' />
               <input
                 className={styles.inputBuscar}
                 type='text'

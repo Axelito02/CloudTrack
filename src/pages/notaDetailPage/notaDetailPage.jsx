@@ -96,8 +96,8 @@ export function NotaDetailPage () {
                 <p className='subTextLight'>Sin fecha asignada</p>
                 )}
             <div>
-              <img onClick={handleDeleteClick} className={styles.icon} src='../../../../assets/trashBtn.svg' />
-              <img className={styles.icon} src='../../../../assets/EditIcon3.svg' />
+              <img onClick={handleDeleteClick} className={styles.icon} src='/assets/trashBtn.svg' />
+              <img className={styles.icon} src='/assets/EditIcon3.svg' />
             </div>
           </div>
           <p className={`${styles.title} smallText`}>{nota.etapa}</p>
