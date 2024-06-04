@@ -4,22 +4,25 @@ import { ProjectCard, AddButtonSmall, UserProfile, Botones, FilterComponent } fr
 import { useProjects } from '../../../hooks/useProjects'
 import { useFilters } from '../../../hooks/useFilterProjects'
 import { useApp } from '../../../hooks/useApp'
+import { useFilteredProjects } from '../../../hooks/filteredByStatus'
 import styles from './ProjectsPage.module.css'
+import FlechaDespegable from '../../../assets/arrowIconBlue.svg';
 
 export function ProjectsPage () {
   const { setnavState } = useApp()
   const navigate = useNavigate()
   const { projects } = useProjects()
   const { filteredProjects, setFilters, setSearchTerm } = useFilters(projects)
+  const { filteredByStatus, setStatusFilter, statusFilter } = useFilteredProjects(filteredProjects)
   const [tempDateRange, setTempDateRange] = useState({ start: '', end: '' })
   const [showFilters, setShowFilters] = useState(false)
   const [showAdvancedFilters, setShowAdvancedFilters] = useState(false)
 
-  const sortedProjects = filteredProjects.sort((a, b) => new Date(b.date) - new Date(a.date))
+  const sortedProjects = filteredByStatus.sort((a, b) => new Date(b.date) - new Date(a.date))
 
   useEffect(() => {
-    console.log('Filtered Projects:', filteredProjects)
-  }, [filteredProjects])
+    console.log('Filtered Projects:', filteredByStatus)
+  }, [filteredByStatus])
 
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value)
@@ -33,6 +36,10 @@ export function ProjectsPage () {
   const applyDateFilter = () => {
     setFilters(prev => ({ ...prev, dateRange: tempDateRange }))
     console.log('Date Range Applied:', tempDateRange)
+  }
+
+  const handleStatusFilterChange = (e) => {
+    setStatusFilter(e.target.value)
   }
 
   return (
@@ -49,6 +56,24 @@ export function ProjectsPage () {
           </section>
           <section className={styles.inputs}>
             <div className={styles.filterContainer}>
+              <div className={styles.filterState}>
+                <div className={styles.labelStatusFilter}>
+                  <label htmlFor='labelStatusFilter'>Ver:</label>
+                  <select
+                    className={styles.inputStatusFilter}
+                    value={statusFilter}
+                    onChange={handleStatusFilterChange}
+                    id='labelStatusFilter'
+                  >
+                    <option value='all'>Todos</option>
+                    <option value='pending'>Pendiente</option>
+                    <option value='InProgress'>En progreso</option>
+                    <option value='completed'>Completo</option>
+                  </select>
+                  <img src={FlechaDespegable} alt="Flecha despegable" className={styles.selectIcon} />
+                </div>
+                  <span className={styles.filteredCount}>({filteredByStatus.length})</span> {/* Nuevo elemento para mostrar la cantidad */}
+              </div>
               <Botones
                 onClick={() => setShowFilters(!showFilters)}
                 titulo={showFilters ? 'Ocultar filtro' : 'Filtrar por fecha'}

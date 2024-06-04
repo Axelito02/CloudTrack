@@ -1,31 +1,43 @@
 .filterComponent {
-    width: 300px; /* ajusta según tus necesidades */
-    padding: 20px;
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .title {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  .filterGroup {
-    margin-bottom: 1rem;
-  }
-  
-  .filterGroup label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-  }
-  
-  .filterGroup select {
-    width: 100%;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-  }
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  font-size: 1.5rem;
+  margin: 0 0 1rem 0;
+}
+
+.filterGroupContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.filterGroup {
+  width: 48%; /* Ajusta este valor para controlar el espacio entre columnas */
+  margin-bottom: 1rem;
+}
+
+.filterGroup label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.filterGroup select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.filterAdvanced:focus{
+  outline: none;
+  border-color: #007bff; /* Cambia el color del borde cuando el select esté enfocado */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Añadir un efecto de sombra */
+}

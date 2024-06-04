@@ -114,7 +114,11 @@
 
 /* Contenedor relativo para los filtros */
 .filterContainer {
+  display: flex;
+  flex-direction: row;
   position: relative;
+  gap: 2rem;
+  align-items: center;
 }
 
 .iconofiltros {
@@ -130,8 +134,67 @@
   max-width: 400px; /* Ancho máximo opcional */
   background: white;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
   z-index: 10;
   border-radius: 20px;
 }
 
+.labelStatusFilter{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 0.5rem;
+  color: #29364B;
+}
+
+.inputStatusFilter{
+  appearance: none; /*Eliminar el estilo por defecto del navegador */
+  -webkit-appearance: none; /*Eliminar el estilo por defecto en Safari y Chrome */
+  -moz-appearance: none; /*Eliminar el estilo por defecto en Firefox */
+  border: none;
+  cursor: pointer;
+  color: #0071FF;
+  position: relative;
+  padding: 0 0.4rem;
+}
+
+.inputStatusFilter:hover{
+  outline: none;
+  border-color: none; /* Cambia el color del borde cuando el select esté enfocado */
+  color: #004394;
+}
+
+.inputStatusFilter:focus{
+  outline: none;
+  border-color: none; /* Cambia el color del borde cuando el select esté enfocado */
+}
+
+.selectIcon {
+  position: absolute;
+  top: 50%;
+  right: 9rem;
+  width: 1rem;
+  height: 1rem;
+  pointer-events: none;
+  transform: translateY(-50%);
+  transition: transform 0.3s ease;
+}
+
+/* Rotación del icono cuando el select está activo */
+.inputStatusFilter:focus + .selectIcon,
+.inputStatusFilter:active + .selectIcon {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+/* Resetear la rotación cuando el select no está activo */
+.inputStatusFilter:not(:focus) + .selectIcon {
+  transform: translateY(-50%) rotate(0deg);
+}
+
+.filterState{
+  display: flex;
+  flex-direction: row;
+}
+
+.filteredCount{
+  color: #0071FF;
+}
