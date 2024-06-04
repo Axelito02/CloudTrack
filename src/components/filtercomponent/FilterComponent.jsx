@@ -3,7 +3,7 @@ import styles from './FilterComponent.module.css'
 
 export const FilterComponent = ({ setFilters }) => {
   const [filters, setLocalFilters] = useState({
-    empresaConstructora: '',
+    constructora: '',
     contratista: '',
     localidad: '',
     barrio: '',
@@ -19,12 +19,12 @@ export const FilterComponent = ({ setFilters }) => {
   }
 
   return (
-    <div className={styles.filterComponent}>
+    <>
       <h2 className={styles.title}>Filtros</h2>
 
       <div className={styles.filterGroup}>
         <label>Empresa constructora</label>
-        <select name='empresaConstructora' value={filters.empresaConstructora} onChange={handleChange}>
+        <select name='constructora' value={filters.constructora} onChange={handleChange}>
           <option value=''>Seleccionar</option>
           <option value='Jaramillo mora'>Jaramillo mora</option>
           <option value='Concali'>Concali</option>
@@ -47,9 +47,9 @@ export const FilterComponent = ({ setFilters }) => {
         <label>Localidad</label>
         <select name='localidad' value={filters.localidad} onChange={handleChange}>
           <option value=''>Seleccionar</option>
-          <option value='Localidad A'>Localidad A</option>
-          <option value='Localidad B'>Localidad B</option>
-          <option value='Localidad C'>Localidad C</option>
+          <option value='Cali'>Cali</option>
+          <option value='Jamundí'>Jamundí</option>
+          <option value='Palmira'>Palmira</option>
         </select>
       </div>
 
@@ -57,7 +57,7 @@ export const FilterComponent = ({ setFilters }) => {
         <label>Barrio</label>
         <select name='barrio' value={filters.barrio} onChange={handleChange}>
           <option value=''>Seleccionar</option>
-          <option value='solo interna'>Solo interna</option>
+          <option value='Bochalema'>Bochalema</option>
         </select>
       </div>
 
@@ -65,8 +65,8 @@ export const FilterComponent = ({ setFilters }) => {
         <label>Tipo de venta</label>
         <select name='tipoVenta' value={filters.tipoVenta} onChange={handleChange}>
           <option value=''>Seleccionar</option>
-          <option value='solo interna'>Solo interna</option>
-          <option value='solo cargo'>Solo cargo</option>
+          <option value='soloInterna'>Solo interna</option>
+          <option value='soloCargo'>Solo cargo</option>
           <option value='completo'>Completo</option>
         </select>
       </div>
@@ -75,11 +75,11 @@ export const FilterComponent = ({ setFilters }) => {
         <label>Tipo de construcción</label>
         <select name='tipoConstruccion' value={filters.tipoConstruccion} onChange={handleChange}>
           <option value=''>Seleccionar</option>
-          <option value='casas'>Casas</option>
-          <option value='edificios'>Edificios</option>
-          <option value='otros'>Otros</option>
+          <option value='casa'>Casas</option>
+          <option value='edificio'>Edificios</option>
+          <option value='otro'>Otros</option>
         </select>
       </div>
-    </div>
+    </>
   )
 }

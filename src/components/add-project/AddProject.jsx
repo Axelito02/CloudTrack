@@ -155,16 +155,14 @@ export function AddProject () {
                 type='radio'
                 name='tipoConstruccion'
                 value='otro'
-                onChange={(e) => {
-                  handleOnChange(e)
-                  setOtherConstructionType(e.target.checked ? 'otro' : otherConstructionType)
-                }}
+                onChange={(e) => { handleOnChange(e) }}
               />
               Otro
               <input
                 type='text'
+                name='otroTipoConstruccion'
                 placeholder='Escriba el tipo'
-                onChange={(e) => setOtherConstructionType(e.target.value)}
+                onChange={(e) => { handleOnChange(e) }}
                 style={{ display: (otherConstructionType === 'casa' || otherConstructionType === 'edificio') ? 'none' : 'block' }}
                 className={styles.otherInput}
               />

@@ -51,7 +51,7 @@ export function ProjectsPage () {
             <div className={styles.filterContainer}>
               <Botones
                 onClick={() => setShowFilters(!showFilters)}
-                titulo={showFilters ? 'Ocultar filtros' : 'Filtrar por fecha'}
+                titulo={showFilters ? 'Ocultar filtro' : 'Filtrar por fecha'}
               />
               {showFilters && (
                 <div className={styles.inputsFilters}>
